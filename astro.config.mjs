@@ -36,7 +36,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/PixelStoriesEngine/pixel-stories-docs",
+          href: "https://github.com/PixelStoriesOrg/pixel-stories",
         },
         {
           icon: "discord",
@@ -51,7 +51,7 @@ export default defineConfig({
         Search: "./src/overrides/Search.astro",
       },
       editLink: {
-        baseUrl: "https://github.com/PixelStoriesEngine/pixel-stories-docs",
+        baseUrl: "https://github.com/PixelStoriesOrg/pixel-stories",
       },
       customCss: [
         // Relative path to your custom CSS file
