@@ -1,17 +1,6 @@
-# The Official Pixel Stories and PS Maker Website
+# Pixel Stories
 
-This repository contains all the information and documentation for [Pixel Stories](https://pixelstories.io) and [PS Maker](https://pixelstories.io/overview).
-
-## 🐛 PS Maker Bugs & Feature Requests
-
-Found a bug in PS Maker or have a feature idea? We'd love to hear from you!
-
-**[Create a GitHub Issue](https://github.com/PixelStoriesOrg/pixel-stories/issues/new)** to report bugs or suggest new features for PS Maker.
-
-Please include as much detail as possible:
-
-- For bugs: steps to reproduce, expected vs actual behavior, screenshots if applicable
-- For features: describe the use case and how it would improve your workflow
+This repository contains the website for [Pixel Stories](https://pixelstories.io) and documentation for [PS Maker](https://pixelstories.io/overview).
 
 ---
 
@@ -97,4 +86,4 @@ src/
 4. Test locally with `npm run dev`
 5. Submit a pull request
 
-Thank you for helping improve the Pixel Stories documentation! 💜
+Thank you for helping improve PS Maker! 💜
