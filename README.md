@@ -2,9 +2,7 @@
 
 This repository contains the website for [Pixel Stories](https://pixelstories.io) and documentation for [PS Maker](https://pixelstories.io/overview).
 
----
-
-## Contributing to the Documentation
+## Contributing
 
 We welcome contributions to help improve our docs! This site is built with [Astro](https://astro.build/) and [Starlight](https://starlight.astro.build/).
 
