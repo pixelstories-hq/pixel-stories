@@ -1,10 +1,10 @@
 ---
 import { Icon } from "@astrojs/starlight/components";
-import StarlightThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
 
 const currentPath = Astro.url.pathname;
 
 const showHamburger = currentPath === "/" || currentPath === "/community";
+const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
 ---
 
 <nav class="flex items-center gap-3">
@@ -24,8 +24,7 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
 
   <!-- Desktop: Inline links -->
   <div class="hidden md:flex gap-2 w-max font-medium h-full">
-    <a href="/features" class="action sl-flex">Features</a>
-
+    <a href="/blog" class="action sl-flex">News</a>
     <a href="/overview" class="action sl-flex">PS Maker Docs</a>
 
     <a
@@ -51,9 +50,13 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
 
   <!-- Desktop: Theme selector -->
   <div class="hidden md:block">
-    <StarlightThemeSelect {...Astro.props}>
-      <slot />
-    </StarlightThemeSelect>
+    <label
+      class="toggle toggle-md text-base-content/80 theme-toggle mb-0.5 -mx-1"
+    >
+      <input type="checkbox" aria-label={themeToggleLabel} data-theme-toggle />
+      <Icon name="sun" size="16px" aria-label="light mode" />
+      <Icon name="moon" size="16px" aria-label="dark mode" />
+    </label>
   </div>
 </nav>
 
@@ -71,7 +74,7 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
 >
   <div class="flex flex-col gap-1.5 font-medium">
     <a href="/community" class="mobile-link">Community</a>
-    <a href="/features" class="mobile-link">Features</a>
+    <a href="/blog" class="mobile-link">News</a>
     <a
       href="https://www.youtube.com/playlist?list=PLAugdrGHTh7LLhKS8tcofeuz5jjIK6_-K"
       target="_blank"
@@ -99,9 +102,15 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
 
     <!-- Mobile Theme select -->
     <div class="shrink-0">
-      <StarlightThemeSelect {...Astro.props}>
-        <slot />
-      </StarlightThemeSelect>
+      <label class="toggle toggle-lg text-base-content/80 theme-toggle">
+        <input
+          type="checkbox"
+          aria-label={themeToggleLabel}
+          data-theme-toggle
+        />
+        <Icon name="sun" aria-label="light mode" />
+        <Icon name="moon" aria-label="dark mode" />
+      </label>
     </div>
   </div>
 </div>
@@ -139,9 +148,61 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
   .mobile-link:hover {
     background: color-mix(in oklab, var(--color-base-content) 8%, transparent);
   }
+
+  .theme-toggle {
+    vertical-align: middle;
+  }
 </style>
 
 <script>
+  type Theme = "auto" | "dark" | "light";
+
+  const storageKey = "starlight-theme";
+  const toggles = Array.from(
+    document.querySelectorAll<HTMLInputElement>("[data-theme-toggle]"),
+  );
+
+  const parseTheme = (theme: unknown): Theme =>
+    theme === "auto" || theme === "dark" || theme === "light" ? theme : "auto";
+
+  const loadTheme = (): Theme =>
+    parseTheme(
+      typeof localStorage !== "undefined" && localStorage.getItem(storageKey),
+    );
+
+  function storeTheme(theme: Theme): void {
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem(
+        storageKey,
+        theme === "light" || theme === "dark" ? theme : "",
+      );
+    }
+  }
+
+  const getPreferredColorScheme = (): Theme =>
+    matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+
+  function applyTheme(theme: Theme): void {
+    const resolvedTheme = theme === "auto" ? getPreferredColorScheme() : theme;
+    document.documentElement.dataset.theme = resolvedTheme;
+    toggles.forEach((toggle) => {
+      toggle.checked = resolvedTheme === "dark";
+    });
+  }
+
+  matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
+    if (loadTheme() === "auto") applyTheme("auto");
+  });
+
+  applyTheme(loadTheme());
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("change", () => {
+      const nextTheme: Theme = toggle.checked ? "dark" : "light";
+      applyTheme(nextTheme);
+      storeTheme(nextTheme);
+    });
+  });
+
   const btn = document.getElementById("nav-toggle");
   const closeBtn = document.getElementById("nav-close");
   const menu = document.getElementById("mobile-menu");

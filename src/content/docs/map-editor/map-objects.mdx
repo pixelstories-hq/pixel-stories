@@ -3,11 +3,11 @@ title: "Map Objects"
 description: Add trees, houses, furniture, and animated sprites with map objects in PS Maker. Bring detail and depth to your maps with flexible tools.
 ---
 
-Map objects bring personality and depth to your world. They are everything that sits on top of the terrain, such as trees, houses, furniture, signs. They can even be animated. Map objects make your maps feel alive.
+Map objects bring personality and depth to your world. They are everything that sits on top of the terrain, such as trees, houses, furniture, and signs. They can even be animated. Map objects make your maps feel alive.
 
 ## What Is a Map Object
 
-A **map object** is a sprite that you place onto your map. Unlike tiles, objects are not locked to the tile size and can be any dimensions you want. They also handle depth automatically, meaning if an object is infront of the player, the player will correctly render behind the object.
+A **map object** is a sprite that you place onto your map. Unlike tiles, objects are not locked to the tile size and can be any dimensions you want. They also handle depth automatically, meaning if an object is in front of the player, the player will correctly render behind the object.
 
 ![](../../../assets/docs-images/map-editor/image-4.png)
 
@@ -20,7 +20,7 @@ Objects give you more flexibility than tiles:
 - **Better organization:** Large maps with lots of detail are easier to manage when objects are separate from tiles
 
 :::note
-Map objects are static in the map and cannot be controlled by events. If you are looking for a dynamic and controllable object, use [NPCs](../game-assets/npcs) instead!
+Map objects are static in the map and cannot be controlled by actions. If you need dynamic behavior, use action-driven NPC logic instead.
 :::
 
 ![](../../../assets/docs-images/map-editor/gif-3.gif)
@@ -40,7 +40,7 @@ Objects can also be animated. Use a sprite strip (a series of frames in one imag
 ![](../../../assets/docs-images/map-editor/gif-4.gif)
 
 :::tip
-Large projects incur a lot of map objects. To keep everything organized, make sure use descriptive names and assign categories such as Nature, Furniture, or Buildings.
+Large projects incur a lot of map objects. To keep everything organized, make sure to use descriptive names and assign categories such as Nature, Furniture, or Buildings.
 :::
 
 ## Depth Origin
@@ -59,7 +59,7 @@ By default, objects do not block the player. You can add collisions by clicking 
 
 ## Using the Toolbar
 
-Once you have objects ready, in the "Objects" tab, select an object and use the top toolbar to:
+Once you have objects ready, in the **Objects** tab, select an object and use the top toolbar to:
 
 - Place objects into the map
 - Move them around

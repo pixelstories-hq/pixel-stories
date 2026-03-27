@@ -16,7 +16,20 @@ export default defineConfig({
   }),
 
   redirects: {
-    "/tutorials/basic": "/getting-started/",
+    "/tutorials/basic": "/overview",
+    "/features": "/overview",
+    "/tour": "/overview",
+    "/getting-started": "/overview",
+    "/event-system/event-groups": "/event-system/events",
+    "/event-system/dialogue-event": "/event-system/actions",
+    "/event-system/player-events": "/event-system/actions",
+    "/event-system/npc-events": "/event-system/actions",
+    "/event-system/control-flow-events": "/event-system/actions",
+    "/game-assets": "/overview",
+    "/game-assets/asset-library": "/overview",
+    "/game-assets/npcs": "/overview",
+    "/game-assets/inventory-items": "/overview",
+    "/game-assets/dialogue-ui": "/overview",
   },
 
   integrations: [
@@ -102,18 +115,6 @@ export default defineConfig({
               label: "Overview",
               link: "/overview",
             },
-            {
-              label: "Features",
-              link: "/features",
-            },
-            {
-              label: "Interface tour",
-              link: "/tour/",
-            },
-            {
-              label: "Beginner tutorial",
-              link: "/getting-started/",
-            },
           ],
         },
         {
@@ -129,40 +130,15 @@ export default defineConfig({
         {
           label: "Event system",
           items: [
-            { label: "Events", link: "/event-system/events" }, // goes through how events play and map initial events play on first load
+            { label: "Actions", link: "/event-system/actions" },
             {
-              label: "Event groups",
-              link: "/event-system/event-groups",
+              label: "Events",
+              link: "/event-system/events",
             },
             {
               label: "Conditional branches",
               link: "/event-system/conditionals",
             },
-            {
-              label: "dialogue event",
-              link: "/event-system/dialogue-event",
-            },
-            {
-              label: "Player events",
-              link: "/event-system/player-events",
-            },
-            {
-              label: "NPC events",
-              link: "/event-system/npc-events",
-            },
-            {
-              label: "Control flow events",
-              link: "/event-system/control-flow-events",
-            },
-          ],
-        },
-        {
-          label: "Game assets",
-          items: [
-            { label: "Asset library", link: "/game-assets/asset-library" },
-            { label: "NPCs", link: "/game-assets/npcs" },
-            { label: "Inventory items", link: "/game-assets/inventory-items" },
-            { label: "dialogue UI", link: "/game-assets/dialogue-ui" },
           ],
         },
         // {
@@ -195,7 +171,7 @@ export default defineConfig({
             },
             {
               label: "Video tutorials 🔗",
-              link: "https://www.youtube.com/@PixelStoriesEngine",
+              link: "https://www.youtube.com/@PixelStoriesMaker",
               attrs: { target: "_blank" },
             },
             {

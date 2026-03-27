@@ -1,15 +1,15 @@
 ---
 title: Introduction
-description: Welcome to the PS Maker documentation. Learn how to use the editor, explore features, and start building your own story-driven game.
+description: Welcome to the PS Maker documentation. Learn how to use the editor and build your own story-driven game.
 ---
 
-Welcome to the **PS Maker documentation**. These guides are here to help you learn the editor, explore features, and build your own 2D top-down story-driven games.
+Welcome to the **PS Maker documentation**. These guides are here to help you learn the editor and build your own 2D top-down story-driven games.
 
 Whether you are just getting started or looking up a specific feature, you can use this documentation as a reference whenever you feel stuck.
 
 ## What is PS Maker?
 
-PS Maker is a no-code game maker designed for building 2D top-down story-driven games. If you are new to game development, it gives you approachable tools like the **map editor**, **event system**, and **dialogue editor** to to tell immersive stories without needing to code.
+PS Maker is a no-code game maker designed for building 2D top-down story-driven games. If you are new to game development, it gives you approachable tools like the **map editor**, **actions**, and **events** so you can tell immersive stories without needing to code.
 
 If you are coming from another engine, you will find that PS Maker focuses specifically on storytelling features, so you can spend less time configuring and more time creating.
 
@@ -21,14 +21,14 @@ If you are coming from another engine, you will find that PS Maker focuses speci
 
 ## What You’ll Find Here
 
-- **Beginner tutorial** that introduce the basics of PS Maker
-- **Concepts and features** such as the map editor, event system, dialogue, and NPCs
-- **Reference pages** with details on assets, variables, and customization options
+- **Map editor references** to build your world with tilesets, autotiles, objects, and collisions
+- **Action and event docs** for gameplay logic, interaction triggers, and branching stories
+- **Guide pages** with walkthroughs for common mechanics
 
 ## Tips for Using the Docs
 
-- Start with the [Beginner tutorial](./getting-started) if you are new
-- Use the **search** to quickly find topics or reference pages
+- Start with [Actions](./event-system/actions) and [Events](./event-system/events)
+- Use **search** to quickly find topics or reference pages
 - Join our [Discord community](https://discord.gg/WTxUC4hEnS) if you need help or want to share ideas
 
 ## Early Access

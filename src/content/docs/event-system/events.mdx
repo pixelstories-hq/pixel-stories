@@ -1,47 +1,41 @@
 ---
-title: "Events in PS Maker"
-description: Build story mechanics with Events in PS Maker. Add actions, set triggers, branch choices, and control maps and NPCs with a simple, sequential editor.
+title: "Events"
+description: Use events in PS Maker to bundle actions together and trigger them on interact, touch, or automatically for flexible gameplay.
 ---
 
-The **Events Editor** is where you turn ideas into gameplay. You add events, set their options, and the game plays them in order. Use it to create dialogue, choices, map changes, puzzles, and more.
+An **event** is a collection of actions that run one after another. You place events into the map and trigger them through interaction, touch, or automatic behavior. They create interactive moments such as opening a door, talking to an NPC, picking up an item, or starting an NPC chase.
 
-## What Is an Event
+![](../../../assets/docs-images/event-system/image-3.png)
 
-An **event** is a single action the game can perform. Examples include showing dialogue, presenting choices, moving the player, spawning an NPC, or switching maps. You combine events to build complete game mechanics in your story.
+## Common Uses
 
-![](../../../assets/docs-images/event-system/image-1.png)
+- A note on a table the player can read many times
+- An item that disappears after being picked up
+- NPC interactions that trigger dialogue
+- Puzzle mechanics with inventory items
 
-### What's Possible
+## Creating an Event
 
-There are limitless ways to use events in your story. Below are some examples:
+To create an event, go to **Actions > Events** and make a new event. Add the actions you want inside it, then place the event into your map so it can run during gameplay.
 
-- dialogue and choices for story scenes
-- Doors or portals that transfer the player to other maps
-- NPC movement, patrols, and chase sequences
-- Puzzles or quest mechanics using inventory items
+## Adding Events to the Map
 
-### Where Events Run
+You can add an event to the map by clicking **Add to Map** on the event card. This creates the **Add Event** action automatically. You can also do it manually by adding an **Add Event** action and selecting the event yourself.
 
-There are two places where events go:
+![](../../../assets/docs-images/event-system/image-4.png)
 
-- **Map Events:** Events that run when a map first loads
-- **Event Groups:** Reusable events that run together when triggered in the map
+### Trigger Types
 
-Map Events are great for setup, intros or cutscenes. Event Groups handle interactions that the player can activate during gameplay.
+Each event can be set to trigger in different ways:
 
-## Adding Events
+- **No trigger:** Runs automatically as soon as the event is added
+- **On interact:** Runs when the player presses the interact key inside the trigger area
+- **On touch:** Runs when the player collides with the trigger area
 
-Click **+ Events…** to open the event menu, then choose your event. After adding an event, configure its settings in the panel on the right. Events play from top to bottom unless a branch changes the flow.
+### Trigger Settings
 
-![](../../../assets/docs-images/event-system/image-2.png)
+You can customize how the trigger works:
 
-## Next Steps
-
-Events are the foundation, but by themselves they only create linear sequences. To make your game dynamic and engaging, you need to combine them with **event groups** for interactivity and **conditional branches** for choices and branching stories. These tools take your events from simple actions to full gameplay mechanics.
-
-- [Event Groups and Triggers](./event-groups)
-- [Conditional Branches and Variables](./conditionals)
-- [dialogue and Choices](./dialogue-event)
-- [Player Events](./player-events)
-- [NPC Events](./npc-events)
-- [Control flow Events](./control-flow-events)
+- **Trigger size:** Adjust the area in pixels
+- **Position:** Place it at a static point on the map or attach it to an NPC
+- **Repeat or disappear:** Choose whether the event can be triggered multiple times or only once
