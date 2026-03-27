@@ -7,6 +7,7 @@
 @plugin "daisyui" {
   themes: light, dark;
   exclude: rootscrollgutter;
+  prefix: "daisy-";
 }
 
 @utility ps-input {
@@ -14,10 +15,6 @@
 }
 
 @utility input {
-  @apply ps-input;
-}
-
-@utility dropdown {
   @apply ps-input;
 }
 
@@ -33,7 +30,7 @@
   @apply p-3 border border-base-300 rounded-xl flex flex-col gap-2 w-full;
 }
 
-[data-theme="dark"] .btn:hover {
+[data-theme="dark"] .daisy-btn:hover {
   --btn-bg: color-mix(
     in oklab,
     var(--btn-color, var(--color-base-200)),

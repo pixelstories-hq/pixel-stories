@@ -40,7 +40,7 @@ const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
   <div class="hidden md:block">
     <a
       href="https://app.pixelstories.io"
-      class="btn btn-primary btn-sm mr-1 gap-1"
+      class="daisy-btn daisy-btn-primary daisy-btn-sm mr-1 gap-1"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -51,7 +51,7 @@ const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
   <!-- Desktop: Theme selector -->
   <div class="hidden md:block">
     <label
-      class="toggle toggle-md text-base-content/80 theme-toggle mb-0.5 -mx-1"
+      class="daisy-toggle daisy-toggle-md text-base-content/80 theme-toggle mb-0.5 -mx-1"
     >
       <input type="checkbox" aria-label={themeToggleLabel} data-theme-toggle />
       <Icon name="sun" size="16px" aria-label="light mode" />
@@ -97,12 +97,15 @@ const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
       href="https://app.pixelstories.io"
       target="_blank"
       rel="noopener noreferrer"
-      class="btn btn-primary btn-sm w-max justify-center">Launch PS Maker</a
+      class="daisy-btn daisy-btn-primary daisy-btn-sm w-max justify-center"
+      >Launch PS Maker</a
     >
 
     <!-- Mobile Theme select -->
     <div class="shrink-0">
-      <label class="toggle toggle-lg text-base-content/80 theme-toggle">
+      <label
+        class="daisy-toggle daisy-toggle-lg text-base-content/80 theme-toggle"
+      >
         <input
           type="checkbox"
           aria-label={themeToggleLabel}

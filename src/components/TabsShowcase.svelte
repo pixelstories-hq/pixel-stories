@@ -61,7 +61,7 @@
       <button
         role="tab"
         type="button"
-        class="btn btn-ghost w-30 px-0"
+        class="daisy-btn daisy-btn-ghost w-30 px-0"
         class:bg-base-300={i === active}
         class:text-base-content={i === active}
         onclick={() => setActive(i)}
