@@ -12,6 +12,7 @@
   --sl-color-gray-6: #272727;
   --sl-color-black: #181818;
   --sl-color-link: hsl(326, 70%, 80%);
+  --sl-color-bg-nav: var(--sl-color-black);
   --sl-color-text-invert: var(--sl-color-black);
 }
 /* Light mode colors. */
@@ -70,20 +71,9 @@ pixel-art {
   border-color: var(--sl-color-gray-3);
 }
 
-[data-has-hero] .page {
-  background:
-    linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
-    radial-gradient(var(--overlay-blurple), transparent 40%)
-      no-repeat -60vw -40vh / 105vw 200vh,
-    radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50%
-      calc(100% + 20rem) / 60rem 30rem;
-}
-
 [data-has-hero] header {
   border-bottom: 1px solid transparent;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background-color: var(--sl-color-bg-nav);
 }
 
 [data-has-hero] .hero > .hero-html,
