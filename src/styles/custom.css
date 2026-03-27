@@ -82,7 +82,11 @@ pixel-art {
   image-rendering: pixelated;
 }
 
-.sl-markdown-content img:not(.not-content) {
+.sl-markdown-content img {
+  height: auto;
+}
+
+.sl-markdown-content img:not(:where(.not-content *)) {
   min-width: 150px;
   max-height: 65vh;
   object-fit: contain;

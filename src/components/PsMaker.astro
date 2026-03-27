@@ -4,6 +4,7 @@ import img from "../assets/images/dead-friend-horror.png";
 import Image from "astro/components/Image.astro";
 import logo from "../../public/logo-icon.png";
 import appScreenshot from "../assets/images/friend-leaves-event.png";
+import appScreenshotDark from "../assets/images/friend-leaves-event-dark.png";
 ---
 
 <main
@@ -22,9 +23,7 @@ import appScreenshot from "../assets/images/friend-leaves-event.png";
       The 2D Game Maker Built for Telling Stories
     </h1>
 
-    <p
-      class="max-w-xl w-full text-pretty text-base/70 text-base-content/80 sm:text-lg"
-    >
+    <p class="max-w-xl w-full text-pretty text-base-content/80 text-lg">
       <strong>PS Maker</strong> lets you build immersive story-driven games without
       the need to code, letting you focus on the narrative, art direction, world building,
       and character design.
@@ -45,15 +44,20 @@ import appScreenshot from "../assets/images/friend-leaves-event.png";
 
   <section class="flex flex-col items-center justify-center">
     <Image
-      class="w-full rounded-xl border border-base-300 bg-base-100"
+      class="theme-screenshot theme-screenshot-light w-full rounded-xl border border-base-300 bg-base-100"
       src={appScreenshot}
       alt="App screenshot"
+    />
+    <Image
+      class="theme-screenshot theme-screenshot-dark w-full rounded-xl border border-base-300 bg-base-100"
+      src={appScreenshotDark}
+      alt="App screenshot (dark mode)"
     />
   </section>
 
   <!-- FEATURED GAME / SPLASH SECTION -->
   <section
-    class="grid gap-8 p-4 mx-auto justify-items-center md:grid-cols-2 max-md:max-w-lg"
+    class="grid gap-8 mx-auto justify-items-center md:grid-cols-2 max-md:max-w-lg"
   >
     <a
       href="https://app.pixelstories.io/embed/ucUR89FNTR"
@@ -135,3 +139,17 @@ import appScreenshot from "../assets/images/friend-leaves-event.png";
 </main>
 
 <Footer />
+
+<style>
+  .theme-screenshot-dark {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .theme-screenshot-light {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .theme-screenshot-dark {
+    display: block;
+  }
+</style>
