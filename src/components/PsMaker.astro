@@ -3,6 +3,7 @@ import Footer from "./Footer/Footer.astro";
 import img from "../assets/images/dead-friend-horror.png";
 import Image from "astro/components/Image.astro";
 import logo from "../../public/logo-icon.png";
+import appScreenshot from "../assets/images/friend-leaves-event.png";
 ---
 
 <main
@@ -36,19 +37,18 @@ import logo from "../../public/logo-icon.png";
         target="_blank"
         rel="noopener noreferrer"
       >
-        Download PS Maker
+        Download Free Demo
       </a>
-      <a href="https://app.pixelstories.io" class="daisy-btn">
-        Help documentation
-      </a>
+      <a href="/overview" class="daisy-btn"> Help documentation </a>
     </div>
   </section>
 
-  <section>
-    <div
-      class="aspect-video w-full rounded-3xl border border-base-300 bg-base-100"
-    >
-    </div>
+  <section class="flex flex-col items-center justify-center">
+    <Image
+      class="w-full rounded-xl border border-base-300 bg-base-100"
+      src={appScreenshot}
+      alt="App screenshot"
+    />
   </section>
 
   <!-- FEATURED GAME / SPLASH SECTION -->
@@ -63,7 +63,7 @@ import logo from "../../public/logo-icon.png";
       <Image
         src={img}
         alt="Gameplay screenshot"
-        class="not-content aspect-[5/4] w-full max-md:aspect-[4/3] h-auto rounded-[2.25rem] object-cover"
+        class="not-content aspect-[5/4] w-full max-md:aspect-[4/3] h-auto rounded-xl object-cover"
       />
     </a>
 
@@ -97,10 +97,10 @@ import logo from "../../public/logo-icon.png";
     class="flex flex-col items-center justify-center text-center p-4 py-8"
   >
     <div class="max-w-xl flex flex-col gap-4 items-center">
-      <h2 class="text-4xl font-bold">
-        A community to support you along your game making journey
+      <h2 class="text-4xl font-bold text-pretty">
+        Join our official Discord community
       </h2>
-      <p class="text-base text-base-content/80">
+      <p class="text-base text-base-content/80 text-balance">
         Share your work, get feedback, playtest, and connect with creators who
         love story-driven games!
       </p>
@@ -118,15 +118,16 @@ import logo from "../../public/logo-icon.png";
       class="mx-auto grid max-w-5xl items-center gap-8 text-base-content lg:grid-cols-3"
     >
       <div class="lg:col-span-2 space-y-4">
-        <h2 class="text-3xl font-extrabold">Ready to start?</h2>
+        <h2 class="text-3xl font-bold">Ready? Make your game with PS Maker</h2>
         <p class="mt-2 text-lg leading-6">
-          Try our free demo to see how PS Maker works!
+          Download our free demo to start using PS Maker today!
         </p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
         <a
           href="https://app.pixelstories.io/"
-          class="daisy-btn daisy-btn-primary px-6">Download PS Maker</a
+          class="daisy-btn daisy-btn-primary daisy-btn-lg px-6"
+          >Download Free Demo</a
         >
       </div>
     </div>
