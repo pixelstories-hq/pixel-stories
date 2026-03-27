@@ -26,8 +26,7 @@ const { cover, title, date, tags, excerpt, url, largeCover } = Astro.props;
 ---
 
 <div
-  class="not-content max-w-xl w-full h-full shadow-lg rounded-lg
-   dark:border dark:border-color-gray-5"
+  class="not-content h-full w-full max-w-xl rounded-lg border border-base-300 bg-base-100 text-base-content shadow-lg"
 >
   <a href={url}>
     <Image
@@ -40,8 +39,7 @@ const { cover, title, date, tags, excerpt, url, largeCover } = Astro.props;
 
   <div class="p-5">
     <a href={url}>
-      <h5 class="font-bold text-2xl mb-2 text-white
-        hover:opacity-70">
+      <h5 class="mb-2 text-2xl font-bold text-base-content hover:opacity-70">
         {title}
       </h5>
     </a>
@@ -63,7 +61,7 @@ const { cover, title, date, tags, excerpt, url, largeCover } = Astro.props;
     <div class="flex gap-2 flex-wrap">
       {
         tags?.map((tag) => (
-          <p class="text-xs border border-gray-300 dark:border-gray-500  p-1 px-2 w-max rounded-lg">
+          <p class="w-max rounded-lg border border-base-300 p-1 px-2 text-xs text-base-content/80">
             {tag}
           </p>
         ))

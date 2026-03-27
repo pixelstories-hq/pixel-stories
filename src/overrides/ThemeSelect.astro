@@ -12,7 +12,7 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
     showHamburger && (
       <button
         id="nav-toggle"
-        class="inline-flex items-center justify-center rounded-full p-2 ring-1 ring-gray-300/60 md:hidden"
+        class="inline-flex items-center justify-center rounded-full p-2 ring-1 ring-base-300/60 md:hidden"
         aria-label="Open menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -34,14 +34,14 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
       rel="noopener noreferrer"
       class="action sl-flex"
     >
-      Discord <Icon name="external" size="1rem" class="opacity-65" />
+      Discord <Icon name="external" size="1rem" />
     </a>
   </div>
 
-  <div class="hidden md:block divider">
+  <div class="hidden md:block">
     <a
       href="https://app.pixelstories.io"
-      class="btn-primary p-1.5 px-3 mr-1 gap-0.5 text-sm hover:opacity-90 transition-all"
+      class="btn btn-primary btn-sm mr-1 gap-1"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -59,14 +59,13 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
 
 <div
   id="backdrop"
-  class="fixed w-dvh h-dvh inset-0 z-40 hidden data-[open=true]:block"
+  class="fixed inset-0 z-40 hidden h-dvh w-dvh bg-base-300/60 backdrop-blur-[1px] data-[open=true]:block"
 >
 </div>
 
 <div
   id="mobile-menu"
-  class="fixed left-3 right-3 top-14 z-50 hidden rounded-2xl border bg-[var(--sl-color-bg)]
-          p-3 shadow-xl data-[open=true]:block md:hidden"
+  class="fixed left-3 right-3 top-14 z-50 hidden rounded-2xl border border-base-300 bg-base-100 p-3 text-base-content shadow-xl data-[open=true]:block md:hidden"
   role="dialog"
   aria-modal="true"
 >
@@ -95,8 +94,7 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
       href="https://app.pixelstories.io"
       target="_blank"
       rel="noopener noreferrer"
-      class="btn-primary w-max justify-center p-2 px-4 text-sm"
-      >Launch PS Maker</a
+      class="btn btn-primary btn-sm w-max justify-center">Launch PS Maker</a
     >
 
     <!-- Mobile Theme select -->
@@ -114,7 +112,7 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
     align-items: center;
     border-radius: 999rem;
     padding: 0.25rem 0.75rem;
-    color: var(--sl-color-gray-2);
+    color: var(--color-base-content);
     line-height: 1.1875;
     text-decoration: none;
     font-size: var(--sl-text-sm);
@@ -125,7 +123,7 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
   }
 
   .divider {
-    border-inline-end: 1px solid var(--sl-color-gray-5);
+    border-inline-end: 1px solid var(--color-base-300);
     padding-inline-end: 1rem;
   }
 
@@ -135,11 +133,11 @@ const showHamburger = currentPath === "/" || currentPath === "/community";
     gap: 0.4rem;
     padding: 0.625rem 0.75rem;
     border-radius: 0.75rem;
-    color: var(--sl-color-gray-2);
+    color: var(--color-base-content);
     text-decoration: none;
   }
   .mobile-link:hover {
-    background: color-mix(in oklab, currentColor 8%, transparent);
+    background: color-mix(in oklab, var(--color-base-content) 8%, transparent);
   }
 </style>
 

@@ -10,9 +10,9 @@ import logo from "../../public/logo-icon.png";
 >
   <!-- HERO -->
   <section class="mt-10 flex flex-col items-start gap-4 text-left w-full">
-    <div class="flex gap-2 ml-1">
-      <Image src={logo} alt="PS Maker logo" class="w-9 h-9 not-content" />
-      <p class="font-semibold text-4xl">PS Maker</p>
+    <div class="flex gap-2 items-center ml-1">
+      <Image src={logo} alt="PS Maker logo" class="w-7 h-7 not-content" />
+      <p class="font-semibold text-3xl">PS Maker</p>
     </div>
 
     <h1
@@ -22,7 +22,7 @@ import logo from "../../public/logo-icon.png";
     </h1>
 
     <p
-      class="max-w-xl w-full text-pretty text-base/70 text-gray-700 dark:text-gray-300 sm:text-lg"
+      class="max-w-xl w-full text-pretty text-base/70 text-base-content/80 sm:text-lg"
     >
       <strong>PS Maker</strong> lets you build immersive story-driven games without
       the need to code, letting you focus on the narrative, art direction, world building,
@@ -32,25 +32,21 @@ import logo from "../../public/logo-icon.png";
     <div class="flex gap-3">
       <a
         href="https://app.pixelstories.io"
-        class="btn-primary"
+        class="btn btn-primary"
         target="_blank"
         rel="noopener noreferrer"
       >
         Download PS Maker
       </a>
-      <a
-        href="https://app.pixelstories.io"
-        class="btn-outline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Help documentation
-      </a>
+      <a href="https://app.pixelstories.io" class="btn"> Help documentation </a>
     </div>
   </section>
 
   <section>
-    <div class="w-full aspect-video border rounded-3xl"></div>
+    <div
+      class="aspect-video w-full rounded-3xl border border-base-300 bg-base-100"
+    >
+    </div>
   </section>
 
   <!-- FEATURED GAME / SPLASH SECTION -->
@@ -78,7 +74,7 @@ import logo from "../../public/logo-icon.png";
         </h2>
       </div>
 
-      <p class="text-base leading-7 text-gray-700 dark:text-gray-300">
+      <p class="text-base leading-7 text-base-content/80">
         A fun hangout with your best friend suddenly turns sideways when a
         killer in the night "takes" your friend.
       </p>
@@ -88,7 +84,7 @@ import logo from "../../public/logo-icon.png";
           href="https://tdgao.itch.io/dead-friend-horror"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-ghost">Play now</a
+          class="btn">Play now</a
         >
       </div>
     </div>
@@ -102,22 +98,20 @@ import logo from "../../public/logo-icon.png";
       <h2 class="text-4xl font-bold">
         A community to support you along your game making journey
       </h2>
-      <p class="text-base text-gray-700 dark:text-gray-300">
+      <p class="text-base text-base-content/80">
         Share your work, get feedback, playtest, and connect with creators who
         love story-driven games!
       </p>
-      <a href="https://discord.gg/your-invite" class="btn-ghost"
-        >Join our Discord</a
-      >
+      <a href="https://discord.gg/your-invite" class="btn">Join our Discord</a>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section
-    class="mb-20 overflow-hidden rounded-3xl border p-8 py-14 text-white shadow-sm"
+    class="mb-20 overflow-hidden rounded-3xl border border-base-300 bg-base-300 p-8 py-14 text-base-content shadow-sm"
   >
     <div
-      class="mx-auto grid max-w-5xl items-center gap-8 lg:grid-cols-3 text-black dark:text-white"
+      class="mx-auto grid max-w-5xl items-center gap-8 text-base-content lg:grid-cols-3"
     >
       <div class="lg:col-span-2 space-y-4">
         <h2 class="text-3xl font-extrabold">Ready to start?</h2>
@@ -126,7 +120,7 @@ import logo from "../../public/logo-icon.png";
         </p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
-        <a href="https://app.pixelstories.io/" class="btn-primary w-full"
+        <a href="https://app.pixelstories.io/" class="btn btn-primary px-6"
           >Download PS Maker</a
         >
       </div>
