@@ -26,7 +26,7 @@
 
 @layer components {
   .btn-primary {
-    @apply w-max rounded-3xl p-2 px-6 flex justify-center items-center no-underline
+    @apply w-max rounded-lg p-2 px-6 flex justify-center items-center no-underline
       bg-text-accent font-medium cursor-pointer
       text-white
       dark:text-black
@@ -35,7 +35,7 @@
   }
 
   .btn-outline {
-    @apply w-max rounded-3xl p-2 px-6 flex justify-center items-center no-underline
+    @apply w-max rounded-lg p-2 px-6 flex justify-center items-center no-underline
        font-medium cursor-pointer
       text-white
       border

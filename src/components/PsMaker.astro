@@ -1,8 +1,8 @@
 ---
 import Footer from "./Footer/Footer.astro";
-import TabsShowcase from "./TabsShowcase.svelte";
 import img from "../assets/images/dead-friend-horror.png";
 import Image from "astro/components/Image.astro";
+import logo from "../../public/logo-icon.png";
 ---
 
 <main
@@ -20,107 +20,47 @@ import Image from "astro/components/Image.astro";
   </div>
 
   <!-- HERO -->
-  <section class="mt-10 flex flex-col items-center gap-4 text-center">
-    <div
-      class="inline-flex items-center gap-2 rounded-full border border-neutral-500 px-3 py-1 text-xs font-medium"
-    >
-      <span>Late‑stage beta</span>
-      <span>·</span>
-      <a href="/blog" class="underline-offset-2 hover:underline text-white"
-        >See what’s new</a
-      >
+  <section class="mt-10 flex flex-col items-start gap-4 text-left w-full">
+    <div class="flex gap-2 ml-1">
+      <Image src={logo} alt="PS Maker logo" class="w-9 h-9 not-content" />
+      <p class="font-semibold text-4xl">PS Maker</p>
     </div>
 
     <h1
-      class="mx-auto max-w-3xl text-pretty text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl leading-tight"
+      class="max-w-2xl text-pretty text-5xl font-bold tracking-tight sm:text-4xl lg:text-6xl leading-tight"
     >
-      PS Maker: <span class="text-nowrap">A Game Maker</span> for Story‑Driven Games
+      The 2D Game Maker Built for Telling Stories
     </h1>
+
     <p
-      class="mx-auto max-w-2xl text-balance text-base/7 text-gray-700 dark:text-gray-300 sm:text-lg"
+      class="max-w-2xl w-full text-pretty text-base/70 text-gray-700 dark:text-gray-300 sm:text-lg"
     >
-      PS Maker lets you tell immersive and captivating stories through games. No
-      code required. Share instantly with friends!
+      <strong>PS Maker</strong> is a no-code game maker that lets you tell immersive
+      stories through games.
     </p>
 
-    <a
-      href="https://app.pixelstories.io"
-      class="btn-primary"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Create game now
-    </a>
-  </section>
-
-  <section>
-    <TabsShowcase client:load />
-  </section>
-
-  <!-- WHY DIFFERENT -->
-  <section class="grid gap-8 p-4 lg:grid-cols-5">
-    <div class="lg:col-span-2 flex flex-col gap-6">
-      <h2 class="text-3xl font-bold">
-        What makes <span class="text-nowrap">PS Maker</span> different?
-      </h2>
-      <p class="text-base leading-6 text-gray-700 dark:text-gray-300">
-        PS Maker is made for creators who want to tell immersive and captivating
-        stories through games, and not wrestle endlessly with code.
-      </p>
+    <div class="flex gap-3">
       <a
         href="https://app.pixelstories.io"
-        class="btn-primary px-10 max-lg:hidden"
+        class="btn-primary"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Create game now
+        Download PS Maker
+      </a>
+      <a
+        href="https://app.pixelstories.io"
+        class="btn-outline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Help documentation
       </a>
     </div>
-    <ul class="p-0 lg:col-span-3 grid gap-3 sm:grid-cols-2 sm:grid-rows-2">
-      <li
-        class="list-none rounded-2xl border bg-[var(--sl-color-bg)] p-5 text-sm shadow-sm"
-      >
-        <h3 class="font-semibold">For 2D story-driven games</h3>
-        <p class="mt-3 text-gray-700 dark:text-gray-300">
-          Built from the ground up for top-down, story-driven games.
-        </p>
-      </li>
-      <li
-        class="list-none rounded-2xl border bg-[var(--sl-color-bg)] p-5 text-sm shadow-sm"
-      >
-        <h3 class="font-semibold">No-code editor</h3>
-        <p class="mt-3 text-gray-700 dark:text-gray-300">
-          Tools for maps, dialogue, and mechanics, so you can focus on your
-          story.
-        </p>
-      </li>
-      <li
-        class="list-none rounded-2xl border bg-[var(--sl-color-bg)] p-5 text-sm shadow-sm"
-      >
-        <h3 class="font-semibold">Free, built-in assets</h3>
-        <p class="mt-3 text-gray-700 dark:text-gray-300">
-          Start fast with free tiles, objects, and terrains. Upload custom
-          assets anytime.
-        </p>
-      </li>
-      <li
-        class="list-none rounded-2xl border p-5 text-sm shadow-sm bg-[var(--sl-color-bg)]"
-      >
-        <h3 class="font-semibold">Share your game</h3>
-        <p class="mt-3 text-gray-700 dark:text-gray-300">
-          Instantly share your game with friends. Playable cross-platform in the
-          web.
-        </p>
-      </li>
-    </ul>
-    <a
-      href="https://app.pixelstories.io"
-      class="btn-primary px-10 lg:hidden"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Create game now
-    </a>
+  </section>
+
+  <section>
+    <div class="w-full aspect-video border rounded-3xl"></div>
   </section>
 
   <!-- FEATURED GAME / SPLASH SECTION -->
@@ -155,7 +95,7 @@ import Image from "astro/components/Image.astro";
 
       <div>
         <a
-          href="https://app.pixelstories.io/embed/ucUR89FNTR"
+          href="https://tdgao.itch.io/dead-friend-horror"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-ghost">Play now</a
@@ -170,7 +110,7 @@ import Image from "astro/components/Image.astro";
   >
     <div class="max-w-xl flex flex-col gap-4 items-center">
       <h2 class="text-4xl font-bold">
-        A community that loves making 2D story-driven games
+        A community to support you along your game making journey
       </h2>
       <p class="text-base text-gray-700 dark:text-gray-300">
         Share your work, get feedback, playtest, and connect with creators who
@@ -192,12 +132,12 @@ import Image from "astro/components/Image.astro";
       <div class="lg:col-span-2 space-y-4">
         <h2 class="text-3xl font-extrabold">Ready to start?</h2>
         <p class="mt-2 text-lg leading-6">
-          Create your first game in minutes. Free to try. Runs in your browser.
+          Try our free demo to see how PS Maker works!
         </p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
         <a href="https://app.pixelstories.io/" class="btn-primary w-full"
-          >Create game now</a
+          >Download PS Maker</a
         >
       </div>
     </div>
