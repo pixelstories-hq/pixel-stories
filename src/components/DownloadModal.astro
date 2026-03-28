@@ -1,0 +1,117 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+
+const WINDOWS_URL =
+  "https://github.com/pixelstories-hq/ps-maker-app/releases/download/v0.21.0/PS.Maker_0.21.0_x64-setup.exe";
+const MAC_URL =
+  "https://github.com/pixelstories-hq/ps-maker-app/releases/download/v0.21.0/PS.Maker_0.21.0_universal.dmg";
+const LINUX_URL =
+  "https://github.com/pixelstories-hq/ps-maker-app/releases/download/v0.21.0/PS.Maker_0.21.0_amd64.deb";
+
+interface Props {
+  class?: string;
+  btnSize?: string;
+  btnVariant?: string;
+}
+
+const {
+  class: className = "",
+  btnSize = "",
+  btnVariant = "daisy-btn-primary",
+} = Astro.props;
+---
+
+<button
+  data-download-trigger
+  class={`daisy-btn ${btnVariant} ${btnSize} ${className}`}
+  aria-haspopup="dialog"
+>
+  <slot>Download Free Demo</slot>
+</button>
+
+<dialog data-download-modal class="daisy-modal">
+  <div class="daisy-modal-box max-w-md rounded-xl p-6">
+    <div class="mb-5 flex items-start justify-between">
+      <div class="flex flex-col gap-2.5">
+        <h2 class="text-2xl font-semibold">Download PS Maker</h2>
+        <p class="text-sm text-content-base/70">
+          Free PS Maker demo, built for making immersive story-driven games.
+        </p>
+      </div>
+      <form method="dialog">
+        <button
+          class="daisy-btn daisy-btn-ghost daisy-btn-sm daisy-btn-circle"
+          aria-label="Close"
+        >
+          <Icon name="close" size="1rem" />
+        </button>
+      </form>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <a href={WINDOWS_URL} class="download-option" rel="noopener noreferrer">
+        <Icon name="seti:windows" size="1.75rem" class="shrink-0" />
+        <div class="flex justify-between items-center grow">
+          <p class="font-semibold">Windows</p>
+          <p class="text-xs text-base-content/60">.exe installer</p>
+        </div>
+      </a>
+
+      <a href={MAC_URL} class="download-option" rel="noopener noreferrer">
+        <Icon name="apple" size="1.75rem" class="shrink-0" />
+        <div class="flex justify-between items-center grow">
+          <p class="font-semibold">macOS</p>
+          <p class="text-xs text-base-content/60">.dmg installer</p>
+        </div>
+      </a>
+
+      <a href={LINUX_URL} class="download-option" rel="noopener noreferrer">
+        <Icon name="linux" size="1.75rem" class="shrink-0" />
+        <div class="flex justify-between items-center grow">
+          <p class="font-semibold">Linux</p>
+          <p class="text-xs text-base-content/60">.AppImage</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <form method="dialog" class="daisy-modal-backdrop">
+    <button class="bg-transparent text-transparent">close</button>
+  </form>
+</dialog>
+
+<style>
+  .download-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-base-300);
+    background-color: var(--color-base-200);
+    text-decoration: none;
+    color: var(--color-base-content);
+    transition: background-color 150ms;
+  }
+  .download-option:hover {
+    background-color: color-mix(
+      in oklab,
+      var(--color-base-content) 6%,
+      transparent
+    );
+  }
+</style>
+
+<script>
+  // Astro deduplicates identical script blocks, so this runs once even
+  // when the component is used multiple times on the page.
+  const modal = document.querySelector<HTMLDialogElement>(
+    "[data-download-modal]",
+  );
+
+  document
+    .querySelectorAll<HTMLElement>("[data-download-trigger]")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => modal?.showModal());
+    });
+</script>

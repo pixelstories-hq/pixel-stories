@@ -3,22 +3,22 @@ title: Moving the player between maps
 description: How to move your player between maps in PS Maker.
 ---
 
-In this guide, we will explore how to connect maps using the Transfer Player event.
+In this guide, we will explore how to connect maps using the **Transfer Player** action.
 
-`TransferPlayer` is an event in the game that transports the player to a different map. This is especially useful when you want your player to be progressing through the game, to a different setting or type of map.
+`TransferPlayer` is an action that transports the player to a different map. This is useful when you want progression between different settings.
 
 ## How do I use it?
 
-Transfer Player will be used primarily as part of an event group. Most often, after interacting with an object, or achieving a specific goal such as in a conditional event, the Transfer Player event would be used to progress through the game.
+Transfer Player is most often used inside an **event**. After the player interacts with an object or meets a condition, this action can move them to the next map.
 
-You can add the Transfer Player event when you add a game event in an event group. You can also add it under a conditional event. After you add Transfer Player event, in the drop down menu, you can choose the Map to transfer the player to. Keep in mind, you should have created the maps already in your project.
+You can add **Transfer Player** when building actions inside an event, including inside a conditional branch. After adding it, choose the destination map from the dropdown menu.
 
 <div style="max-width: 500px">
 
-![img](../../../assets/images/unlock-door-event.png "The event group for unlocking door.")
+![img](../../../assets/images/unlock-door-event.png "An event for unlocking a door.")
 
 </div>
 
-In the Fetch Quest, we used the Transfer Player event to move the player through a door after obtaining a key from a rock. You can refer to that tutorial to see a detailed example in how we used the event under a conditional event.
+In the Fetch Quest guide, we use the **Transfer Player** action to move the player through a door after they obtain a key.
 
-Important Note: after we create a Transfer Player event, all events that are added afterwards will be greyed out. This means that no further events in the current map will run after the player has been transferred to another map. Therefore, the Transfer Player event must be the last event in the event group.
+Important note: after you add a Transfer Player action, later actions in that same branch may not run because the player has already moved maps. Put Transfer Player as the final action in that branch.

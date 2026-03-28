@@ -1,42 +1,76 @@
-/* Dark mode colors. */
 :root {
-  --sl-color-accent-low: #e3bcca;
-  --sl-color-accent: #f8add8;
-  --sl-color-accent-high: #f8add8;
-  --sl-color-white: #ffffff;
-  --sl-color-gray-1: #eeeeee;
-  --sl-color-gray-2: hsl(0, 0%, 90%);
-  --sl-color-gray-3: #8b8b8b;
-  --sl-color-gray-4: #585858;
-  --sl-color-gray-5: #383838;
-  --sl-color-gray-6: #272727;
-  --sl-color-black: #181818;
-  --sl-color-link: hsl(326, 70%, 80%);
-  --sl-color-text-invert: var(--sl-color-black);
+  --sl-color-accent-low: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-base-100) 82%
+  );
+  --sl-color-accent: var(--color-primary);
+  --sl-color-accent-high: color-mix(in oklab, var(--color-primary), #fff 24%);
+  --sl-color-white: var(--color-base-content);
+  --sl-color-gray-1: color-mix(in oklab, var(--color-base-content), #fff 10%);
+  --sl-color-gray-2: var(--color-base-content);
+  --sl-color-gray-3: color-mix(
+    in oklab,
+    var(--color-base-content),
+    var(--color-base-300) 35%
+  );
+  --sl-color-gray-4: color-mix(
+    in oklab,
+    var(--color-base-content),
+    var(--color-base-300) 50%
+  );
+  --sl-color-gray-5: var(--color-base-300);
+  --sl-color-gray-6: var(--color-base-200);
+  --sl-color-black: var(--color-base-100);
+
+  --sl-color-text: var(--color-base-content);
+  --sl-color-text-accent: var(--color-primary);
+  /* no reason for text invert, just a starlight thing*/
+  --sl-color-text-invert: var(--color-base-content);
+
+  --sl-color-bg: var(--color-base-100);
+  --sl-color-bg-nav: var(--color-base-100);
+  --sl-color-bg-sidebar: var(--color-base-200);
+  --sl-color-bg-inline-code: var(--color-base-200);
+  --sl-color-bg-accent: var(--color-primary);
+
+  --sl-color-hairline-light: var(--color-base-300);
+  --sl-color-hairline: color-mix(
+    in oklab,
+    var(--color-base-300),
+    var(--color-base-100) 30%
+  );
+  --sl-color-hairline-shade: var(--color-base-100);
+
+  --sl-color-link: var(--color-primary);
+  --sl-color-backdrop-overlay: color-mix(
+    in oklab,
+    var(--color-base-100),
+    transparent 34%
+  );
+
+  --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
 }
-/* Light mode colors. */
+
 :root[data-theme="light"] {
-  --sl-color-accent-low: #f5b9db;
-  --sl-color-accent: #f8add8;
-  --sl-color-accent-high: #4e2134;
-  --sl-color-white: #181818;
-  --sl-color-gray-1: #272727;
-  --sl-color-gray-2: #383838;
-  --sl-color-gray-3: #585858;
-  --sl-color-gray-4: #8b8b8b;
-  --sl-color-gray-5: #c2c2c2;
-  --sl-color-gray-6: #eeeeee;
-  --sl-color-gray-7: #f6f6f6;
-  --sl-color-banner-text: var(--sl-color-white);
-  --sl-color-black: #ffffff;
-  --sl-color-bg-nav: var(--sl-color-black);
-  --sl-color-text-invert: var(--sl-color-white);
-  --sl-color-link: hsl(326, 70%, 50%);
+  --sl-color-accent-low: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-base-100) 86%
+  );
+  --sl-color-accent-high: color-mix(
+    in oklab,
+    var(--color-primary),
+    var(--color-base-content) 45%
+  );
+  --sl-color-text: var(--color-base-content);
+  --sl-color-bg-sidebar: var(--color-base-100);
+  --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 86%);
 }
 
 :root[data-theme="light"] .sl-link-button.primary {
-  background: var(--sl-color-text-accent);
-  color: var(--sl-color-white);
+  background: var(--color-primary);
+  color: var(--color-primary-content);
   font-weight: 500;
 }
 
@@ -48,47 +82,29 @@ pixel-art {
   image-rendering: pixelated;
 }
 
-.sl-markdown-content img:not(.not-content) {
+.sl-markdown-content img {
+  height: auto;
+}
+
+.sl-markdown-content img:not(:where(.not-content *)) {
   min-width: 150px;
   max-height: 65vh;
   object-fit: contain;
   width: min-content;
 }
 
-/* HERO styles */
-
-:root {
-  --purple-hsl: 240, 60%, 60%;
-  --overlay-blurple: hsla(var(--purple-hsl), 0.2);
-}
-
-:root[data-theme="light"] {
-  --purple-hsl: 240, 85%, 65%;
-}
-
 :root[data-theme="dark"] .border {
-  border-color: var(--sl-color-gray-3);
-}
-
-[data-has-hero] .page {
-  background:
-    linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
-    radial-gradient(var(--overlay-blurple), transparent 40%)
-      no-repeat -60vw -40vh / 105vw 200vh,
-    radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50%
-      calc(100% + 20rem) / 60rem 30rem;
+  border-color: var(--color-base-300);
 }
 
 [data-has-hero] header {
   border-bottom: 1px solid transparent;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background-color: var(--color-base-100);
 }
 
 [data-has-hero] .hero > .hero-html,
 [data-has-hero] .hero > img {
-  filter: drop-shadow(0 0 3rem var(--overlay-blurple));
+  filter: drop-shadow(0 0 3rem var(--ps-hero-glow));
 }
 
 .social-icons::after {
@@ -102,4 +118,8 @@ iframe {
 
 .header > div.sl-hidden {
   display: flex;
+}
+
+a.daisy-btn {
+  text-decoration: none;
 }

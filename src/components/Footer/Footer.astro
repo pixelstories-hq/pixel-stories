@@ -4,7 +4,7 @@ import FooterLink from "./FooterLink.astro";
 import FooterLogo from "./FooterLogo.astro";
 ---
 
-<footer class="not-content !mt-40 mb-0 border-t border-gray-200 py-10">
+<footer class="not-content !mt-40 mb-0 border-t border-base-300 py-10">
   <div
     class="container mx-auto flex flex-col md:flex-row justify-between items-start px-4 gap-y-4"
   >
@@ -15,10 +15,22 @@ import FooterLogo from "./FooterLogo.astro";
     >
       <!-- Game Maker -->
       <FooterColumn name="PS Maker">
-        <FooterLink href="/features">Features</FooterLink>
-        <FooterLink href="/overview">Docs</FooterLink>
-        <FooterLink href="/getting-started">Tutorial</FooterLink>
+        <FooterLink href="/overview">Help Docs</FooterLink>
         <FooterLink href="/changelog/">Changelog</FooterLink>
+        <FooterLink
+          href="https://github.com/pixelstories-hq/ps-maker/issues/new/choose"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Report a Bug
+        </FooterLink>
+        <FooterLink
+          href="https://github.com/pixelstories-hq/ps-maker/issues/new/choose"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Suggest a Feature
+        </FooterLink>
       </FooterColumn>
 
       <!-- Company -->
@@ -31,7 +43,7 @@ import FooterLogo from "./FooterLogo.astro";
       <!-- Community -->
       <FooterColumn name="Community">
         <FooterLink
-          href="https://www.youtube.com/@PixelStoriesEngine"
+          href="https://www.youtube.com/@PixelStoriesMaker"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -43,6 +55,13 @@ import FooterLogo from "./FooterLogo.astro";
           rel="noopener noreferrer"
         >
           Discord
+        </FooterLink>
+        <FooterLink
+          href="https://github.com/pixelstories-hq"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
         </FooterLink>
       </FooterColumn>
     </div>

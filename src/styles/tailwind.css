@@ -4,55 +4,112 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-@theme {
-  --color-background: rgb(var(--color-primary) / <alpha-value>);
-  --color-text: var(--sl-color-text);
-
-  --color-accent-low: var(--sl-color-accent-low);
-  --color-accent: var(--sl-color-accent);
-  --color-accent-high: var(--sl-color-accent-high);
-
-  --color-white: var(--sl-color-white);
-  --color-gray-1: var(--sl-color-gray-1);
-  --color-gray-2: var(--sl-color-gray-2);
-  --color-gray-3: var(--sl-color-gray-3);
-  --color-gray-4: var(--sl-color-gray-4);
-  --color-gray-5: var(--sl-color-gray-5);
-  --color-gray-6: var(--sl-color-gray-6);
-  --color-black: var(--sl-color-black);
-
-  --color-text-accent: var(--sl-color-text-accent);
+@plugin "daisyui" {
+  themes: light, dark;
+  exclude: rootscrollgutter;
+  prefix: "daisy-";
 }
 
-@layer components {
-  .btn-primary {
-    @apply w-max rounded-3xl p-2 px-6 flex justify-center items-center no-underline
-      bg-text-accent font-medium cursor-pointer
-      text-white
-      dark:text-black
-      transition-colors
-      hover:bg-accent-low;
-  }
+@utility ps-input {
+  @apply bg-base-200 border-transparent hover:border-base-300 outline-offset-0 focus:outline-primary focus-within:outline-primary focus:outline-1 focus-within:outline-1;
+}
 
-  .btn-outline {
-    @apply w-max rounded-3xl p-2 px-6 flex justify-center items-center no-underline
-       font-medium cursor-pointer
-      text-white
-      border
-      transition-colors
-      hover:bg-gray-100
-      dark:hover:bg-gray-700;
-  }
+@utility input {
+  @apply ps-input;
+}
 
-  .btn-ghost {
-    @apply w-max p-2 flex px-6 justify-center items-center no-underline
-      border font-medium cursor-pointer
-      text-white
-      rounded-full text-sm
-      bg-transparent
-      hover:bg-gray-200 
-      hover:text-white
-      dark:text-white
-      dark:hover:text-black;
+@utility select {
+  @apply ps-input;
+}
+
+@utility textarea {
+  @apply ps-input;
+}
+
+@utility ps-fields-card {
+  @apply p-3 border border-base-300 rounded-xl flex flex-col gap-2 w-full;
+}
+
+[data-theme="dark"] .daisy-btn:hover {
+  --btn-bg: color-mix(
+    in oklab,
+    var(--btn-color, var(--color-base-200)),
+    #fff 7%
+  );
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #0d0d0d;
+  --color-base-200: #121212;
+  --color-base-300: #1f1f1f;
+  --color-base-content: #e0e0e0;
+  --color-primary: #eb8ec3;
+  --color-primary-content: oklch(21% 0.006 285.885);
+  --color-secondary: oklch(35% 0.004 286.32);
+  --color-secondary-content: oklch(92% 0.004 286.32);
+  --color-accent: #e9b781;
+  --color-accent-content: oklch(21% 0.006 285.885);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: #eb8ec3;
+  --color-primary-content: oklch(26% 0.007 34.298);
+  --color-secondary: oklch(14% 0.005 285.823);
+  --color-secondary-content: oklch(92% 0.004 286.32);
+  --color-accent: #e9b781;
+  --color-accent-content: oklch(37% 0.01 67.558);
+  --color-neutral: oklch(21% 0.006 285.885);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(79% 0.209 151.711);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(57% 0.245 27.325);
+  --color-error-content: oklch(25% 0.092 26.042);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@layer base {
+  :where(button, [role="button"]):not([disabled]) {
+    cursor: pointer;
   }
 }

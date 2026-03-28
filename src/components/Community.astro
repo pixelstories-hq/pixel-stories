@@ -6,89 +6,79 @@ import { Icon } from "@astrojs/starlight/components";
 <main
   class="not-content relative mx-auto flex max-w-7xl flex-col gap-24 px-0 sm:px-6 lg:px-8"
 >
-  <!-- Background Decoration -->
-  <div
-    aria-hidden="true"
-    class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-  >
-    <div
-      class="opacity-30 absolute -top-32 left-1/2 h-[600px] w-[1200px] -trangray-x-1/2 rounded-full bg-gradient-to-r from-indigo-500/20 via-fuchsia-500/20 to-emerald-500/20 blur-3xl"
-    >
-    </div>
-  </div>
-
   <!-- WHY JOIN -->
   <section class="grid gap-8 p-4 lg:grid-cols-5">
     <div class="lg:col-span-2 flex flex-col gap-6">
       <h2 class="text-3xl font-bold">
         Why join the <span class="text-nowrap">Pixel Stories</span> community?
       </h2>
-      <p class="text-base leading-6 text-gray-700 dark:text-gray-300">
+      <p class="text-base leading-6 text-base-content/80">
         A welcoming hub for story-driven game creators to connect, brainstorm,
         build teams, share feedback, playtest, and showcase their work.
       </p>
-      <a href="https://discord.gg/your-invite" class="btn-outline w-max"
-        >Join our Discord</a
+      <a
+        href="https://discord.gg/your-invite"
+        class="daisy-btn daisy-btn-outline w-max">Join our Discord</a
       >
     </div>
 
     <ul class="p-0 lg:col-span-3 grid gap-3 sm:grid-cols-2">
       <li
-        class="list-none rounded-2xl border bg-[var(--sl-color-bg)] p-5 text-sm shadow-sm space-y-2"
+        class="list-none space-y-2 rounded-2xl border border-base-300 bg-base-100 p-5 text-sm shadow-sm"
       >
-        <Icon name="star" color="goldenrod" size="2rem" />
+        <Icon name="star" color="var(--color-accent)" size="2rem" />
         <h3 class="font-semibold">Community for Story Creators</h3>
-        <p class="text-gray-700 dark:text-gray-300">
+        <p class="text-base-content/80">
           Meet others making top-down, narrative-focused 2D games.
         </p>
       </li>
 
       <li
-        class="list-none rounded-2xl border bg-[var(--sl-color-bg)] p-5 text-sm shadow-sm space-y-2"
+        class="list-none space-y-2 rounded-2xl border border-base-300 bg-base-100 p-5 text-sm shadow-sm"
       >
-        <Icon name="pencil" color="goldenrod" size="2rem" />
+        <Icon name="pencil" color="var(--color-accent)" size="2rem" />
         <h3 class="font-semibold">Brainstorm Ideas Together</h3>
-        <p class="text-gray-700 dark:text-gray-300">
+        <p class="text-base-content/80">
           Share ideas, refine concepts, and spark new directions.
         </p>
       </li>
 
       <li
-        class="list-none rounded-2xl border bg-[var(--sl-color-bg)] p-5 text-sm shadow-sm space-y-2"
+        class="list-none space-y-2 rounded-2xl border border-base-300 bg-base-100 p-5 text-sm shadow-sm"
       >
-        <Icon name="add-document" color="goldenrod" size="2rem" />
+        <Icon name="add-document" color="var(--color-accent)" size="2rem" />
         <h3 class="font-semibold">Build a Team</h3>
-        <p class="text-gray-700 dark:text-gray-300">
+        <p class="text-base-content/80">
           Post your project, find collaborators, and start strong.
         </p>
       </li>
 
       <li
-        class="list-none rounded-2xl border p-5 text-sm shadow-sm space-y-2 bg-[var(--sl-color-bg)]"
+        class="list-none space-y-2 rounded-2xl border border-base-300 bg-base-100 p-5 text-sm shadow-sm"
       >
-        <Icon name="document" color="goldenrod" size="2rem" />
+        <Icon name="document" color="var(--color-accent)" size="2rem" />
         <h3 class="font-semibold">Share & Get Feedback</h3>
-        <p class="text-gray-700 dark:text-gray-300">
+        <p class="text-base-content/80">
           Get constructive feedback on story, art, music, and design.
         </p>
       </li>
 
       <li
-        class="list-none rounded-2xl border p-5 text-sm shadow-sm space-y-2 bg-[var(--sl-color-bg)]"
+        class="list-none space-y-2 rounded-2xl border border-base-300 bg-base-100 p-5 text-sm shadow-sm"
       >
-        <Icon name="laptop" color="goldenrod" size="2rem" />
+        <Icon name="laptop" color="var(--color-accent)" size="2rem" />
         <h3 class="font-semibold">Playtest Together</h3>
-        <p class="text-gray-700 dark:text-gray-300">
+        <p class="text-base-content/80">
           Exchange demo and improve game pacing, mechanics, and polish.
         </p>
       </li>
 
       <li
-        class="list-none rounded-2xl border p-5 text-sm shadow-sm space-y-2 bg-[var(--sl-color-bg)]"
+        class="list-none space-y-2 rounded-2xl border border-base-300 bg-base-100 p-5 text-sm shadow-sm"
       >
-        <Icon name="rocket" color="goldenrod" size="2rem" />
+        <Icon name="rocket" color="var(--color-accent)" size="2rem" />
         <h3 class="font-semibold">Celebrate Game Releases!</h3>
-        <p class="text-gray-700 dark:text-gray-300">
+        <p class="text-base-content/80">
           Showcase finished games and celebrate that big milestone.
         </p>
       </li>
@@ -103,22 +93,23 @@ import { Icon } from "@astrojs/starlight/components";
       <h2 class="text-4xl font-bold">
         A community that loves making 2D story-driven games
       </h2>
-      <p class="text-base text-gray-700 dark:text-gray-300">
+      <p class="text-base text-base-content/80">
         Share your work, get feedback, playtest, and connect with creators who
         love story-driven games!
       </p>
-      <a href="https://discord.gg/your-invite" class="btn-primary w-max px-6"
-        >Join our Discord</a
+      <a
+        href="https://discord.gg/your-invite"
+        class="daisy-btn daisy-btn-primary w-max">Join our Discord</a
       >
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section
-    class="mb-20 overflow-hidden rounded-3xl border bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-800 dark:to-gray-900 p-8 py-14 text-white shadow-sm"
+    class="mb-20 overflow-hidden rounded-3xl border border-base-300 bg-gradient-to-r from-primary/12 to-accent/14 p-8 py-14 text-base-content shadow-sm"
   >
     <div
-      class="mx-auto grid max-w-5xl items-center gap-8 lg:grid-cols-3 text-black dark:text-white"
+      class="mx-auto grid max-w-5xl items-center gap-8 text-base-content lg:grid-cols-3"
     >
       <div class="lg:col-span-2 space-y-4">
         <h2 class="text-3xl font-extrabold">
@@ -131,8 +122,9 @@ import { Icon } from "@astrojs/starlight/components";
         </p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
-        <a href="https://discord.gg/your-invite" class="btn-primary"
-          >Join our Discord</a
+        <a
+          href="https://discord.gg/your-invite"
+          class="daisy-btn daisy-btn-primary">Join our Discord</a
         >
       </div>
     </div>

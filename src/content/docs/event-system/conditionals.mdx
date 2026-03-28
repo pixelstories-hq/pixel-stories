@@ -1,9 +1,9 @@
 ---
 title: "Conditional Branches"
-description: Use conditional branches in PS Maker to change events based on player choices, variables, and inventory, creating dynamic stories with multiple outcomes.
+description: Use conditional branches in PS Maker to change actions based on player choices, variables, and inventory for dynamic stories with multiple outcomes.
 ---
 
-Conditional branches let your events respond to the player’s actions. They check variables or inventory and decide what happens next. If the condition is true, one set of events plays; if false, the events do not play.
+Conditional branches let your actions respond to the player’s behavior. They check variables or inventory and decide what happens next. If the condition is true, one set of actions plays; if false, those actions are skipped.
 
 <div style="max-width:400px;">
 
@@ -20,13 +20,13 @@ Conditional branches let your events respond to the player’s actions. They che
 
 ## Variables
 
-To use conditionals, you must first create variables in the **Assets** page. Variables cannot change type once created. Types include:
+To use conditionals, first create variables in the **Assets** page. Variables cannot change type once created. Types include:
 
 - **Switch:** On or off (true/false)
 - **Number:** Any numeric value
 - **Text:** A string of characters
 
-Update values with the **Set Variable** event. Clear names like `hasKey` or `metNPC` help keep track as projects grow.
+Update values with the **Set Variable** action. Clear names like `hasKey` or `metNPC` help keep track as projects grow.
 
 :::tip
 Name variables clearly so you can find them later. Conditions run in sequence, so be careful that one branch does not accidentally make another branch below activate.
@@ -34,7 +34,7 @@ Name variables clearly so you can find them later. Conditions run in sequence, s
 
 ## Adding a Conditional
 
-Click **+ Conditional** in the event list. Add your condition, then place events inside each branch. Conditions are tested in order, so the first true condition runs its events.
+Click **+ Conditional** in the action list. Add your condition, then place actions inside each branch. Conditions are tested in order, so the first true condition runs its actions.
 
 You can check for:
 
