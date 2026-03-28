@@ -5,6 +5,7 @@ import Image from "astro/components/Image.astro";
 import logo from "../../public/logo-icon.png";
 import appScreenshot from "../assets/images/friend-leaves-event.png";
 import appScreenshotDark from "../assets/images/friend-leaves-event-dark.png";
+import DownloadModal from "./DownloadModal.astro";
 ---
 
 <main
@@ -30,14 +31,7 @@ import appScreenshotDark from "../assets/images/friend-leaves-event-dark.png";
     </p>
 
     <div class="flex gap-3">
-      <a
-        href="https://app.pixelstories.io"
-        class="daisy-btn daisy-btn-primary"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Download Free Demo
-      </a>
+      <DownloadModal />
       <a href="/overview" class="daisy-btn"> Help documentation </a>
     </div>
   </section>
@@ -128,11 +122,7 @@ import appScreenshotDark from "../assets/images/friend-leaves-event-dark.png";
         </p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
-        <a
-          href="https://app.pixelstories.io/"
-          class="daisy-btn daisy-btn-primary daisy-btn-lg px-6"
-          >Download Free Demo</a
-        >
+        <DownloadModal btnSize="daisy-btn-lg" class="px-6" />
       </div>
     </div>
   </section>

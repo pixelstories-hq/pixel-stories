@@ -33,4 +33,4 @@ If you are coming from another engine, you will find that PS Maker focuses speci
 
 ## Early Access
 
-PS Maker is currently in late-stage beta. Features are being refined and bugs may appear. If you run into issues, please let us know through the [feedback form](https://forms.gle/76x3G1mkUQpKvbG7A). Your feedback will help a lot!
+PS Maker is currently in late-stage beta. Features are being refined and bugs may appear. If you run into issues, please let us know by submitting a [bug report](https://github.com/pixelstories-hq/ps-maker/issues/new/choose) or [feature request](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)!
