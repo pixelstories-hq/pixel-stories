@@ -7,6 +7,10 @@ Welcome to the **PS Maker documentation**. These guides are here to help you lea
 
 Whether you are just getting started or looking up a specific feature, you can use this documentation as a reference whenever you feel stuck.
 
+:::caution[Note]
+Some of these help docs are outdated and we are continuously updating them to reflect the latest features from PS Maker. If you require any support for using PS Maker, come chat with us in our [Discord community](https://discord.gg/WTxUC4hEnS) or [submit a bug report](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)!
+:::
+
 ## What is PS Maker?
 
 PS Maker is a no-code game maker designed for building 2D top-down story-driven games. If you are new to game development, it gives you approachable tools like the **map editor**, **actions**, and **events** so you can tell immersive stories without needing to code.
@@ -14,10 +18,6 @@ PS Maker is a no-code game maker designed for building 2D top-down story-driven 
 If you are coming from another engine, you will find that PS Maker focuses specifically on storytelling features, so you can spend less time configuring and more time creating.
 
 <iframe width="100%" src="https://www.youtube.com/embed/_0e__O0PEFo?si=9VekN9yucl8fjmM4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-:::note[A message from Truman, the founder of Pixel Stories]
-**The purpose of PS Maker** is to become the ultimate tool for making story-driven games. It lowers the barrier to entry for those who are intrigued by the idea of making story games but shy away from the daunting technical barrier with various general purpose game engines, no-code engines, or other game makers... PS Maker can be a vessle to learn the fundamentals of game design and the skills needed to see a project through. Since PS Maker is focused for story-driven games, it will always be limited in what it can do. Don't feel tied down to PS Maker. If you want to make a game greater than the scope of what PS Maker can do, then take what you've learned and build even greater games with powerful general purpose engines.
-:::
 
 ## What You’ll Find Here
 
