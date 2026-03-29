@@ -88,8 +88,15 @@ export const GET: APIRoute = async ({ request }) => {
         url?: string;
       }>) {
         if (platform.url) {
-          const platformRes = await fetch(platform.url, {
-            headers: { Authorization: `Bearer ${token}` },
+          const filename = platform.url.split("/").pop();
+          const asset = release.assets.find((a) => a.name === filename);
+          const apiUrl = asset?.url ?? platform.url;
+
+          const platformRes = await fetch(apiUrl, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "application/octet-stream",
+            },
             redirect: "manual",
           });
           const signedUrl = platformRes.headers.get("Location");
