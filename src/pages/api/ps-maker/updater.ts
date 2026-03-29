@@ -25,6 +25,18 @@ export const GET: APIRoute = async ({ request }) => {
 
     const token = import.meta.env.GITHUB_TOKEN;
 
+    const cachedManifest = getCached<unknown>("manifest:latest");
+    if (cachedManifest) {
+      return new Response(JSON.stringify(cachedManifest), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+          "CDN-Cache-Control": "public, max-age=300",
+        },
+      });
+    }
+
     let release = getCached<GitHubRelease>("latest");
     if (!release) {
       const res = await fetch(
@@ -85,6 +97,8 @@ export const GET: APIRoute = async ({ request }) => {
         }
       }
     }
+
+    setCached("manifest:latest", manifest, 2 * 60 * 1000);
 
     return new Response(JSON.stringify(manifest), {
       status: 200,
