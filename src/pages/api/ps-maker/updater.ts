@@ -2,8 +2,6 @@ import type { APIRoute } from "astro";
 import { getCached, setCached } from "../../../lib/github-cache";
 
 const REPO = "pixelstories-hq/ps-maker-app";
-const PROXY_BASE = "https://pixelstories.io/api/ps-maker/releases/";
-const GITHUB_RELEASES_BASE = `https://github.com/${REPO}/releases/`;
 
 interface GitHubAsset {
   id: number;
@@ -15,8 +13,16 @@ interface GitHubRelease {
   assets: GitHubAsset[];
 }
 
-export const GET: APIRoute = async ({ request: _request }) => {
+export const GET: APIRoute = async ({ request }) => {
   try {
+    const updateToken = request.headers.get("X-PS-Update-Token");
+    if (!updateToken || updateToken !== import.meta.env.PS_UPDATE_TOKEN) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const token = import.meta.env.GITHUB_TOKEN;
 
     let release = getCached<GitHubRelease>("latest");
@@ -69,8 +75,13 @@ export const GET: APIRoute = async ({ request: _request }) => {
       for (const platform of Object.values(manifest.platforms) as Array<{
         url?: string;
       }>) {
-        if (platform.url?.startsWith(GITHUB_RELEASES_BASE)) {
-          platform.url = platform.url.replace(GITHUB_RELEASES_BASE, PROXY_BASE);
+        if (platform.url) {
+          const platformRes = await fetch(platform.url, {
+            headers: { Authorization: `Bearer ${token}` },
+            redirect: "manual",
+          });
+          const signedUrl = platformRes.headers.get("Location");
+          if (signedUrl) platform.url = signedUrl;
         }
       }
     }
