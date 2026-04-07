@@ -29,7 +29,7 @@ const dateString = new Date(date || "");
     <p class="font-medium text-sm">By {author.name}</p>
     {
       date && (
-        <time class="font-mono text-sm" datetime={dateString.toDateString()}>
+        <time class="text-xs" datetime={dateString.toDateString()}>
           {dateString.toLocaleDateString("en-us", {
             year: "numeric",
             month: "short",
