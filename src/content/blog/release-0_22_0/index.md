@@ -40,3 +40,5 @@ There was a bug where tilesets had the classic 2D rendering pixel art line bleed
 | Before                                 | After                                  |
 | -------------------------------------- | -------------------------------------- |
 | ![Showing tile extrusion](image-1.png) | ![Showing tile extrusion](image-2.png) |
+
+See changelog for [PS Maker v0.21.0](/changelog#0220).
