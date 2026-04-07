@@ -24,17 +24,17 @@ const { cover, title, date, tags, excerpt, url } = Astro.props;
 ---
 
 <div
-  class="not-content h-full w-full max-w-xl bg-base-100 text-base-content flex flex-col"
+  class="not-content h-full w-full max-w-xl bg-base-100 text-base-content flex flex-col gap-3"
 >
   <a href={url}>
     <Image
-      class="not-content rounded-lg border border-base-300 !h-[200px] max-w-full w-full object-cover aspect-video hover:brightness-110 transition-all"
+      class="not-content rounded-lg border border-base-300 !h-full max-h-[200px] max-w-full w-full object-cover aspect-video hover:brightness-110 transition-all"
       src={cover?.image || PlaceholderCover}
       alt={cover?.alt || "Placeholder cover"}
     />
   </a>
 
-  <div class="p-1 flex flex-col gap-4 grow">
+  <div class="px-1 flex flex-col gap-4 grow">
     <div class="grow flex flex-col gap-3">
       <div class="flex justify-between items-center">
         {
