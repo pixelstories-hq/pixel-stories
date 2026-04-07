@@ -21,6 +21,22 @@ interface Props {
 }
 
 const { cover, title, date, tags, excerpt, url } = Astro.props;
+
+function timeAgo(date: Date): string {
+  const now = new Date();
+  const diffDays = Math.floor(
+    (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
+  );
+  if (diffDays === 0) return "today";
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 30) return `${diffDays} days ago`;
+  const diffMonths = Math.floor(diffDays / 30);
+  if (diffMonths === 1) return "1 month ago";
+  if (diffMonths < 12) return `${diffMonths} months ago`;
+  const diffYears = Math.floor(diffDays / 365);
+  if (diffYears === 1) return "1 year ago";
+  return `${diffYears} years ago`;
+}
 ---
 
 <div
@@ -36,28 +52,6 @@ const { cover, title, date, tags, excerpt, url } = Astro.props;
 
   <div class="px-1 flex flex-col gap-4 grow">
     <div class="grow flex flex-col gap-3">
-      <div class="flex justify-between items-center">
-        {
-          date && (
-            <time class=" text-xs">
-              {date.toLocaleDateString("en-us", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </time>
-          )
-        }
-
-        <div class="flex gap-2 flex-wrap">
-          {
-            tags?.map((tag) => (
-              <p class="daisy-badge daisy-badge-ghost daisy-badge-sm">{tag}</p>
-            ))
-          }
-        </div>
-      </div>
-
       <a href={url}>
         <h5
           class="text-xl font-semibold text-base-content hover:opacity-60 transition-all"
@@ -67,6 +61,18 @@ const { cover, title, date, tags, excerpt, url } = Astro.props;
       </a>
 
       {excerpt && <p class="font-normal text-sm line-clamp-3">{excerpt}</p>}
+    </div>
+    <div class="flex items-center gap-2.5">
+      <div class="flex gap-2 flex-wrap">
+        {
+          tags?.map((tag) => (
+            <p class="daisy-badge daisy-badge-ghost text-inherit daisy-badge-sm">
+              {tag}
+            </p>
+          ))
+        }
+      </div>
+      {date && <time class="text-xs">{timeAgo(date)}</time>}
     </div>
   </div>
 </div>

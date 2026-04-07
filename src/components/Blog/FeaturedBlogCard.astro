@@ -20,6 +20,22 @@ interface Props {
 }
 
 const { cover, title, date, tags, excerpt, url } = Astro.props;
+
+function timeAgo(date: Date): string {
+  const now = new Date();
+  const diffDays = Math.floor(
+    (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
+  );
+  if (diffDays === 0) return "today";
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 30) return `${diffDays} days ago`;
+  const diffMonths = Math.floor(diffDays / 30);
+  if (diffMonths === 1) return "1 month ago";
+  if (diffMonths < 12) return `${diffMonths} months ago`;
+  const diffYears = Math.floor(diffDays / 365);
+  if (diffYears === 1) return "1 year ago";
+  return `${diffYears} years ago`;
+}
 ---
 
 <div
@@ -34,17 +50,15 @@ const { cover, title, date, tags, excerpt, url } = Astro.props;
   </a>
 
   <div class="flex flex-col gap-2 justify-center p-6 px-0 max-lg:p-2">
-    {
-      date && (
-        <time class="text-xs">
-          {date.toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </time>
-      )
-    }
+    <div class="flex gap-2 flex-wrap items-center">
+      {
+        tags?.map((tag) => (
+          <span class="daisy-badge daisy-badge-ghost daisy-badge-sm">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
     <div class="flex flex-col gap-4">
       <a href={url}>
         <h3
@@ -56,15 +70,7 @@ const { cover, title, date, tags, excerpt, url } = Astro.props;
 
       {excerpt && <p class="font-normal text-sm line-clamp-4">{excerpt}</p>}
 
-      <div class="flex gap-2 flex-wrap items-center">
-        {
-          tags?.map((tag) => (
-            <span class="daisy-badge daisy-badge-ghost daisy-badge-sm">
-              {tag}
-            </span>
-          ))
-        }
-      </div>
+      {date && <time class="text-xs">{timeAgo(date)}</time>}
     </div>
   </div>
 </div>
