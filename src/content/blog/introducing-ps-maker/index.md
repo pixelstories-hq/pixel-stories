@@ -4,11 +4,12 @@ date: 2026-04-03
 excerpt: "Goodbye old web app, hello new PS Maker Desktop App!"
 author: Truman
 cover:
-  image: ../../assets/images/blog-images/itch-banner.png
+  image: ./itch-banner.png
   alt: The ItchIO Banner
 tags:
   - PS Maker Update
   - 0.21.0
+featured: true
 ---
 
 ## It’s Finally Released!
