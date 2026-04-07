@@ -1,125 +1,136 @@
-:root {
-  --sl-color-accent-low: color-mix(
-    in oklab,
-    var(--color-primary),
-    var(--color-base-100) 82%
-  );
-  --sl-color-accent: var(--color-primary);
-  --sl-color-accent-high: color-mix(in oklab, var(--color-primary), #fff 24%);
-  --sl-color-white: var(--color-base-content);
-  --sl-color-gray-1: color-mix(in oklab, var(--color-base-content), #fff 10%);
-  --sl-color-gray-2: var(--color-base-content);
-  --sl-color-gray-3: color-mix(
-    in oklab,
-    var(--color-base-content),
-    var(--color-base-300) 35%
-  );
-  --sl-color-gray-4: color-mix(
-    in oklab,
-    var(--color-base-content),
-    var(--color-base-300) 50%
-  );
-  --sl-color-gray-5: var(--color-base-300);
-  --sl-color-gray-6: var(--color-base-200);
-  --sl-color-black: var(--color-base-100);
+@layer starlight {
+  :root {
+    --sl-color-accent-low: color-mix(
+      in oklab,
+      var(--color-primary),
+      var(--color-base-100) 82%
+    );
+    --sl-color-accent: var(--color-primary);
+    --sl-color-accent-high: color-mix(in oklab, var(--color-primary), #fff 24%);
+    --sl-color-white: var(--color-base-content);
+    --sl-color-gray-1: color-mix(in oklab, var(--color-base-content), #fff 10%);
+    --sl-color-gray-2: var(--color-base-content);
+    --sl-color-gray-3: color-mix(
+      in oklab,
+      var(--color-base-content),
+      var(--color-base-300) 35%
+    );
+    --sl-color-gray-4: color-mix(
+      in oklab,
+      var(--color-base-content),
+      var(--color-base-300) 50%
+    );
+    --sl-color-gray-5: var(--color-base-300);
+    --sl-color-gray-6: var(--color-base-200);
+    --sl-color-black: var(--color-base-100);
 
-  --sl-color-text: var(--color-base-content);
-  --sl-color-text-accent: var(--color-primary);
-  /* no reason for text invert, just a starlight thing*/
-  --sl-color-text-invert: var(--color-base-content);
+    --sl-color-text: var(--color-base-content);
+    --sl-color-text-accent: var(--color-primary);
+    /* no reason for text invert, just a starlight thing*/
+    --sl-color-text-invert: var(--color-base-content);
 
-  --sl-color-bg: var(--color-base-100);
-  --sl-color-bg-nav: var(--color-base-100);
-  --sl-color-bg-sidebar: var(--color-base-200);
-  --sl-color-bg-inline-code: var(--color-base-200);
-  --sl-color-bg-accent: var(--color-primary);
+    --sl-color-bg: var(--color-base-100);
+    --sl-color-bg-nav: var(--color-base-100);
+    --sl-color-bg-sidebar: var(--color-base-200);
+    --sl-color-bg-inline-code: var(--color-base-200);
+    --sl-color-bg-accent: var(--color-primary);
 
-  --sl-color-hairline-light: var(--color-base-300);
-  --sl-color-hairline: color-mix(
-    in oklab,
-    var(--color-base-300),
-    var(--color-base-100) 30%
-  );
-  --sl-color-hairline-shade: var(--color-base-100);
+    --sl-color-hairline-light: var(--color-base-300);
+    --sl-color-hairline: color-mix(
+      in oklab,
+      var(--color-base-300),
+      var(--color-base-100) 30%
+    );
+    --sl-color-hairline-shade: var(--color-base-100);
 
-  --sl-color-link: var(--color-primary);
-  --sl-color-backdrop-overlay: color-mix(
-    in oklab,
-    var(--color-base-100),
-    transparent 34%
-  );
+    --sl-color-link: var(--color-primary);
+    --sl-color-backdrop-overlay: color-mix(
+      in oklab,
+      var(--color-base-100),
+      transparent 34%
+    );
 
-  --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
-}
+    --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
+  }
 
-:root[data-theme="light"] {
-  --sl-color-accent-low: color-mix(
-    in oklab,
-    var(--color-primary),
-    var(--color-base-100) 86%
-  );
-  --sl-color-accent-high: color-mix(
-    in oklab,
-    var(--color-primary),
-    var(--color-base-content) 45%
-  );
-  --sl-color-text: var(--color-base-content);
-  --sl-color-bg-sidebar: var(--color-base-100);
-  --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 86%);
-}
+  :root[data-theme="light"] {
+    --sl-color-accent-low: color-mix(
+      in oklab,
+      var(--color-primary),
+      var(--color-base-100) 86%
+    );
+    --sl-color-accent-high: color-mix(
+      in oklab,
+      var(--color-primary),
+      var(--color-base-content) 45%
+    );
+    --sl-color-text: var(--color-base-content);
+    --sl-color-bg-sidebar: var(--color-base-100);
+    --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 86%);
+  }
 
-:root[data-theme="light"] .sl-link-button.primary {
-  background: var(--color-primary);
-  color: var(--color-primary-content);
-  font-weight: 500;
-}
+  :root[data-theme="light"] .sl-link-button.primary {
+    background: var(--color-primary);
+    color: var(--color-primary-content);
+    font-weight: 500;
+  }
 
-.sl-markdown-content a:not(:where(.not-content *)) {
-  color: var(--sl-color-link);
-}
+  .sl-markdown-content a:not(:where(.not-content *)) {
+    color: var(--sl-color-link);
+  }
 
-pixel-art {
-  image-rendering: pixelated;
-}
+  pixel-art {
+    image-rendering: pixelated;
+  }
 
-.sl-markdown-content img {
-  height: auto;
-}
+  :where(.sl-markdown-content) img,
+  :where(.sl-markdown-content) video {
+    height: auto;
+    border-radius: 0.5rem;
+    border: 1px var(--color-base-300) solid;
+    transition: all 250ms;
+  }
 
-.sl-markdown-content img:not(:where(.not-content *)) {
-  min-width: 150px;
-  max-height: 65vh;
-  object-fit: contain;
-  width: min-content;
-}
+  :where(.sl-markdown-content) video:hover {
+    transform: scale(1.02);
+  }
 
-:root[data-theme="dark"] .border {
-  border-color: var(--color-base-300);
-}
+  :where(.sl-markdown-content) img:not(:where(.not-content *)),
+  :where(.sl-markdown-content) video:not(:where(.not-content *)) {
+    min-width: 150px;
+    max-height: 65vh;
+    object-fit: contain;
+    width: min-content;
+  }
 
-[data-has-hero] header {
-  border-bottom: 1px solid transparent;
-  background-color: var(--color-base-100);
-}
+  :root[data-theme="dark"] .border {
+    border-color: var(--color-base-300);
+  }
 
-[data-has-hero] .hero > .hero-html,
-[data-has-hero] .hero > img {
-  filter: drop-shadow(0 0 3rem var(--ps-hero-glow));
-}
+  [data-has-hero] header {
+    border-bottom: 1px solid transparent;
+    background-color: var(--color-base-100);
+  }
 
-.social-icons::after {
-  display: none;
-}
+  [data-has-hero] .hero > .hero-html,
+  [data-has-hero] .hero > img {
+    filter: drop-shadow(0 0 3rem var(--ps-hero-glow));
+  }
 
-iframe {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-}
+  .social-icons::after {
+    display: none;
+  }
 
-.header > div.sl-hidden {
-  display: flex;
-}
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
 
-a.daisy-btn {
-  text-decoration: none;
-}
+  .header > div.sl-hidden {
+    display: flex;
+  }
+
+  a.daisy-btn {
+    text-decoration: none;
+  }
+} /* @layer starlight */
