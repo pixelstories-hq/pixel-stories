@@ -5,6 +5,7 @@ import type { StarlightPageProps } from "@astrojs/starlight/props";
 import { Image } from "astro:assets";
 import PlaceholderCover from "../../assets/images/placeholder-cover.png";
 import Metadata from "../../components/Blog/Metadata.astro";
+import Footer from "../../components/Footer/Footer.astro";
 
 export const prerender = true;
 
@@ -46,6 +47,8 @@ const frontmatter = {
 
     <Content />
   </div>
+
+  <Footer />
 
   <script>
     const videos =
