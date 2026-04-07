@@ -1,8 +1,11 @@
 ---
 title: Event System Copy/Paste and Show Image Action
 date: 2026-04-07
-excerpt: ""
+excerpt: "Copy, paste, cut, and select for event system actions, new image actions with tween-like transitions, and a tile extrusion bug fix."
 author: Truman
+cover:
+  image: ./blog-post-thumbnail.png
+  alt: Blog post thumbnail
 tags:
   - PS Maker Update
   - 0.22.0
@@ -10,9 +13,11 @@ tags:
 
 ## Event System Copy, Paste, Cut, and Select
 
-Hey everyone in this update, I'm adding some common operations that we are extremely useful for event system actions. The problem that arises with the event system right now is once you add a number of actions to an event there's no really easy way to move them around. Safe for example you wanted to move your actions from one event to the other. You would literally have to add the actions each of those actions individually to the new place that you'd like them and then remove all of those actions from the old place that was just a huge painful process because if you wanted to edit your story then it would takes ages to do that simple task.
+Hey everyone, in this update I'm adding some common operations that are extremely useful for event system actions.
 
-So the solution to this is basically treating actions as items that you can select and copy paste to move them around. What does is basically copy the action and all of the properties and configuration that you set for the action then paste it exactly into another spot. Right now it doesn't really do anything intelligent such as detecting whether an MPC that you spawn in earlier still exist at the new spot if the MPC doesn't exist anymore then the action simply won't work so you'll have to watch out for that yourself.
+The problem with the event system right now is that once you add a number of actions to an event, there's no easy way to move them around. Say for example you wanted to move your actions from one event to another. You would have to add each of those actions individually to the new place and then remove them all from the old place... Just a huge painful process if you wanted to edit your story.
+
+So the solution is basically treating actions as items that you can select and copy paste to move them around. This copies the action and all of its properties and configuration, then pastes it exactly into another spot. Right now it doesn't do anything intelligent like detecting whether an NPC that you spawned earlier still exists at the new spot. If the NPC doesn't exist anymore then the action simply won't work, so you'll have to watch out for that yourself.
 
 <video src="/blog/release-0_22_0/copy-paste.webm" class="auto-video" loop muted playsinline></video>
 
@@ -30,7 +35,7 @@ What's cool about these image actions is that you can show an image, then set th
 
 ## Fixed Tile Extrusion Bug
 
-There was a bug where tilesets had the classic 2D rendering pixel art line bleeding. This one was fixed by adding tile extrusion to the tileset pipeline. So thats nice!
+There was a bug where tilesets had the classic 2D rendering pixel art line bleeding. This was fixed by adding tile extrusion to the tileset pipeline. So that's nice!
 
 | Before                                 | After                                  |
 | -------------------------------------- | -------------------------------------- |
