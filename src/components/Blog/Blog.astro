@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import BlogCard from "./BlogCard.astro";
 import { getCollection } from "astro:content";
 
@@ -7,50 +6,17 @@ import { getCollection } from "astro:content";
 // Requires the name of the collection as an argument.
 // Example: retrieve `src/content/blog/**`
 const posts = await getCollection("blog");
-
-const featured = posts.filter((p) => p.data.featured);
-const latest = posts.filter((p) => !p.data.featured);
 ---
 
 <div class="not-content flex flex-col gap-14 mt-6 min-h-[70vh]">
-  {
-    !!featured.length && (
-      <div class="flex flex-col gap-8">
-        <h1 class="font-medium text-3xl">Pixel Stories News</h1>
-        <div
-          class="grid gap-6
-    grid-cols-2 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:justify-center"
-        >
-          {featured
-            .sort(
-              (a, b) =>
-                new Date(b.data.date ?? "1970-01-01").getTime() -
-                new Date(a.data.date ?? "1970-01-01").getTime(),
-            )
-            .map((post) => (
-              <BlogCard
-                cover={post.data.cover}
-                title={post.data.title}
-                date={post.data.date}
-                excerpt={post.data.excerpt}
-                tags={post.data.tags}
-                url={"/blog/" + post.id}
-                largeCover
-              />
-            ))}
-        </div>
-      </div>
-    )
-  }
-
   <div class="flex flex-col gap-2">
     <h2 class="font-medium">Latest posts</h2>
     <div
-      class="grid gap-6
+      class="grid gap-x-6 gap-y-10
     grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:justify-center"
     >
       {
-        latest
+        posts
           .sort(
             (a, b) =>
               new Date(b.data.date ?? "1970-01-01").getTime() -
