@@ -7,7 +7,7 @@ cover:
   image: ../../assets/images/web-export-standalone-builds.png
   alt: Screenshot showcasing the new web export and standalone build features
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 # Standalone Game Web Export

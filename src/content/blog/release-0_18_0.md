@@ -4,7 +4,7 @@ date: 2025-09-27
 excerpt: Release 0.18.0 introduces an in-game settings menu, PS Maker audio management, and touch controls so players play on mobile.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 Pixel Stories 0.18.0 gives both creators and players more ways to play their stories. Open the new in-game settings panel to see sound volume settings and controls, manage audio tracks directly inside PS Maker, and bring your adventures to mobile with touch-friendly controls.

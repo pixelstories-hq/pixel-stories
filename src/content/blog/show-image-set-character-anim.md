@@ -7,7 +7,7 @@ cover:
   image: ../../assets/images/new-events.png
   alt: Preview of new events for showing images and setting character animations
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 # New Events: Show Image and Set Character Animation

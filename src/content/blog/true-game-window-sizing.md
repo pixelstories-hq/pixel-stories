@@ -7,7 +7,7 @@ cover:
   image: ../../assets/images/true-game-window-sizing-1.png
   alt: Game scaling and responsiveness update preview
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 # True Game Window Sizing!

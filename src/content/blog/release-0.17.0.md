@@ -4,7 +4,7 @@ date: 2025-09-11
 excerpt: This update revamps the event workflow with a new add event modal, separates event groups from map events, and fixes many map editor issues.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ## Streamlined Event Workflow and Map Editor Fixes
@@ -38,4 +38,3 @@ Pixel Stories 0.17.0 introduces a redesigned add event modal organized by event 
 - [Game] Fixed game restart not keeping active map after restarting
 - [Asset library] Fixed asset library access for guest users
 - [Game] Fixed long loading times for projects with a lot of assets during game restart
-

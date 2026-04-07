@@ -4,7 +4,7 @@ date: 2025-02-26
 excerpt: Improvements in routing, side panel usability, project switching, and editor behavior for a more smoother experience.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 # Misc User Experience Improvements
