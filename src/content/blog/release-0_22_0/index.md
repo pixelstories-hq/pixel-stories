@@ -42,3 +42,11 @@ There was a bug where tilesets had the classic 2D rendering pixel art line bleed
 | ![Showing tile extrusion](image-1.png) | ![Showing tile extrusion](image-2.png) |
 
 See changelog for [PS Maker v0.21.0](/changelog#0220).
+
+## Website Blog Page Refresh!
+
+In addition to the PS Maker updates, I also refreshed the website's blog page UI/design! A well needed breath of fresh air to the old and ugly page from before.
+
+![blog refresh](blog-refresh.png)
+
+Thank you everyone for the continued support!
