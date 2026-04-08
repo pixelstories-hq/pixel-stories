@@ -15,13 +15,13 @@ interface GitHubRelease {
 
 export const GET: APIRoute = async ({ request }) => {
   try {
-    const updateToken = request.headers.get("X-PS-Update-Token");
-    if (!updateToken || updateToken !== import.meta.env.PS_UPDATE_TOKEN) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+    // const updateToken = request.headers.get("X-PS-Update-Token");
+    // if (!updateToken || updateToken !== import.meta.env.PS_UPDATE_TOKEN) {
+    //   return new Response(JSON.stringify({ error: "Unauthorized" }), {
+    //     status: 401,
+    //     headers: { "Content-Type": "application/json" },
+    //   });
+    // }
 
     const token = import.meta.env.GITHUB_TOKEN;
 

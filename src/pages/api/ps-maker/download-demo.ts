@@ -1,12 +1,12 @@
 import type { APIRoute } from "astro";
 
 const REPO = "pixelstories-hq/ps-maker-app";
-const DEMO_TAG = "v0.21.6-demo";
+const DEMO_TAG = "v0.22.1-demo";
 
 const DEMO_FILENAMES = {
-  linux: "PS.Maker.Demo_0.21.6_amd64.deb",
-  mac: "PS.Maker.Demo_0.21.6_universal.dmg",
-  windows: "PS.Maker.Demo_0.21.6_x64-setup.exe",
+  linux: "PS.Maker.Demo_0.22.1_amd64.deb",
+  mac: "PS.Maker.Demo_0.22.1_universal.dmg",
+  windows: "PS.Maker.Demo_0.22.1_x64-setup.exe",
 } as const;
 
 type Platform = keyof typeof DEMO_FILENAMES;
@@ -18,7 +18,9 @@ export const GET: APIRoute = async ({ request }) => {
 
     if (!platform || !(platform in DEMO_FILENAMES)) {
       return new Response(
-        JSON.stringify({ error: "Invalid or missing platform. Use: mac, linux, windows" }),
+        JSON.stringify({
+          error: "Invalid or missing platform. Use: mac, linux, windows",
+        }),
         { status: 400, headers: { "Content-Type": "application/json" } },
       );
     }
@@ -36,14 +38,16 @@ export const GET: APIRoute = async ({ request }) => {
       },
     );
     if (!releaseRes.ok) {
-      return new Response(
-        JSON.stringify({ error: "Demo release not found" }),
-        { status: 404, headers: { "Content-Type": "application/json" } },
-      );
+      return new Response(JSON.stringify({ error: "Demo release not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     const release = await releaseRes.json();
-    const asset = release.assets.find((a: { name: string }) => a.name === filename);
+    const asset = release.assets.find(
+      (a: { name: string }) => a.name === filename,
+    );
     if (!asset) {
       return new Response(
         JSON.stringify({ error: "Asset not found for platform" }),

@@ -1,0 +1,86 @@
+---
+interface Props {
+  src: string;
+  class?: string;
+}
+
+const { src, class: className, ...attrs } = Astro.props;
+---
+
+<div class="video-wrapper">
+  <video
+    src={src}
+    class:list={["auto-video", className]}
+    loop
+    muted
+    playsinline
+    {...attrs}></video>
+  <div class="play-icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="80px"
+      viewBox="0 -960 960 960"
+      width="80px"
+      fill="currentColor"
+    >
+      <path
+        d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .video-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    color: white;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<script>
+  // astro dedups script block
+  document
+    .querySelectorAll<HTMLDivElement>(".video-wrapper")
+    .forEach((wrapper) => {
+      const video = wrapper.querySelector<HTMLVideoElement>("video")!;
+      const icon = wrapper.querySelector<HTMLDivElement>(".play-icon")!;
+      const isMobile = window.matchMedia("(hover: none)").matches;
+
+      if (!isMobile) {
+        wrapper.addEventListener("mouseenter", () => {
+          video.play();
+          icon.style.opacity = "0";
+        });
+        wrapper.addEventListener("mouseleave", () => {
+          video.pause();
+          icon.style.opacity = "0.9";
+        });
+      } else {
+        icon.style.opacity = "0";
+        new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          },
+          { threshold: 0.5 },
+        ).observe(video);
+      }
+    });
+</script>
