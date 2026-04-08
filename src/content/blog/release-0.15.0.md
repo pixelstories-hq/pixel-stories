@@ -4,7 +4,7 @@ date: 2025-07-08
 excerpt: This update adds a full inventory system with UI and events, plus important fixes to the editor and game.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ## Introducing Inventory System

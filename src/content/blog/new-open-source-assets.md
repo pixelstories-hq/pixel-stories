@@ -7,7 +7,7 @@ cover:
   image: ../../assets/images/new-open-source-assets-1.png
   alt: Asset management update preview
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 # New Free and Open Source Assets!

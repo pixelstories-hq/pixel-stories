@@ -4,7 +4,7 @@ date: 2025-10-18
 excerpt: Pixel Stories 0.20.0 introduces an onboarding tour, refreshed animation events, and new camera effects to help you build richer scenes faster.
 author: truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 Pixel Stories 0.20.0 focuses on smoothing out the first moments in the editor and giving storytellers richer tools for motion and atmosphere.

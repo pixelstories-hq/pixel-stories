@@ -4,7 +4,7 @@ date: 2025-07-17
 excerpt: This release introduces new NPC chase and patrol mechanics along with a way to tie event triggers to an NPC's position.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ## New NPC Chase Player and Patrol Events

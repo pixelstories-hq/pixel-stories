@@ -4,7 +4,7 @@ date: 2025-10-04
 excerpt: Release 0.19.0 unlocks fully customizable dialog layouts, introduces camera shake and movement events, and adds new controls to the in-game settings menu.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 Pixel Stories 0.19.0 is all about staging your cutscenes exactly the way you imagined. Dialog events now support layouts so you can place the text box, name box, and character portrait anywhere on the screen and tune details. We also shipped new events for stopping player movement and camera related events. Finally, the in-game settings menu gets an update with quick share and fullscreen buttons.

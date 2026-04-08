@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import PlaceholderCover from "../../assets/images/placeholder-cover.png";
+
+interface Props {
+  cover?: {
+    alt: string;
+    image: {
+      src: string;
+      width: number;
+      height: number;
+      format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+    };
+  };
+  title: string;
+  date?: Date;
+  excerpt?: string;
+  tags?: string[];
+  url: string;
+}
+
+const { cover, title, date, tags, excerpt, url } = Astro.props;
+
+function timeAgo(date: Date): string {
+  const now = new Date();
+  const diffDays = Math.floor(
+    (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
+  );
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 30) return `${diffDays} days ago`;
+  const diffMonths = Math.floor(diffDays / 30);
+  if (diffMonths === 1) return "1 month ago";
+  if (diffMonths < 12) return `${diffMonths} months ago`;
+  const diffYears = Math.floor(diffDays / 365);
+  if (diffYears === 1) return "1 year ago";
+  return `${diffYears} years ago`;
+}
+---
+
+<div
+  class="not-content w-full bg-base-100 text-base-content flex flex-row max-md:flex-col gap-x-6 overflow-hidden"
+>
+  <a href={url} class="md:w-1/2 shrink-0">
+    <Image
+      class="not-content !h-full w-full object-cover aspect-video hover:brightness-110 transition-all border border-base-300 rounded-xl"
+      src={cover?.image || PlaceholderCover}
+      alt={cover?.alt || "Placeholder cover"}
+    />
+  </a>
+
+  <div class="flex flex-col gap-2 justify-start p-6 px-0 max-lg:p-2">
+    <div class="flex gap-2 flex-wrap items-center">
+      {
+        tags?.map((tag) => (
+          <span class="daisy-badge daisy-badge-ghost daisy-badge-sm">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+    <div class="flex flex-col gap-2">
+      <a href={url}>
+        <h3
+          class="text-2xl font-semibold text-base-content hover:opacity-60 transition-all"
+        >
+          {title}
+        </h3>
+      </a>
+
+      {excerpt && <p class="font-normal text-sm line-clamp-4">{excerpt}</p>}
+    </div>
+    {date && <time class="text-xs mt-1">{timeAgo(date)}</time>}
+  </div>
+</div>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>

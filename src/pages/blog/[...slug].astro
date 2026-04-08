@@ -5,6 +5,7 @@ import type { StarlightPageProps } from "@astrojs/starlight/props";
 import { Image } from "astro:assets";
 import PlaceholderCover from "../../assets/images/placeholder-cover.png";
 import Metadata from "../../components/Blog/Metadata.astro";
+import Footer from "../../components/Footer/Footer.astro";
 
 export const prerender = true;
 
@@ -27,26 +28,71 @@ const frontmatter = {
 
 <StarlightPage {frontmatter} hasSidebar={false}>
   <div class="max-w-[800px]">
-    <div class="not-content flex flex-col gap-6 w-full -mt-4">
-      {
-        entry.data.excerpt && (
-          <p class="font-medium opacity-80">{entry.data.excerpt}</p>
-        )
-      }
-
-      <Metadata date={entry.data.date} author={entry.data.author} />
-
+    <div class="not-content flex flex-col gap-4 w-full">
       {
         entry.data && (
           <Image
-            class="not-content rounded-3xl max-w-full w-max h-max max-h-[500px] object-contain"
+            class="not-content rounded-xl max-w-full w-max max-h-[500px] object-contain"
             src={entry.data.cover?.image || PlaceholderCover}
             alt={entry.data.cover?.alt || "Placeholder cover"}
           />
         )
       }
+      <div class="flex flex-col gap-4 px-1.5">
+        {entry.data.excerpt && <p class="">{entry.data.excerpt}</p>}
+        <Metadata date={entry.data.date} author={entry.data.author} />
+      </div>
+      <div class="w-full h-px bg-base-content opacity-10 mt-2"></div>
     </div>
 
     <Content />
   </div>
+
+  <Footer />
+
+  <script>
+    const videos =
+      document.querySelectorAll<HTMLVideoElement>("video.auto-video");
+    const isMobile = window.matchMedia("(hover: none)").matches;
+
+    if (!isMobile) {
+      videos.forEach((video) => {
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+        wrapper.style.display = "inline-block";
+        video.parentNode!.insertBefore(wrapper, video);
+        wrapper.appendChild(video);
+
+        const icon = document.createElement("div");
+        icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="80px" viewBox="0 -960 960 960" width="80px" fill="currentColor"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>`;
+        icon.style.cssText =
+          "position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;color:white;opacity:0.9;transition:opacity 0.2s;margin:0;margin-bottom:1rem;";
+        wrapper.appendChild(icon);
+
+        wrapper.addEventListener("mouseenter", () => {
+          video.play();
+          icon.style.opacity = "0";
+        });
+        wrapper.addEventListener("mouseleave", () => {
+          video.pause();
+          icon.style.opacity = "0.9";
+        });
+      });
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target as HTMLVideoElement;
+            if (entry.isIntersecting) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      videos.forEach((video) => observer.observe(video));
+    }
+  </script>
 </StarlightPage>

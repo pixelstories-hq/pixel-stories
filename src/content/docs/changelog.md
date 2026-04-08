@@ -3,6 +3,24 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+## 0.22.0
+
+**April 8, 2026** ([Release notes](/blog/release-0_22_0))
+
+- Add copy, paste, cut, and select for event system actions, including support for keyboard shortcuts.
+- Add show image, move image, and set image actions.
+- Add transitions to set image properties.
+- Add image asset type to project assets.
+- Fix tileset bleeding by adding integrated tile extrusion.
+- Add news list to app.
+
+## 0.21.0
+
+**April 4, 2026** ([Release notes](/blog/introducing-ps-maker))
+
+- Added PS Maker Desktop app
+- Overhauled the event system and project asset system, consolidating event system actions, input UI, and enabling plugin support.
+
 ## 0.20.0
 
 **October 18, 2025** ([Release notes](https://pixelstories.io/blog/release-0_20_0))

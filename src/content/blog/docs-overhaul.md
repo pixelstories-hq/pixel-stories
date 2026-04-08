@@ -4,7 +4,7 @@ date: 2025-09-11
 excerpt: We’ve rolled out a big update to the Pixel Stories docs, making it simpler to learn and start creating your story-driven games.
 author: Truman
 tags:
-  - DOCS UPDATE
+  - Docs Update
 ---
 
 # New Documentation Update

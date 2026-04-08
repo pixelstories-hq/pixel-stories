@@ -4,7 +4,7 @@ date: 2025-05-01
 excerpt: This update improves polish and usability across the board. More intuitive defaults, better error handling, and cleaner editing.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ### Smoother Setup, Smarter Defaults, and a Cleaner Editor

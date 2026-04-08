@@ -1,0 +1,70 @@
+---
+interface ChangelogEntry {
+  version: string;
+  date: Date;
+}
+
+// Parse changelog entries from the markdown file
+const changelogFile = await Astro.glob("../../content/docs/changelog.md");
+const rawContent = changelogFile[0]?.rawContent?.() ?? "";
+
+const entries: ChangelogEntry[] = [];
+const versionRegex = /^## (\d+\.\d+\.\d+)\s*\n+\*\*(.+?)\*\*/gm;
+let match;
+while ((match = versionRegex.exec(rawContent)) !== null) {
+  const version = match[1];
+  const dateStr = match[2];
+  const date = new Date(dateStr);
+  if (!isNaN(date.getTime())) {
+    entries.push({ version, date });
+  }
+}
+
+// Sort by date descending and take latest entries
+entries.sort((a, b) => b.date.getTime() - a.date.getTime());
+const latestEntries = entries.slice(0, 6);
+---
+
+<div class="not-content flex flex-col gap-3 max-lg:px-2 mr-4">
+  <div class="flex flex-col gap-1">
+    <span class="text-xs">PS Maker</span>
+    <a
+      href="/changelog"
+      class="flex flex-col gap-1 hover:opacity-60 transition-all text-base-content"
+    >
+      <h3 class="font-medium text-base-content">Changelog</h3>
+    </a>
+  </div>
+  <ul class="flex flex-col gap-2 max-lg:flex-row flex-wrap">
+    {
+      latestEntries.map((entry, i) => (
+        <li>
+          <a
+            href={`/changelog#${entry.version.replaceAll(".", "")}`}
+            class="text-sm text-base-content hover:opacity-60 transition-all flex justify-between gap-2 items-center"
+          >
+            <div class="flex items-center gap-2">
+              <span>v{entry.version}</span>
+              {i === 0 && (
+                <div class="daisy-badge daisy-badge-xs daisy-badge-outline mr-2">
+                  Latest
+                </div>
+              )}
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+</style>

@@ -4,7 +4,7 @@ date: 2025-05-25
 excerpt: This update brings two big changes to help you build games more reliably and make it easier for new creators to get started.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ## Guest Mode: Start Creating Instantly

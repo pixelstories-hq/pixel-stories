@@ -4,7 +4,7 @@ date: 2025-07-02
 excerpt: This update ships a revamped asset library and starter asset pack, plus improvements to tilesets and editor usability.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ## Better Base Asset Pack to get Started

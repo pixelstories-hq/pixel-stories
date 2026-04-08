@@ -4,7 +4,7 @@ date: 2025-04-11
 excerpt: With the new Run Code event, you can now write custom JavaScript to control game objects, the camera, scene behavior, and more, right from within your events.
 author: Truman
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 ### Run Custom Code at Any Point in Your Game

@@ -7,7 +7,7 @@ cover:
   image: ../../assets/images/new-terrain-thumbnail.png
   alt: A terrain in Pixel Stories
 tags:
-  - GAME MAKER UPDATE
+  - PS Maker Update
 ---
 
 # Improved Terrain Creation and Map Editing

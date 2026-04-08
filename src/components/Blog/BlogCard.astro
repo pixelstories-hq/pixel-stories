@@ -18,54 +18,61 @@ interface Props {
   excerpt?: string;
   tags?: string[];
   url: string;
-
-  largeCover?: boolean;
 }
 
-const { cover, title, date, tags, excerpt, url, largeCover } = Astro.props;
+const { cover, title, date, tags, excerpt, url } = Astro.props;
+
+function timeAgo(date: Date): string {
+  const now = new Date();
+  const diffDays = Math.floor(
+    (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
+  );
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 30) return `${diffDays} days ago`;
+  const diffMonths = Math.floor(diffDays / 30);
+  if (diffMonths === 1) return "1 month ago";
+  if (diffMonths < 12) return `${diffMonths} months ago`;
+  const diffYears = Math.floor(diffDays / 365);
+  if (diffYears === 1) return "1 year ago";
+  return `${diffYears} years ago`;
+}
 ---
 
 <div
-  class="not-content h-full w-full max-w-xl rounded-lg border border-base-300 bg-base-100 text-base-content shadow-lg"
+  class="not-content h-full w-full max-w-xl bg-base-100 text-base-content flex flex-col gap-3"
 >
   <a href={url}>
     <Image
-      class="not-content rounded-t-lg max-w-full w-full h-[200px] object-cover"
-      class:list={[{ "h-[350px]": largeCover }]}
+      class="not-content rounded-lg border border-base-300 !h-full max-h-[200px] max-w-full w-full object-cover aspect-video hover:brightness-110 transition-all"
       src={cover?.image || PlaceholderCover}
       alt={cover?.alt || "Placeholder cover"}
     />
   </a>
 
-  <div class="p-5">
-    <a href={url}>
-      <h5 class="mb-2 text-2xl font-bold text-base-content hover:opacity-70">
-        {title}
-      </h5>
-    </a>
+  <div class="px-1 flex flex-col gap-4 grow">
+    <div class="grow flex flex-col gap-2">
+      <a href={url}>
+        <h5
+          class="text-xl font-semibold text-base-content hover:opacity-60 transition-all"
+        >
+          {title}
+        </h5>
+      </a>
 
-    {
-      date && (
-        <time class="font-mono text-sm mb-1">
-          {date.toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </time>
-      )
-    }
-
-    {excerpt && <p class="font-normal mb-3 line-clamp-4">{excerpt}</p>}
-
-    <div class="flex gap-2 flex-wrap">
-      {
-        tags?.map((tag) => (
-          <p class="w-max rounded-lg border border-base-300 p-1 px-2 text-xs text-base-content/80">
-            {tag}
-          </p>
-        ))
-      }
+      {excerpt && <p class="font-normal text-sm line-clamp-3">{excerpt}</p>}
+    </div>
+    <div class="flex items-center gap-2.5">
+      <div class="flex gap-2 flex-wrap">
+        {
+          tags?.map((tag) => (
+            <p class="daisy-badge daisy-badge-ghost text-inherit daisy-badge-sm">
+              {tag}
+            </p>
+          ))
+        }
+      </div>
+      {date && <time class="text-xs">{timeAgo(date)}</time>}
     </div>
   </div>
 </div>
