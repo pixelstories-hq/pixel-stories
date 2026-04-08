@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Converts video files in src/content/ to compressed web-friendly formats.
+# Converts video files in src/content/ to compressed mp4 format.
 # Requires: ffmpeg (brew install ffmpeg)
 #
 # Usage:
@@ -10,7 +10,7 @@
 set -euo pipefail
 
 CONTENT_DIR="src/content"
-VIDEO_EXTENSIONS=("mov" "avi" "mkv" "wmv" "flv")
+VIDEO_EXTENSIONS=("mov" "avi" "mkv" "wmv" "flv" "webm")
 DRY_RUN=false
 
 if [[ "${1:-}" == "--dry-run" ]]; then
@@ -37,7 +37,7 @@ convert_file() {
   dir=$(dirname "$file")
   basename=$(basename "$file")
   name="${basename%.*}"
-  output="${dir}/${name}.webm"
+  output="${dir}/${name}.mp4"
 
   # Skip if webm already exists and is newer than the source
   if [[ -f "$output" && "$output" -nt "$file" ]]; then
@@ -48,10 +48,12 @@ convert_file() {
   echo "CONVERTING: $file -> $output"
 
   ffmpeg -i "$file" \
-    -c:v libvpx-vp9 \
-    -crf 35 \
-    -b:v 0 \
-    -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
+    -c:v libx264 \
+    -crf 30 \
+    -preset veryslow \
+    -vf "scale='min(1920,iw)':'-2':flags=lanczos" \
+    -pix_fmt yuv420p \
+    -movflags +faststart \
     -an \
     -y \
     "$output" 2>/dev/null
@@ -77,7 +79,7 @@ if $DRY_RUN; then
   for file in "${files[@]}"; do
     dir=$(dirname "$file")
     name="$(basename "${file%.*}")"
-    output="${dir}/${name}.webm"
+    output="${dir}/${name}.mp4"
     if [[ -f "$output" && "$output" -nt "$file" ]]; then
       echo "SKIP (up-to-date): $output"
     else
