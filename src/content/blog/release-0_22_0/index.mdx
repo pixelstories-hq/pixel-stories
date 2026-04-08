@@ -11,6 +11,10 @@ tags:
   - 0.22.0
 ---
 
+import Video from "../../../components/Video.astro";
+import copyPaste from "./copy-paste.webm";
+import imageAction from "./image-action.webm";
+
 ## Event System Copy, Paste, Cut, and Select
 
 Hey everyone, in this update I'm adding some common operations that are extremely useful for event system actions.
@@ -19,7 +23,7 @@ The problem with the event system right now is that once you add a number of act
 
 So the solution is basically treating actions as items that you can select and copy paste to move them around. This copies the action and all of its properties and configuration, then pastes it exactly into another spot. Right now it doesn't do anything intelligent like detecting whether an NPC that you spawned earlier still exists at the new spot. If the NPC doesn't exist anymore then the action simply won't work, so you'll have to watch out for that yourself.
 
-<video src="/blog/release-0_22_0/copy-paste.webm" class="auto-video" loop muted playsinline></video>
+<Video src={copyPaste} />
 
 ## Show Image Actions
 
@@ -31,7 +35,7 @@ Along with this update, I'm also adding new image actions. They are the followin
 
 What's cool about these image actions is that you can show an image, then set the properties on that image with a transition, so it acts like a tween effect.
 
-<video src="/blog/release-0_22_0/image-action.webm" class="auto-video" loop muted playsinline></video>
+<Video src={imageAction} />
 
 ## Fixed Tile Extrusion Bug
 
