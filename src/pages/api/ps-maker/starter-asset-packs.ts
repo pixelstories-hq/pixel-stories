@@ -8,7 +8,7 @@ export interface AssetPack {
 }
 
 export interface StarterAssetPacksResponse {
-  starterAssets: AssetPack[];
+  assetPacks: AssetPack[];
 }
 
 const starterAssetsPacks: AssetPack[] = [
@@ -24,7 +24,7 @@ const starterAssetsPacks: AssetPack[] = [
 
 export const GET: APIRoute = async () => {
   const response: StarterAssetPacksResponse = {
-    starterAssets: starterAssetsPacks,
+    assetPacks: starterAssetsPacks,
   };
 
   return new Response(JSON.stringify(response), {
