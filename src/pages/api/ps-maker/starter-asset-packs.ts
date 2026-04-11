@@ -11,7 +11,7 @@ export interface StarterAssetPacksResponse {
   assetPacks: AssetPack[];
 }
 
-const starterAssetsPacks: AssetPack[] = [
+const starterAssetPacks: AssetPack[] = [
   {
     name: "Mushroom Village",
     author: "NettySvit",
@@ -22,13 +22,30 @@ const starterAssetsPacks: AssetPack[] = [
   },
 ];
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "86400",
+};
+
+export const OPTIONS: APIRoute = async () =>
+  new Response(null, {
+    status: 204,
+    headers: CORS_HEADERS,
+  });
+
 export const GET: APIRoute = async () => {
   const response: StarterAssetPacksResponse = {
-    assetPacks: starterAssetsPacks,
+    assetPacks: starterAssetPacks,
   };
 
   return new Response(JSON.stringify(response), {
     status: 200,
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "public, max-age=300, s-maxage=3600",
+      ...CORS_HEADERS,
+    },
   });
 };
