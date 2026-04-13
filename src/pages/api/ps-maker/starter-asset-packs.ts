@@ -34,7 +34,7 @@ const starterAssetPacks: AssetPack[] = [
     thumbnail:
       "https://cdn.pixelstories.io/ps-maker-asset-packs/thumbnails/0_MushroomVillage_cover1.png",
     packFile:
-      "https://cdn.pixelstories.io/ps-maker-asset-packs/packs/topdown-zelda-like-pro-version.pspack.pspack",
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/packs/topdown-zelda-like-pro-version.pspack",
   },
   {
     name: "Calciumtrice Pack",
