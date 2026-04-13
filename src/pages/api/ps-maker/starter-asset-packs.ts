@@ -20,6 +20,30 @@ const starterAssetPacks: AssetPack[] = [
     packFile:
       "https://cdn.pixelstories.io/ps-maker-asset-packs/packs/mushroom-village.pspack",
   },
+  {
+    name: "16x16 Assets by George_",
+    author: "George_",
+    thumbnail:
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/thumbnails/0_MushroomVillage_cover1.png",
+    packFile:
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/packs/16x16-game-assets-by-george_.pspack",
+  },
+  {
+    name: "TopDown Zelda Like Pro Version",
+    author: "Ritpop",
+    thumbnail:
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/thumbnails/0_MushroomVillage_cover1.png",
+    packFile:
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/packs/topdown-zelda-like-pro-version.pspack.pspack",
+  },
+  {
+    name: "Calciumtrice Pack",
+    author: "Calciumtrice",
+    thumbnail:
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/thumbnails/0_MushroomVillage_cover1.png",
+    packFile:
+      "https://cdn.pixelstories.io/ps-maker-asset-packs/packs/calciumtrice.pspack",
+  },
 ];
 
 const CORS_HEADERS = {
