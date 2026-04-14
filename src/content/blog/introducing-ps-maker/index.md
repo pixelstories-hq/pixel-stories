@@ -9,7 +9,6 @@ cover:
 tags:
   - PS Maker Update
   - 0.21.0
-featured: true
 ---
 
 ## It’s Finally Released!
