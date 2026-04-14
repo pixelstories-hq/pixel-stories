@@ -8,7 +8,7 @@ cover:
   alt: The ItchIO Banner
 tags:
   - PS Maker Update
-  - 0.21.0
+  - "0.21"
 ---
 
 ## It’s Finally Released!
