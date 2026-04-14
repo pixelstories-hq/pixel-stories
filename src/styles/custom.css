@@ -43,7 +43,7 @@
     );
     --sl-color-hairline-shade: var(--color-base-100);
 
-    --sl-color-link: var(--color-primary);
+    --sl-color-link: color-mix(in oklab, var(--color-primary), #313131 15%);
     --sl-color-backdrop-overlay: color-mix(
       in oklab,
       var(--color-base-100),
