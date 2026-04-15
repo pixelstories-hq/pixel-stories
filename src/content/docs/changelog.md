@@ -3,6 +3,17 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+## 0.23.0
+
+**April 13, 2026** ([Release notes](/blog/release-0_23_0))
+
+- Added PS Asset Pack Maker, a tool to help create PS Maker asset packs. Packs are exported as `.pspack` files which are integrated with PS Maker.
+- Added asset pack import modal that consumes `.pspack` files. Allows user to import entire pack or parts of a pack.
+- Added 4 starter asset packs, made using PS Asset Pack Maker.
+- Fixed broken help manual link.
+- Fixed collision visibility toggle button disabled state.
+- Fixed animated map objects not showing animation preview.
+
 ## 0.22.0
 
 **April 8, 2026** ([Release notes](/blog/release-0_22_0))
