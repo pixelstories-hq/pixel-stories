@@ -1,12 +1,12 @@
 import type { APIRoute } from "astro";
 
 const REPO = "pixelstories-hq/ps-maker-app";
-const DEMO_TAG = "v0.22.2-demo";
+const DEMO_TAG = "v0.24.0-demo";
 
 const DEMO_FILENAMES = {
-  linux: "PS.Maker.Demo_0.22.2_amd64.deb",
-  mac: "PS.Maker.Demo_0.22.2_universal.dmg",
-  windows: "PS.Maker.Demo_0.22.2_x64-setup.exe",
+  linux: "PS.Maker.Demo_0.24.0_amd64.deb",
+  mac: "PS.Maker.Demo_0.24.0_universal.dmg",
+  windows: "PS.Maker.Demo_0.24.0_x64-setup.exe",
 } as const;
 
 type Platform = keyof typeof DEMO_FILENAMES;
