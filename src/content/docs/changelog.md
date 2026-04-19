@@ -3,6 +3,15 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+## 0.24.1
+
+**April 19, 2026**
+
+- Fixed tileset grid height changing when zooming in or out tileset.
+- Fixed mouse select and drag annoying highlighting entire UI overlay.
+- Fixed not being able to draw in parts of canvas due to overlay container.
+- Added map editor NPC and player previews to face direction based on map actions.
+
 ## 0.24.0
 
 **April 18, 2026** ([Release notes](/blog/release-0_24))
