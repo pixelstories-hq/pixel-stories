@@ -3,9 +3,16 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+## 0.24.0
+
+**April 18, 2026** ([Release notes](/blog/release-0_24))
+
+- Added map editor UI/UX overhaul, including removing the side panel for cards that conditionally appear based on the context.
+- Consolidated map tools, including unifying tile drawing tools and shape select.
+
 ## 0.23.0
 
-**April 13, 2026** ([Release notes](/blog/release-0_23_0))
+**April 13, 2026** ([Release notes](/blog/release-0_23))
 
 - Added PS Asset Pack Maker, a tool to help create PS Maker asset packs. Packs are exported as `.pspack` files which are integrated with PS Maker.
 - Added asset pack import modal that consumes `.pspack` files. Allows user to import entire pack or parts of a pack.
