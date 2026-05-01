@@ -3,9 +3,13 @@ import Footer from "./Footer/Footer.astro";
 import img from "../assets/images/dead-friend-horror.png";
 import Image from "astro/components/Image.astro";
 import logo from "../../public/logo-icon.png";
-import appScreenshot from "../assets/images/friend-leaves-event.png";
-import appScreenshotDark from "../assets/images/friend-leaves-event-dark.png";
 import DownloadModal from "./DownloadModal.astro";
+import Video from "./Video.astro";
+import mapEditorVideo from "../assets/images/home-page/map-editor.mp4";
+import eventsVideo from "../assets/images/home-page/editing-event.mp4";
+import playTestVideo from "../assets/images/home-page/play-test.mp4";
+import actionsScreenshot from "../assets/images/home-page/actions.png";
+import assetsScreenshot from "../assets/images/home-page/assets.png";
 ---
 
 <main
@@ -36,16 +40,56 @@ import DownloadModal from "./DownloadModal.astro";
     </div>
   </section>
 
-  <section class="flex flex-col items-center justify-center">
-    <Image
-      class="theme-screenshot theme-screenshot-light w-full rounded-xl border border-base-300 bg-base-100"
-      src={appScreenshot}
-      alt="App screenshot"
+  <iframe
+    src="https://itch.io/embed/4434961?linkback=true"
+    width="552"
+    height="167"
+  >
+  </iframe>
+
+  <section class="flex flex-col items-center justify-center gap-3">
+    <p class="text-3xl font-semibold">2D Top-down Map Editor</p>
+    <Video
+      src={mapEditorVideo}
+      class="w-full rounded-xl border border-base-300 bg-base-100"
     />
+  </section>
+
+  <section class="flex flex-col items-center justify-center gap-3">
+    <p class="text-3xl font-semibold">No-code Event System</p>
+
+    <Video
+      src={eventsVideo}
+      class="w-full rounded-xl border border-base-300 bg-base-100"
+    />
+  </section>
+
+  <section class="flex flex-col items-center justify-center gap-3">
+    <p class="text-3xl font-semibold">Powered by Actions</p>
+
     <Image
-      class="theme-screenshot theme-screenshot-dark w-full rounded-xl border border-base-300 bg-base-100"
-      src={appScreenshotDark}
-      alt="App screenshot (dark mode)"
+      class="w-full rounded-xl border border-base-300 bg-base-100"
+      src={actionsScreenshot}
+      alt="Actions screenshot"
+    />
+  </section>
+
+  <section class="flex flex-col items-center justify-center gap-3">
+    <p class="text-3xl font-semibold">Play Test Your Game</p>
+
+    <Video
+      src={playTestVideo}
+      class="w-full rounded-xl border border-base-300 bg-base-100"
+    />
+  </section>
+
+  <section class="flex flex-col items-center justify-center gap-3">
+    <p class="text-3xl font-semibold">Free Starter Assets</p>
+
+    <Image
+      class="w-full rounded-xl border border-base-300 bg-base-100"
+      src={assetsScreenshot}
+      alt="Assets screenshot"
     />
   </section>
 
@@ -138,17 +182,3 @@ import DownloadModal from "./DownloadModal.astro";
 </main>
 
 <Footer />
-
-<style>
-  .theme-screenshot-dark {
-    display: none;
-  }
-
-  :root[data-theme="dark"] .theme-screenshot-light {
-    display: none;
-  }
-
-  :root[data-theme="dark"] .theme-screenshot-dark {
-    display: block;
-  }
-</style>

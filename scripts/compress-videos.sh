@@ -9,7 +9,7 @@
 
 set -euo pipefail
 
-CONTENT_DIR="src/content"
+CONTENT_DIRS=("src/content" "src/assets")
 VIDEO_EXTENSIONS=("mov" "avi" "mkv" "wmv" "flv" "webm")
 DRY_RUN=false
 
@@ -68,10 +68,10 @@ export -f convert_file
 files=()
 while IFS= read -r file; do
   files+=("$file")
-done < <(find "$CONTENT_DIR" -type f \( "${find_args[@]}" \))
+done < <(find "${CONTENT_DIRS[@]}" -type f \( "${find_args[@]}" \))
 
 if [[ ${#files[@]} -eq 0 ]]; then
-  echo "No video files found in $CONTENT_DIR"
+  echo "No video files found in ${CONTENT_DIRS[*]}"
   exit 0
 fi
 
