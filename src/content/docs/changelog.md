@@ -5,6 +5,16 @@ description: Find specific releases and changelogs for the game maker.
 
 ## 0.24.1
 
+**May 2, 2026**
+
+- Added progress bar for app updater
+- Added fallback idle animation for player animations
+- Fixed undo/redo for tile tools not accounting for the tile layer at time of execution, leading to undo/redo acting on wrong layer
+- Fixed UI for project list page styles and starter assets modal on small screen
+
+
+## 0.24.1
+
 **April 19, 2026**
 
 - Fixed tileset grid height changing when zooming in or out tileset.
