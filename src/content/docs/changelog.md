@@ -3,6 +3,27 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+
+## 0.25.0
+
+**May 12, 2026**
+
+Dialogue feature
+- Added dialogue sounds:
+  - Dialogue sound profiles can be added within NPCs or in Dialogue Layouts. 
+  - The active dialogue sound can be set to play in the dialogue action editor via `@dialogue_sound...`.
+- Improved the default dialogue and choices layout config so that text size is reasonable.
+- Fixed inconsistent dialogue box on small screens due to hard coded pixel value padding.
+
+Event system feature
+- Changed how the map editor preview to show the current map state up to and including the current action you're on, instead of excluding it.
+- Improved the action list drag to select and drag to re-order UX.
+- Fixed not being able to deselect actions.
+- Fixed animation select list overflowing on small screen.
+- Fixed when in an action within the event tab, cannot click to go to map editor tab.
+- Fixed Play NPC/Player animation action to only show animation options from the NPC or player itself.
+- Fixed undo/redo in map actions not taking into account the active map, and leaking to other projects.
+
 ## 0.24.1
 
 **May 2, 2026**
