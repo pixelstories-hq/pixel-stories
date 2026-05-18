@@ -4,6 +4,12 @@ description: Find specific releases and changelogs for the game maker.
 ---
 
 
+## 0.25.1
+
+**May 17, 2026**
+
+- Fixed broken app updater introduced in 0.24.2 (Versions 0.24.2 and 0.25.0 will not update in app. Please re-install from website.)
+
 ## 0.25.0
 
 **May 12, 2026**
@@ -24,7 +30,7 @@ Event system feature
 - Fixed Play NPC/Player animation action to only show animation options from the NPC or player itself.
 - Fixed undo/redo in map actions not taking into account the active map, and leaking to other projects.
 
-## 0.24.1
+## 0.24.2
 
 **May 2, 2026**
 
