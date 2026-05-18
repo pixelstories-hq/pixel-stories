@@ -1,11 +1,11 @@
 ---
 import { Icon } from "@astrojs/starlight/components";
-import DownloadModal from "../components/DownloadModal.astro";
 
 const currentPath = Astro.url.pathname;
 
 const showHamburger = currentPath === "/" || currentPath === "/community";
 const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
+const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
 ---
 
 <nav class="flex items-center gap-3">
@@ -39,7 +39,12 @@ const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
   </div>
 
   <div class="hidden md:block">
-    <DownloadModal btnSize="daisy-btn-sm" class="mr-1" />
+    <a
+      href={DOWNLOAD_DEMO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="daisy-btn daisy-btn-primary daisy-btn-sm mr-1">Try PS Maker Demo</a
+    >
   </div>
 
   <!-- Desktop: Theme selector -->
@@ -87,9 +92,13 @@ const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
   </div>
 
   <div class="mt-3 flex items-center justify-between gap-2">
-    <DownloadModal btnSize="daisy-btn-sm" class="w-max justify-center">
-      Launch PS Maker
-    </DownloadModal>
+    <a
+      href={DOWNLOAD_DEMO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="daisy-btn daisy-btn-primary daisy-btn-sm w-max justify-center"
+      >Launch PS Maker</a
+    >
 
     <!-- Mobile Theme select -->
     <div class="shrink-0">
