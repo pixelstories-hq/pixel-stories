@@ -3,13 +3,14 @@ import Footer from "./Footer/Footer.astro";
 import img from "../assets/images/dead-friend-horror.png";
 import Image from "astro/components/Image.astro";
 import logo from "../../public/logo-icon.png";
-import DownloadModal from "./DownloadModal.astro";
 import Video from "./Video.astro";
 import mapEditorVideo from "../assets/images/home-page/map-editor.mp4";
 import eventsVideo from "../assets/images/home-page/editing-event.mp4";
 import playTestVideo from "../assets/images/home-page/play-test.mp4";
 import actionsScreenshot from "../assets/images/home-page/actions.png";
 import assetsScreenshot from "../assets/images/home-page/assets.png";
+
+const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
 ---
 
 <main
@@ -35,7 +36,12 @@ import assetsScreenshot from "../assets/images/home-page/assets.png";
     </p>
 
     <div class="flex gap-3">
-      <DownloadModal />
+      <a
+        href={DOWNLOAD_DEMO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="daisy-btn daisy-btn-primary">Try PS Maker Demo</a
+      >
       <a href="/overview" class="daisy-btn"> Help documentation </a>
     </div>
   </section>
@@ -166,7 +172,13 @@ import assetsScreenshot from "../assets/images/home-page/assets.png";
         </p>
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
-        <DownloadModal btnSize="daisy-btn-lg" class="px-6" />
+        <a
+          href={DOWNLOAD_DEMO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="daisy-btn daisy-btn-primary daisy-btn-lg px-6"
+          >Try PS Maker Demo</a
+        >
       </div>
     </div>
 
