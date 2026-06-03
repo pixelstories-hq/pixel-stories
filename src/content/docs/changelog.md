@@ -3,6 +3,40 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+## 0.26.0
+
+**June 3, 2026**
+
+Asset system
+- Added project asset pack export and removed the standalone Asset Pack Maker.
+- Improved asset pack metadata editing and export workflow.
+- Simplified map object creation into a single-step workflow.
+- Added spritesheet-based animations.
+- Added sprite flip X/Y support.
+- Added 8-directional movement animations for players and NPCs.
+- Added custom font assets for dialogue and choice boxes.
+- Added dialogue and choice box width, padding, border width, and radius customization.
+- Added dialogue and choice box open/close transitions.
+- Fixed handling of spritesheets whose dimensions are not evenly divisible by frame size.
+- Fixed player and NPC animation state fallback behavior.
+
+Editor
+- Simplified UI copy and removed unnecessary descriptions throughout the editor.
+- Added tileset search and improved tileset panel layout.
+- Improved drawing workflow when switching between tiles and autotiles.
+- Added resizable map editor and event panels.
+- Added layer inspection by dimming non-hovered layers.
+- Improved multi-tile stamp tool placement behavior. 
+- Improved loading performance for projects with large tilesets.
+- Fixed map object placement undo not persisting correctly.
+- Fixed map object depth sorting after moving objects.
+- Fixed characters and trigger previews not reloading correctly after playtesting.
+- Fixed tooltip overflow, dropdown styling, panel sizing, labels, and other editor UI issues.
+
+Event system
+- Added configurable default movement speeds for players and NPCs.
+- Added crossfade support when changing movement animations.
+- Added enhanced previews for Spawn NPC and Move NPC/Player actions.
 
 ## 0.25.1
 
