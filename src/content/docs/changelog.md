@@ -38,6 +38,13 @@ Event system
 - Added crossfade support when changing movement animations.
 - Added enhanced previews for Spawn NPC and Move NPC/Player actions.
 
+## 0.25.2
+
+**May 17, 2026**
+
+- Added web demo version
+- Improved new project modal with projects folder selection in web demo
+
 ## 0.25.1
 
 **May 17, 2026**
