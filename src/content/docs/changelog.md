@@ -3,6 +3,19 @@ title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
 ---
 
+## 0.27.1
+
+**June 9, 2026**
+
+- Implement letter spacing and line height configuration for UI.
+- Fixed save error from going to project assets.
+
+## 0.27.0
+
+**June 5, 2026**
+
+- Switched internal desktop app framework.
+
 ## 0.26.0
 
 **June 3, 2026**
