@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/play",
+      "destination": "https://app.pixelstories.io/play"
+    },
+    {
+      "source": "/play/:path*",
+      "destination": "https://app.pixelstories.io/play/:path*"
+    },
+    {
+      "source": "/_app/:path*",
+      "destination": "https://app.pixelstories.io/_app/:path*"
+    }
+  ]
+}
