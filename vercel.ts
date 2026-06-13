@@ -5,6 +5,7 @@ const appUrl = (process.env.APP_URL ?? 'https://app.pixelstories.io').replace(/\
 export const config: VercelConfig = {
   rewrites: [
     routes.rewrite('/play', `${appUrl}/play`),
-    routes.rewrite('/play/:path*', `${appUrl}/play/:path*`)
+    routes.rewrite('/play/:path*', `${appUrl}/play/:path*`),
+    routes.rewrite('/_app/:path*', `${appUrl}/_app/:path*`)
   ]
 };
