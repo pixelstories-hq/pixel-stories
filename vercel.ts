@@ -1,8 +1,6 @@
-import type { VercelConfig } from '@vercel/client';
+const appUrl = (process.env.APP_URL ?? 'https://app.pixelstories.io').replace(/\/+$/, '');
 
-const appUrl = process.env.APP_URL ?? 'https://app.pixelstories.io';
-
-const config: VercelConfig = {
+export const config = {
   rewrites: [
     {
       source: '/play',
@@ -14,5 +12,3 @@ const config: VercelConfig = {
     }
   ]
 };
-
-export default config;
