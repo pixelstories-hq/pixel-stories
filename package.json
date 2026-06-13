@@ -25,5 +25,8 @@
     "svelte": "^5.39.10",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@vercel/config": "^0.5.2"
   }
 }
