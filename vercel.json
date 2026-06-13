@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/play",
+      "destination": "https://app.pixelstories.io/play"
+    },
+    {
+      "source": "/play/:path*",
+      "destination": "https://app.pixelstories.io/play/:path*"
+    }
+  ]
+}
