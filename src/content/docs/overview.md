@@ -8,7 +8,7 @@ Welcome to the **PS Maker documentation**. These guides are here to help you lea
 Whether you are just getting started or looking up a specific feature, you can use this documentation as a reference whenever you feel stuck.
 
 :::caution[Note]
-Some of these help docs are outdated and we are continuously updating them to reflect the latest features from PS Maker. If you require any support for using PS Maker, come chat with us in our [Discord community](https://discord.gg/WTxUC4hEnS) or [submit a bug report](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)!
+Some of these manual articles are outdated and we are continuously updating them to reflect the latest features from PS Maker. If you require any support for using PS Maker, come chat with us in our [Discord community](https://discord.gg/WTxUC4hEnS) or [submit a bug report](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)!
 :::
 
 ## What is PS Maker?
