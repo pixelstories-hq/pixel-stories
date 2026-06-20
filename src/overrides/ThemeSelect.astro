@@ -5,7 +5,8 @@ const currentPath = Astro.url.pathname;
 
 const showHamburger = currentPath === "/" || currentPath === "/community";
 const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
-const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
+const DOWNLOAD_DEMO_URL = "https://app.pixelstories.io";
+const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
 ---
 
 <nav class="flex items-center gap-3">
@@ -25,6 +26,14 @@ const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
 
   <!-- Desktop: Inline links -->
   <div class="hidden md:flex gap-2 w-max font-medium h-full">
+    <a
+      href={PRESS_KIT_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="action sl-flex"
+    >
+      Press kit <Icon name="external" size="1rem" />
+    </a>
     <a href="/blog" class="action sl-flex">News</a>
     <a href="/overview" class="action sl-flex">PS Maker Docs</a>
 
@@ -72,6 +81,13 @@ const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
   aria-modal="true"
 >
   <div class="flex flex-col gap-1.5 font-medium">
+    <a
+      href={PRESS_KIT_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-link"
+      >Press kit <Icon name="external" size="0.9rem" class="opacity-65" /></a
+    >
     <a href="/community" class="mobile-link">Community</a>
     <a href="/blog" class="mobile-link">News</a>
     <a
