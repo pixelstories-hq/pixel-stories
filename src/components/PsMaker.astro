@@ -10,7 +10,8 @@ import playTestVideo from "../assets/images/home-page/play-test.mp4";
 import actionsScreenshot from "../assets/images/home-page/actions.png";
 import assetsScreenshot from "../assets/images/home-page/assets.png";
 
-const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
+const DOWNLOAD_DEMO_URL = "https://app.pixelstories.io";
+const STEAM_WIDGET_URL = "https://store.steampowered.com/widget/4823590/";
 ---
 
 <main
@@ -40,18 +41,13 @@ const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
         href={DOWNLOAD_DEMO_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="daisy-btn daisy-btn-primary">Try PS Maker Demo</a
+        class="daisy-btn daisy-btn-primary">Try PS Maker Web Demo</a
       >
-      <a href="/overview" class="daisy-btn"> Help documentation </a>
+      <a href="/overview" class="daisy-btn"> Read the manual </a>
     </div>
   </section>
 
-  <iframe
-    src="https://itch.io/embed/4434961?linkback=true"
-    width="552"
-    height="167"
-  >
-  </iframe>
+  <iframe src={STEAM_WIDGET_URL} width="100%" height="190"> </iframe>
 
   <section class="flex flex-col items-center justify-center gap-3">
     <p class="text-3xl font-semibold">2D Top-down Map Editor</p>
@@ -71,7 +67,7 @@ const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
   </section>
 
   <section class="flex flex-col items-center justify-center gap-3">
-    <p class="text-3xl font-semibold">Powered by Actions</p>
+    <p class="text-3xl font-semibold">Use Actions to Create Events</p>
 
     <Image
       class="w-full rounded-xl border border-base-300 bg-base-100"
@@ -177,19 +173,14 @@ const DOWNLOAD_DEMO_URL = "https://tdgao.itch.io/ps-maker";
           target="_blank"
           rel="noopener noreferrer"
           class="daisy-btn daisy-btn-primary daisy-btn-lg px-6"
-          >Try PS Maker Demo</a
+          >PS Maker Web Demo</a
         >
       </div>
     </div>
 
     <div class="w-full h-px bg-base-content/15"></div>
 
-    <iframe
-      src="https://itch.io/embed/4434961?linkback=true"
-      width="552"
-      height="167"
-    >
-    </iframe>
+    <iframe src={STEAM_WIDGET_URL} width="100%" height="190"> </iframe>
   </section>
 </main>
 
