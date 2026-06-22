@@ -142,6 +142,13 @@ export default defineConfig({
             },
           ],
         },
+        {
+          label: "Plugins (beta)",
+          items: [
+            { label: "Plugin API", link: "/plugins/" },
+            { label: "Plugin CLI", link: "/plugins/cli" },
+          ],
+        },
         // {
         //   label: "Guides",
         //   autogenerate: { directory: "/guides" },
