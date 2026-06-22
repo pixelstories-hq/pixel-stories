@@ -58,6 +58,7 @@ export default defineConfig({
         },
       ],
       components: {
+        Head: "./src/overrides/Head.astro",
         SocialIcons: "./src/overrides/SocialIcons.astro",
         Hero: "./src/overrides/Hero.astro",
         ThemeSelect: "./src/overrides/ThemeSelect.astro",
