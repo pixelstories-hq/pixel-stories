@@ -58,6 +58,7 @@ export default defineConfig({
         },
       ],
       components: {
+        Head: "./src/overrides/Head.astro",
         SocialIcons: "./src/overrides/SocialIcons.astro",
         Hero: "./src/overrides/Hero.astro",
         ThemeSelect: "./src/overrides/ThemeSelect.astro",
@@ -139,6 +140,13 @@ export default defineConfig({
               label: "Conditional branches",
               link: "/event-system/conditionals",
             },
+          ],
+        },
+        {
+          label: "Plugins (beta)",
+          items: [
+            { label: "Plugin API", link: "/plugins/" },
+            { label: "Plugin CLI", link: "/plugins/cli" },
           ],
         },
         // {

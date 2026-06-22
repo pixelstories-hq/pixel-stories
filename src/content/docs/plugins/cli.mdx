@@ -1,0 +1,57 @@
+---
+title: "Plugin CLI"
+description: "Create, scaffold, and build Pixel Stories Maker plugins with the PS Maker Plugin CLI."
+---
+
+The **PS Maker Plugin CLI** creates new plugin projects and builds them into bundles that Pixel Stories Maker can load.
+
+## Quick Start
+
+Create a plugin project with the default template:
+
+```bash
+npx @ps-maker/plugin-cli create
+```
+
+## Creating a Plugin
+
+##### `create [target-dir]`
+
+Scaffolds a new plugin project. If you do not pass a directory, the CLI will prompt you for one.
+
+```bash
+# Create a new plugin
+npx @ps-maker/plugin-cli create
+
+# Create a new plugin in ./my-plugin
+npx @ps-maker/plugin-cli create my-plugin
+
+# Create a plugin in the current directory
+npx @ps-maker/plugin-cli create .
+```
+
+## Building a Plugin
+
+##### `build`
+
+Builds your plugin from `src/index.ts` into a single bundled file.
+
+```bash
+# In project root
+npm run build
+
+# Or using npx
+npx @ps-maker/plugin-cli build
+
+# Or using the command directly with it installed in the project
+npx ps-maker-plugin build
+```
+
+By default, the output is written to `dist/`.
+
+
+Generally, the plugin development workflow looks like this:
+
+- Edit your plugin logic in `src/index.ts`
+- Run `npm run build` to generate the final plugin bundle
+- Copy the built file into your Pixel Stories Maker project's plugins folder

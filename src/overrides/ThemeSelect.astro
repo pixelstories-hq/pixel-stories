@@ -26,6 +26,8 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
 
   <!-- Desktop: Inline links -->
   <div class="hidden md:flex gap-2 w-max font-medium h-full">
+    <a href="/blog" class="action sl-flex">News</a>
+    <a href="/overview" class="action sl-flex">PS Maker Manual</a>
     <a
       href={PRESS_KIT_URL}
       target="_blank"
@@ -34,9 +36,6 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
     >
       Press kit <Icon name="external" size="1rem" />
     </a>
-    <a href="/blog" class="action sl-flex">News</a>
-    <a href="/overview" class="action sl-flex">PS Maker Manual</a>
-
     <a
       href="https://discord.gg/WTxUC4hEnS"
       target="_blank"
@@ -81,13 +80,6 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   aria-modal="true"
 >
   <div class="flex flex-col gap-1.5 font-medium">
-    <a
-      href={PRESS_KIT_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mobile-link"
-      >Press kit <Icon name="external" size="0.9rem" class="opacity-65" /></a
-    >
     <a href="/community" class="mobile-link">Community</a>
     <a href="/blog" class="mobile-link">News</a>
     <a
@@ -96,6 +88,13 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
       rel="noopener noreferrer"
       class="mobile-link"
       >Showcase <Icon name="external" size="0.9rem" class="opacity-65" /></a
+    >
+    <a
+      href={PRESS_KIT_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-link"
+      >Press kit <Icon name="external" size="0.9rem" class="opacity-65" /></a
     >
     <a
       href="https://discord.gg/WTxUC4hEnS"
@@ -176,9 +175,8 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   type Theme = "auto" | "dark" | "light";
 
   const storageKey = "starlight-theme";
-  const toggles = Array.from(
-    document.querySelectorAll<HTMLInputElement>("[data-theme-toggle]"),
-  );
+  const initializedThemeToggles = new WeakSet<HTMLInputElement>();
+  const initializedMenuControls = new WeakSet<Element>();
 
   const parseTheme = (theme: unknown): Theme =>
     theme === "auto" || theme === "dark" || theme === "light" ? theme : "auto";
@@ -203,55 +201,92 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   function applyTheme(theme: Theme): void {
     const resolvedTheme = theme === "auto" ? getPreferredColorScheme() : theme;
     document.documentElement.dataset.theme = resolvedTheme;
-    toggles.forEach((toggle) => {
-      toggle.checked = resolvedTheme === "dark";
-    });
+    document
+      .querySelectorAll<HTMLInputElement>("[data-theme-toggle]")
+      .forEach((toggle) => {
+        toggle.checked = resolvedTheme === "dark";
+      });
+  }
+
+  function initializeThemeToggles(): void {
+    applyTheme(loadTheme());
+    document
+      .querySelectorAll<HTMLInputElement>("[data-theme-toggle]")
+      .forEach((toggle) => {
+        if (initializedThemeToggles.has(toggle)) return;
+        initializedThemeToggles.add(toggle);
+        toggle.addEventListener("change", () => {
+          const nextTheme: Theme = toggle.checked ? "dark" : "light";
+          applyTheme(nextTheme);
+          storeTheme(nextTheme);
+        });
+      });
+  }
+
+  function getMenuElements() {
+    const btn = document.getElementById("nav-toggle");
+    const closeBtn = document.getElementById("nav-close");
+    const menu = document.getElementById("mobile-menu");
+    const backdrop = document.getElementById("backdrop");
+
+    return { btn, closeBtn, menu, backdrop };
+  }
+
+  function closeMenu({ focusButton = true } = {}): void {
+    const { btn, menu, backdrop } = getMenuElements();
+    if (!menu || !backdrop || !btn) return;
+
+    delete menu.dataset.open;
+    delete backdrop.dataset.open;
+    btn.setAttribute("aria-expanded", "false");
+    if (focusButton) btn.focus();
+  }
+
+  function openMenu(): void {
+    const { btn, menu, backdrop } = getMenuElements();
+    if (!menu || !backdrop || !btn) return;
+
+    menu.dataset.open = "true";
+    backdrop.dataset.open = "true";
+    btn.setAttribute("aria-expanded", "true");
+    menu.querySelector("a")?.focus();
+  }
+
+  function initializeMobileMenu(): void {
+    const { btn, closeBtn, menu, backdrop } = getMenuElements();
+
+    if (btn && !initializedMenuControls.has(btn)) {
+      initializedMenuControls.add(btn);
+      btn.addEventListener("click", () => {
+        if (!menu) return;
+        menu.dataset.open === "true" ? closeMenu() : openMenu();
+      });
+    }
+
+    if (closeBtn && !initializedMenuControls.has(closeBtn)) {
+      initializedMenuControls.add(closeBtn);
+      closeBtn.addEventListener("click", () => closeMenu());
+    }
+
+    if (backdrop && !initializedMenuControls.has(backdrop)) {
+      initializedMenuControls.add(backdrop);
+      backdrop.addEventListener("click", () => closeMenu());
+    }
+  }
+
+  function initializeHeaderControls(): void {
+    initializeThemeToggles();
+    initializeMobileMenu();
   }
 
   matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
     if (loadTheme() === "auto") applyTheme("auto");
   });
 
-  applyTheme(loadTheme());
-  toggles.forEach((toggle) => {
-    toggle.addEventListener("change", () => {
-      const nextTheme: Theme = toggle.checked ? "dark" : "light";
-      applyTheme(nextTheme);
-      storeTheme(nextTheme);
-    });
-  });
-
-  const btn = document.getElementById("nav-toggle");
-  const closeBtn = document.getElementById("nav-close");
-  const menu = document.getElementById("mobile-menu");
-  const backdrop = document.getElementById("backdrop");
-
-  const open = () => {
-    if (!menu || !backdrop || !btn || !menu) return;
-
-    menu.dataset.open = "true";
-    backdrop.dataset.open = "true";
-    btn.setAttribute("aria-expanded", "true");
-    // focus first link for accessibility
-    const first = menu.querySelector("a");
-    first && first.focus();
-  };
-  const close = () => {
-    if (!menu || !backdrop || !btn || !menu) return;
-
-    delete menu.dataset.open;
-    delete backdrop.dataset.open;
-    btn.setAttribute("aria-expanded", "false");
-    btn.focus();
-  };
-
-  btn?.addEventListener("click", () => {
-    if (!menu) return;
-    menu.dataset.open === "true" ? close() : open();
-  });
-  closeBtn?.addEventListener("click", close);
-  backdrop?.addEventListener("click", close);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
+    if (e.key === "Escape") closeMenu();
   });
+
+  document.addEventListener("astro:page-load", initializeHeaderControls);
+  initializeHeaderControls();
 </script>
