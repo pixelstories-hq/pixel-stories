@@ -2,7 +2,7 @@
   :root {
     --sl-color-accent-low: color-mix(
       in oklab,
-      var(--color-primary),
+      var(--color-primary-content),
       var(--color-base-100) 82%
     );
     --sl-color-accent: var(--color-primary);
@@ -33,7 +33,7 @@
     --sl-color-bg-nav: var(--color-base-100);
     --sl-color-bg-sidebar: var(--color-base-200);
     --sl-color-bg-inline-code: var(--color-base-200);
-    --sl-color-bg-accent: var(--color-primary);
+    --sl-color-bg-accent: var(--color-primary-content);
 
     --sl-color-hairline-light: var(--color-base-300);
     --sl-color-hairline: color-mix(
@@ -43,14 +43,14 @@
     );
     --sl-color-hairline-shade: var(--color-base-100);
 
-    --sl-color-link: color-mix(in oklab, var(--color-primary), #313131 15%);
+    --sl-color-link: color-mix(in oklab, var(--color-primary-content), #313131 15%);
     --sl-color-backdrop-overlay: color-mix(
       in oklab,
       var(--color-base-100),
       transparent 34%
     );
 
-    --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
+    --ps-hero-glow: color-mix(in oklab, var(--color-primary-content), transparent 80%);
   }
 
   :root[data-theme="light"] {
@@ -70,8 +70,8 @@
   }
 
   :root[data-theme="light"] .sl-link-button.primary {
-    background: var(--color-primary);
-    color: var(--color-primary-content);
+    background: var(--color-primary-content);
+    color: var(--color-primary-content-content);
     font-weight: 500;
   }
 
