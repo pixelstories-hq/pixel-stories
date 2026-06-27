@@ -12,7 +12,7 @@ const { src, class: className, wrapperClass, ...attrs } = Astro.props;
 <div class:list={["video-wrapper", wrapperClass]}>
   <video
     src={src}
-    class:list={["auto-video", className]}
+    class:list={["auto-video hover:scale-[1.01]", className]}
     loop
     muted
     playsinline

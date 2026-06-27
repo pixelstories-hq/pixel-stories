@@ -91,10 +91,6 @@
     transition: all 250ms;
   }
 
-  :where(.sl-markdown-content) video:hover {
-    transform: scale(1.02);
-  }
-
   :where(.sl-markdown-content) img:not(:where(.not-content *)),
   :where(.sl-markdown-content) video:not(:where(.not-content *)) {
     min-width: 150px;
