@@ -64,15 +64,17 @@ const featureSections = [
 ---
 
 <main
-  class="not-content relative mx-auto flex max-w-10xl flex-col gap-32 px-0 sm:px-6 lg:px-8"
+  class="not-content relative mx-auto flex max-w-10xl flex-col gap-32 px-0 sm:px-6 lg:px-8 max-sm:gap-20"
 >
   <!-- HERO -->
   <section
     class="flex flex-col items-center gap-4 text-center not-content pt-10 pb-2"
   >
-    <div class="flex items-center justify-between w-full max-w-5xl">
+    <div
+      class="flex w-full max-w-5xl flex-col items-center justify-between gap-5 md:flex-row md:gap-8"
+    >
       <p
-        class="max-w-4xl text-pretty text-left text-base-content font-semibold text-4xl leading-8 flex items-center gap-2"
+        class="flex max-w-4xl flex-wrap items-center justify-center gap-x-2 gap-y-1 text-pretty text-center text-4xl leading-8 font-semibold text-base-content md:justify-start md:text-left"
       >
         <span class="inline-flex gap-2 items-center">
           <img src="/logo-icon.png" alt="" class="size-12 border-0" />
@@ -81,7 +83,9 @@ const featureSections = [
         <span> Story Game Engine </span>
       </p>
 
-      <div class="flex flex-wrap justify-center gap-3">
+      <div
+        class="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap"
+      >
         <a
           href="/overview"
           class="daisy-btn daisy-btn-outline border border-base-300"
@@ -92,7 +96,7 @@ const featureSections = [
           href={PLAY_DEMO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          class="daisy-btn"
+          class="daisy-btn max-sm:hidden"
         >
           Open web demo
           <Icon name="right-arrow" size="1rem" />
@@ -105,7 +109,7 @@ const featureSections = [
         href={PLAY_DEMO_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="daisy-btn daisy-btn-sm absolute left-1/2 top-4 z-10 -translate-x-1/2 border border-base-300 bg-base-100/95 shadow-sm backdrop-blur rounded-full"
+        class="daisy-btn daisy-btn-sm absolute top-4 left-1/2 z-10 -translate-x-1/2 rounded-full border border-base-300 bg-base-100/95 shadow-sm backdrop-blur max-sm:hidden"
       >
         Open tutorial project
         <Icon name="right-arrow" size="0.875rem" />
@@ -122,9 +126,9 @@ const featureSections = [
     </div>
   </section>
 
-  <section class="-mt-8 flex flex-col items-center gap-4 text-center">
+  <section class="flex flex-col items-center gap-4 text-center sm:-mt-8">
     <p
-      class="mx-auto w-full max-w-4xl text-pretty text-2xl font-medium leading-8 text-base-content"
+      class="mx-auto w-full max-w-4xl text-pretty text-2xl font-medium leading-8 text-base-content max-sm:text-lg max-sm:leading-6"
     >
       PS Maker lets you make 2D top-down story focused games without code, so
       you can focus on the narrative, characters, music and world building!
@@ -136,7 +140,7 @@ const featureSections = [
   {
     featureSections.map((section) => (
       <section class="flex flex-col gap-4">
-        <h2 class="text-pretty text-3xl font-bold tracking-tight">
+        <h2 class="text-pretty text-3xl font-bold tracking-tight max-sm:text-2xl">
           {section.title}
         </h2>
 
@@ -147,7 +151,7 @@ const featureSections = [
           class="aspect-2/1 w-full rounded-lg border border-base-300 bg-base-200 object-cover"
         />
 
-        <div class="space-y-2 text-lg leading-6 text-base-content/90">
+        <div class="space-y-2 text-lg leading-6 text-base-content/90 max-sm:text-base">
           <p>{section.intro}</p>
           <ul class="list-disc space-y-1 pl-6">
             {section.bullets.map((bullet) => (
@@ -160,7 +164,7 @@ const featureSections = [
   }
 
   <!-- FINAL CTA -->
-  <section class="mt-20 mb-20 flex flex-col items-center gap-8">
+  <section class="my-20 max-sm:my-0 flex flex-col items-center gap-8">
     <h2
       class="text-center text-pretty text-3xl font-bold tracking-tight sm:text-4xl"
     >
