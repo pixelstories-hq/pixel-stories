@@ -5,7 +5,7 @@
       var(--color-primary-content),
       var(--color-base-100) 82%
     );
-    --sl-color-accent: var(--color-primary);
+    --sl-color-accent: var(--color-primary-content);
     --sl-color-accent-high: color-mix(in oklab, var(--color-primary), #fff 24%);
     --sl-color-white: var(--color-base-content);
     --sl-color-gray-1: color-mix(in oklab, var(--color-base-content), #fff 10%);
@@ -27,7 +27,7 @@
     --sl-color-text: var(--color-base-content);
     --sl-color-text-accent: var(--color-primary);
     /* no reason for text invert, just a starlight thing*/
-    --sl-color-text-invert: var(--color-base-content);
+    --sl-color-text-invert: var(--color-base-200);
 
     --sl-color-bg: var(--color-base-100);
     --sl-color-bg-nav: var(--color-base-100);
@@ -43,14 +43,14 @@
     );
     --sl-color-hairline-shade: var(--color-base-100);
 
-    --sl-color-link: color-mix(in oklab, var(--color-primary-content), #313131 15%);
+    --sl-color-link: color-mix(in oklab, var(--color-primary), #313131 15%);
     --sl-color-backdrop-overlay: color-mix(
       in oklab,
       var(--color-base-100),
       transparent 34%
     );
 
-    --ps-hero-glow: color-mix(in oklab, var(--color-primary-content), transparent 80%);
+    --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
   }
 
   :root[data-theme="light"] {
@@ -71,7 +71,7 @@
 
   :root[data-theme="light"] .sl-link-button.primary {
     background: var(--color-primary-content);
-    color: var(--color-primary-content-content);
+    color: var(--color-primary-content);
     font-weight: 500;
   }
 
