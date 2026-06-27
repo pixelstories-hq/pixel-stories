@@ -50,6 +50,7 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   <!-- Desktop: Theme selector -->
   <div class="hidden md:block">
     <label
+      transition:persist="theme-toggle-desktop"
       class="daisy-toggle daisy-toggle-md text-base-content/70 theme-toggle mb-0.5 -mx-1"
     >
       <input type="checkbox" aria-label={themeToggleLabel} data-theme-toggle />
@@ -118,6 +119,7 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
     <!-- Mobile Theme select -->
     <div class="shrink-0">
       <label
+        transition:persist="theme-toggle-mobile"
         class="daisy-toggle daisy-toggle-md text-base-content/70 theme-toggle"
       >
         <input
