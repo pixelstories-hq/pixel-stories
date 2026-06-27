@@ -1,189 +1,188 @@
 ---
+import { Icon } from "@astrojs/starlight/components";
 import Footer from "./Footer/Footer.astro";
-import img from "../assets/images/dead-friend-horror.png";
-import Image from "astro/components/Image.astro";
-import logo from "../../public/logo-icon.png";
 import Video from "./Video.astro";
 import mapEditorVideo from "../assets/images/home-page/map-editor.mp4";
 import eventsVideo from "../assets/images/home-page/editing-event.mp4";
 import playTestVideo from "../assets/images/home-page/play-test.mp4";
-import actionsScreenshot from "../assets/images/home-page/actions.png";
-import assetsScreenshot from "../assets/images/home-page/assets.png";
 
-const DOWNLOAD_DEMO_URL = "https://app.pixelstories.io";
+const PLAY_DEMO_URL = "https://pixelstories.io/play/ae9fd4f0";
 const STEAM_WIDGET_URL = "https://store.steampowered.com/widget/4823590/";
+const STEAM_STORE_URL = "https://store.steampowered.com/app/4823590/PS_Maker/";
+
+const featureSections = [
+  {
+    title: "Build Your World",
+    media: {
+      type: "video",
+      src: mapEditorVideo,
+      alt: "PS Maker map editor showing a top-down pixel art world",
+    },
+    intro: "Use the 2D top-down map editor to build your world.",
+    bullets: [
+      "Map objects with depth sorting and collisions",
+      "Tilesets and autotiles with map layers",
+      "Undo/Redo support",
+    ],
+  },
+  {
+    title: "Bring Your Story to Life",
+    media: {
+      type: "video",
+      src: eventsVideo,
+      alt: "PS Maker no-code event system editing a game interaction",
+    },
+    intro: "Create story moments, cutscenes, and game logic without code.",
+    bullets: [
+      "No-code Event System",
+      "Control NPCs, trigger cutscenes, and build game mechanics",
+      "Player interaction and touch trigger systems",
+      "Built-in dialogue editor with names, portraits, and voice sounds",
+      "Conditional branching with player choices and game variables",
+      "Multiple endings",
+    ],
+  },
+  {
+    title: "Instantly Share with Friends",
+    media: {
+      type: "video",
+      src: playTestVideo,
+      alt: "PS Maker playtest view running a top-down story game",
+    },
+    intro: "Playtest quickly, polish your project, and keep expanding it.",
+    bullets: [
+      "Import custom art, music, and sounds",
+      "Make animations, NPCs, tilesets, autotiles, map objects, and more",
+      "Free starter assets",
+      "Plugin system to extend your game with code",
+      "Interactive tutorial project",
+      "Dark mode",
+      "Auto-updates forever with new features and continuous bug fixes",
+    ],
+  },
+] as const;
 ---
 
 <main
-  class="not-content relative mx-auto flex max-w-7xl flex-col gap-24 px-0 sm:px-6 lg:px-8"
+  class="not-content relative mx-auto flex max-w-10xl flex-col gap-32 px-0 sm:px-6 lg:px-8"
 >
   <!-- HERO -->
-  <section class="mt-10 flex flex-col items-start gap-4 text-left w-full">
-    <div class="flex gap-2 items-center ml-1">
-      <Image src={logo} alt="PS Maker logo" class="w-7 h-7 not-content" />
-      <p class="font-semibold text-3xl">PS Maker</p>
+  <section
+    class="flex flex-col items-center gap-4 text-center not-content pt-10 pb-2"
+  >
+    <div class="flex items-center justify-between w-full max-w-5xl">
+      <p
+        class="max-w-4xl text-pretty text-left text-base-content font-semibold text-4xl leading-8 flex items-center gap-2"
+      >
+        <span class="inline-flex gap-2 items-center">
+          <img src="/logo-icon.png" alt="" class="size-12 border-0" />
+          <span>PS Maker:</span>
+        </span>
+        <span> Story Game Engine </span>
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3">
+        <a
+          href="/overview"
+          class="daisy-btn daisy-btn-outline border border-base-300"
+        >
+          Read the manual
+        </a>
+        <a
+          href={PLAY_DEMO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="daisy-btn"
+        >
+          Open web demo
+          <Icon name="right-arrow" size="1rem" />
+        </a>
+      </div>
     </div>
 
-    <h1
-      class="max-w-2xl text-pretty text-5xl font-bold tracking-tight sm:text-4xl lg:text-6xl leading-tight"
-    >
-      The 2D Game Maker Built for Telling Stories
-    </h1>
-
-    <p class="max-w-xl w-full text-pretty text-base-content/80 text-lg">
-      <strong>PS Maker</strong> lets you build immersive story-driven games without
-      the need to code, letting you focus on the narrative, art direction, world building,
-      and character design.
-    </p>
-
-    <div class="flex gap-3">
+    <div class="relative w-full">
       <a
-        href={DOWNLOAD_DEMO_URL}
+        href={PLAY_DEMO_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="daisy-btn daisy-btn-primary">Try PS Maker Web Demo</a
+        class="daisy-btn daisy-btn-sm absolute left-1/2 top-3 z-10 -translate-x-1/2 border border-base-300 bg-base-100/95 shadow-sm backdrop-blur rounded-full"
       >
-      <a href="/overview" class="daisy-btn daisy-btn-ghost">
-        Read the manual
+        Open tutorial project
+        <Icon name="right-arrow" size="0.875rem" />
       </a>
-    </div>
-  </section>
 
-  <iframe src={STEAM_WIDGET_URL} width="100%" height="190"> </iframe>
-
-  <section class="flex flex-col items-center justify-center gap-3">
-    <p class="text-3xl font-semibold">2D Top-down Map Editor</p>
-    <Video
-      src={mapEditorVideo}
-      class="w-full rounded-xl border border-base-300 bg-base-100"
-    />
-  </section>
-
-  <section class="flex flex-col items-center justify-center gap-3">
-    <p class="text-3xl font-semibold">No-code Event System</p>
-
-    <Video
-      src={eventsVideo}
-      class="w-full rounded-xl border border-base-300 bg-base-100"
-    />
-  </section>
-
-  <section class="flex flex-col items-center justify-center gap-3">
-    <p class="text-3xl font-semibold">Use Actions to Create Events</p>
-
-    <Image
-      class="w-full rounded-xl border border-base-300 bg-base-100"
-      src={actionsScreenshot}
-      alt="Actions screenshot"
-    />
-  </section>
-
-  <section class="flex flex-col items-center justify-center gap-3">
-    <p class="text-3xl font-semibold">Play Test Your Game</p>
-
-    <Video
-      src={playTestVideo}
-      class="w-full rounded-xl border border-base-300 bg-base-100"
-    />
-  </section>
-
-  <section class="flex flex-col items-center justify-center gap-3">
-    <p class="text-3xl font-semibold">Free Starter Assets</p>
-
-    <Image
-      class="w-full rounded-xl border border-base-300 bg-base-100"
-      src={assetsScreenshot}
-      alt="Assets screenshot"
-    />
-  </section>
-
-  <!-- FEATURED GAME / SPLASH SECTION -->
-  <section
-    class="grid gap-8 mx-auto justify-items-center md:grid-cols-2 max-md:max-w-lg"
-  >
-    <a
-      href="https://app.pixelstories.io/embed/ucUR89FNTR"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Image
-        src={img}
-        alt="Gameplay screenshot"
-        class="not-content aspect-[5/4] w-full max-md:aspect-[4/3] h-auto rounded-xl object-cover"
-      />
-    </a>
-
-    <div class="max-w-xl py-6 space-y-6">
-      <div class="space-y-2">
-        <p class="text-lg font-medium">Made with PS Maker</p>
-
-        <h2 class="text-pretty text-3xl font-bold tracking-tight sm:text-5xl">
-          Dead Friend Horror
-        </h2>
-      </div>
-
-      <p class="text-base leading-7 text-base-content/80">
-        A fun hangout with your best friend suddenly turns sideways when a
-        killer in the night "takes" your friend.
-      </p>
-
-      <div>
-        <a
-          href="https://tdgao.itch.io/dead-friend-horror"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="daisy-btn">Play now</a
-        >
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMUNITY -->
-  <section
-    class="flex flex-col items-center justify-center text-center p-4 py-8"
-  >
-    <div class="max-w-xl flex flex-col gap-4 items-center">
-      <h2 class="text-4xl font-bold text-pretty">
-        Join our official Discord community
-      </h2>
-      <p class="text-base text-base-content/80 text-balance">
-        Share your work, get feedback, playtest, and connect with creators who
-        love story-driven games!
-      </p>
-      <a href="https://discord.gg/your-invite" class="daisy-btn"
-        >Join our Discord</a
+      <iframe
+        src={PLAY_DEMO_URL}
+        title="PS Maker tutorial game"
+        class="w-full aspect-video rounded-lg border border-base-300 bg-base-200"
+        allow="fullscreen; gamepad"
+        loading="lazy"
       >
+      </iframe>
     </div>
   </section>
+
+  <section class="-mt-8 flex flex-col items-center gap-4 text-center">
+    <p
+      class="mx-auto w-full max-w-4xl text-pretty text-2xl font-medium leading-8 text-base-content"
+    >
+      PS Maker lets you make 2D top-down story-driven games without the need to
+      code, so you can focus on the game's narrative, characters, music and
+      world building!
+    </p>
+
+    <a href={STEAM_STORE_URL} class="daisy-btn"> Buy now on Steam </a>
+  </section>
+
+  {
+    featureSections.map((section) => (
+      <section class="flex flex-col gap-4">
+        <h2 class="text-pretty text-3xl font-bold tracking-tight">
+          {section.title}
+        </h2>
+
+        <Video
+          src={section.media.src}
+          aria-label={section.media.alt}
+          wrapperClass="w-full"
+          class="aspect-2/1 w-full rounded-lg border border-base-300 bg-base-200 object-cover"
+        />
+
+        <div class="space-y-1 text-lg leading-6 text-base-content/90">
+          <p>{section.intro}</p>
+          <ul class="list-disc space-y-1 pl-6">
+            {section.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ))
+  }
 
   <!-- FINAL CTA -->
-  <section
-    class="mb-20 overflow-hidden rounded-xl border border-base-300 bg-base-300 p-8 text-base-content shadow-sm flex flex-col gap-6"
-  >
-    <div
-      class="grid max-w-5xl pt-1 items-center gap-8 text-base-content lg:grid-cols-3"
+  <section class="mt-20 mb-20 flex flex-col items-center gap-8">
+    <h2
+      class="text-center text-pretty text-3xl font-bold tracking-tight sm:text-4xl"
     >
-      <div class="lg:col-span-2 space-y-4">
-        <h2 class="text-3xl font-bold">Ready? Make your game with PS Maker</h2>
-        <p class="mt-2 text-lg leading-6">
-          Download our free demo to start using PS Maker today!
-        </p>
-      </div>
-      <div class="flex items-center gap-3 lg:justify-end">
-        <a
-          href={DOWNLOAD_DEMO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="daisy-btn daisy-btn-primary daisy-btn-lg px-6"
-          >PS Maker Web Demo</a
-        >
-      </div>
-    </div>
+      Buy Now on Steam!
+    </h2>
 
-    <div class="w-full h-px bg-base-content/15"></div>
-
-    <iframe src={STEAM_WIDGET_URL} width="100%" height="190"> </iframe>
+    <iframe
+      src={STEAM_WIDGET_URL}
+      title="Buy PS Maker on Steam"
+      width="100%"
+      height="190"
+    >
+    </iframe>
   </section>
 </main>
 
 <Footer />
+
+<style>
+  .ps-maker-hero {
+    width: min(100vw, 80rem);
+    margin-inline-start: calc(50% - min(50vw, 40rem));
+  }
+</style>

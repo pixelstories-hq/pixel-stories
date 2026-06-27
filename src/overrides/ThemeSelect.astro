@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname;
 
 const showHamburger = currentPath === "/" || currentPath === "/community";
 const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
-const DOWNLOAD_DEMO_URL = "https://app.pixelstories.io";
+const STEAM_STORE_URL = "https://store.steampowered.com/app/4823590/PS_Maker/";
 const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
 ---
 
@@ -48,10 +48,10 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
 
   <div class="hidden md:block">
     <a
-      href={DOWNLOAD_DEMO_URL}
+      href={STEAM_STORE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      class="daisy-btn daisy-btn-primary daisy-btn-sm mr-1">PS Maker Web Demo</a
+      class="daisy-btn daisy-btn-primary daisy-btn-sm mr-1">Buy now on Steam</a
     >
   </div>
 
@@ -108,11 +108,11 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
 
   <div class="mt-3 flex items-center justify-between gap-2">
     <a
-      href={DOWNLOAD_DEMO_URL}
+      href={STEAM_STORE_URL}
       target="_blank"
       rel="noopener noreferrer"
       class="daisy-btn daisy-btn-primary daisy-btn-sm w-max justify-center"
-      >Launch PS Maker</a
+      >Buy now on Steam</a
     >
 
     <!-- Mobile Theme select -->

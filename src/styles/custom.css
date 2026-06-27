@@ -122,8 +122,12 @@
   }
 
   iframe {
-    aspect-ratio: 16 / 9;
     width: 100%;
+    background-color: transparent;
+  }
+
+  iframe:not([height]) {
+    aspect-ratio: 16 / 9;
   }
 
   .header > div.sl-hidden {
