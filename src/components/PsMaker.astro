@@ -20,8 +20,10 @@ const featureSections = [
     },
     intro: "Use the 2D top-down map editor to build your world.",
     bullets: [
-      "Map objects with depth sorting and collisions",
-      "Tilesets and autotiles with map layers",
+      "Map objects with top-down depth sorting",
+      "Tilesets and autotiling support",
+      "Map layers for tiles",
+      "Overlay collisions",
       "Undo/Redo support",
     ],
   },
@@ -32,9 +34,10 @@ const featureSections = [
       src: homepageDemo2,
       alt: "PS Maker no-code event system editing a game interaction",
     },
-    intro: "Create story moments, cutscenes, and game logic without code.",
+    intro:
+      "Create your story, cutscenes, and set-up game logic without writing code.",
     bullets: [
-      "No-code Event System",
+      "No-code event system, driven by actions",
       "Control NPCs, trigger cutscenes, and build game mechanics",
       "Player interaction and touch trigger systems",
       "Built-in dialogue editor with names, portraits, and voice sounds",
@@ -49,16 +52,9 @@ const featureSections = [
       src: homepageDemo3,
       alt: "PS Maker playtest view running a top-down story game",
     },
-    intro: "Playtest quickly, polish your project, and keep expanding it.",
-    bullets: [
-      "Import custom art, music, and sounds",
-      "Make animations, NPCs, tilesets, autotiles, map objects, and more",
-      "Free starter assets",
-      "Plugin system to extend your game with code",
-      "Interactive tutorial project",
-      "Dark mode",
-      "Auto-updates forever with new features and continuous bug fixes",
-    ],
+    intro:
+      "Once you're finished your project, instantly share it with your friends!",
+    bullets: [],
   },
 ] as const;
 ---
@@ -153,11 +149,13 @@ const featureSections = [
 
         <div class="space-y-2 text-lg leading-6 text-base-content/90 max-sm:text-base">
           <p>{section.intro}</p>
-          <ul class="list-disc space-y-1 pl-6">
-            {section.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
+          {section.bullets.length > 0 && (
+            <ul class="list-disc space-y-1 pl-6">
+              {section.bullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     ))
