@@ -4,8 +4,9 @@ import { Icon } from "@astrojs/starlight/components";
 const currentPath = Astro.url.pathname;
 
 const showHamburger = currentPath === "/" || currentPath === "/community";
+const showSteamButton = currentPath === "/";
 const themeToggleLabel = Astro.locals.t("themeSelect.accessibleLabel");
-const DOWNLOAD_DEMO_URL = "https://app.pixelstories.io";
+const STEAM_STORE_URL = "https://store.steampowered.com/app/4823590/PS_Maker/";
 const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
 ---
 
@@ -46,18 +47,10 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
     </a>
   </div>
 
-  <div class="hidden md:block">
-    <a
-      href={DOWNLOAD_DEMO_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="daisy-btn daisy-btn-primary daisy-btn-sm mr-1">PS Maker Web Demo</a
-    >
-  </div>
-
   <!-- Desktop: Theme selector -->
   <div class="hidden md:block">
     <label
+      transition:persist="theme-toggle-desktop"
       class="daisy-toggle daisy-toggle-md text-base-content/70 theme-toggle mb-0.5 -mx-1"
     >
       <input type="checkbox" aria-label={themeToggleLabel} data-theme-toggle />
@@ -65,6 +58,21 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
       <Icon name="moon" size="16px" aria-label="dark mode" />
     </label>
   </div>
+
+  {
+    showSteamButton && (
+      <div class="hidden md:block">
+        <a
+          href={STEAM_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="daisy-btn daisy-btn-primary daisy-btn-sm ml-2.5"
+        >
+          Buy now on Steam
+        </a>
+      </div>
+    )
+  }
 </nav>
 
 <div
@@ -80,15 +88,9 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   aria-modal="true"
 >
   <div class="flex flex-col gap-1.5 font-medium">
-    <a href="/community" class="mobile-link">Community</a>
     <a href="/blog" class="mobile-link">News</a>
-    <a
-      href="https://www.youtube.com/playlist?list=PLAugdrGHTh7LLhKS8tcofeuz5jjIK6_-K"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mobile-link"
-      >Showcase <Icon name="external" size="0.9rem" class="opacity-65" /></a
-    >
+
+    <a href="/overview" class="mobile-link">PS Maker Manual</a>
     <a
       href={PRESS_KIT_URL}
       target="_blank"
@@ -103,21 +105,21 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
       class="mobile-link"
       >Discord <Icon name="external" size="0.9rem" class="opacity-65" /></a
     >
-    <a href="/overview" class="mobile-link">PS Maker Manual</a>
   </div>
 
   <div class="mt-3 flex items-center justify-between gap-2">
     <a
-      href={DOWNLOAD_DEMO_URL}
+      href={STEAM_STORE_URL}
       target="_blank"
       rel="noopener noreferrer"
       class="daisy-btn daisy-btn-primary daisy-btn-sm w-max justify-center"
-      >Launch PS Maker</a
-    >
+      >Buy now on Steam
+    </a>
 
     <!-- Mobile Theme select -->
     <div class="shrink-0">
       <label
+        transition:persist="theme-toggle-mobile"
         class="daisy-toggle daisy-toggle-md text-base-content/70 theme-toggle"
       >
         <input
@@ -198,14 +200,18 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   const getPreferredColorScheme = (): Theme =>
     matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 
-  function applyTheme(theme: Theme): void {
-    const resolvedTheme = theme === "auto" ? getPreferredColorScheme() : theme;
-    document.documentElement.dataset.theme = resolvedTheme;
-    document
+  function syncThemeToggles(root: ParentNode, resolvedTheme: Theme): void {
+    root
       .querySelectorAll<HTMLInputElement>("[data-theme-toggle]")
       .forEach((toggle) => {
         toggle.checked = resolvedTheme === "dark";
       });
+  }
+
+  function applyTheme(theme: Theme): void {
+    const resolvedTheme = theme === "auto" ? getPreferredColorScheme() : theme;
+    document.documentElement.dataset.theme = resolvedTheme;
+    syncThemeToggles(document, resolvedTheme);
   }
 
   function initializeThemeToggles(): void {
@@ -286,6 +292,20 @@ const PRESS_KIT_URL = "https://impress.games/press-kit/pixel-stories/ps-maker";
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
+
+  document.addEventListener(
+    "astro:before-swap",
+    (event: Event & { newDocument: Document }) => {
+      const resolvedTheme = document.documentElement.dataset.theme as
+        | Theme
+        | undefined;
+
+      if (!resolvedTheme) return;
+
+      event.newDocument.documentElement.dataset.theme = resolvedTheme;
+      syncThemeToggles(event.newDocument, resolvedTheme);
+    },
+  );
 
   document.addEventListener("astro:page-load", initializeHeaderControls);
   initializeHeaderControls();

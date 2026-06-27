@@ -2,15 +2,17 @@
 interface Props {
   src: string;
   class?: string;
+  wrapperClass?: string;
+  [key: string]: unknown;
 }
 
-const { src, class: className, ...attrs } = Astro.props;
+const { src, class: className, wrapperClass, ...attrs } = Astro.props;
 ---
 
-<div class="video-wrapper">
+<div class:list={["video-wrapper", wrapperClass]}>
   <video
     src={src}
-    class:list={["auto-video", className]}
+    class:list={["auto-video hover:scale-[1.01]", className]}
     loop
     muted
     playsinline
