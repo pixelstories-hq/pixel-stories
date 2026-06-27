@@ -2,9 +2,9 @@
 import { Icon } from "@astrojs/starlight/components";
 import Footer from "./Footer/Footer.astro";
 import Video from "./Video.astro";
-import mapEditorVideo from "../assets/images/home-page/map-editor.mp4";
-import eventsVideo from "../assets/images/home-page/editing-event.mp4";
-import playTestVideo from "../assets/images/home-page/play-test.mp4";
+import homepageDemo1 from "../assets/images/home-page/homepage-demo-1.mp4";
+import homepageDemo2 from "../assets/images/home-page/homepage-demo-2.mp4";
+import homepageDemo3 from "../assets/images/home-page/homepage-demo-3.mp4";
 
 const PLAY_DEMO_URL = "https://pixelstories.io/play/ae9fd4f0";
 const STEAM_WIDGET_URL = "https://store.steampowered.com/widget/4823590/";
@@ -15,7 +15,7 @@ const featureSections = [
     title: "Build Your World",
     media: {
       type: "video",
-      src: mapEditorVideo,
+      src: homepageDemo1,
       alt: "PS Maker map editor showing a top-down pixel art world",
     },
     intro: "Use the 2D top-down map editor to build your world.",
@@ -29,7 +29,7 @@ const featureSections = [
     title: "Bring Your Story to Life",
     media: {
       type: "video",
-      src: eventsVideo,
+      src: homepageDemo2,
       alt: "PS Maker no-code event system editing a game interaction",
     },
     intro: "Create story moments, cutscenes, and game logic without code.",
@@ -46,7 +46,7 @@ const featureSections = [
     title: "Instantly Share with Friends",
     media: {
       type: "video",
-      src: playTestVideo,
+      src: homepageDemo3,
       alt: "PS Maker playtest view running a top-down story game",
     },
     intro: "Playtest quickly, polish your project, and keep expanding it.",
@@ -128,11 +128,10 @@ const featureSections = [
 
   <section class="flex flex-col items-center gap-4 text-center sm:-mt-8">
     <p
-      class="mx-auto w-full max-w-4xl text-pretty text-2xl font-medium leading-8 text-base-content max-sm:text-lg max-sm:leading-6"
+      class="mx-auto w-full max-w-4xl text-balanced text-3xl font-medium leading-10 text-base-content max-sm:text-lg max-sm:leading-6"
     >
-      Create 2D top-down story-driven exploration games without writing any
-      code, so you can focus on the narrative, characters, music and world
-      building!
+      Create 2D top-down story-driven exploration games without any coding. so
+      you can focus on the narrative, characters, music and world building!
     </p>
 
     <a href={STEAM_STORE_URL} class="daisy-btn"> Buy now on Steam </a>
@@ -141,7 +140,7 @@ const featureSections = [
   {
     featureSections.map((section) => (
       <section class="flex flex-col gap-4">
-        <h2 class="text-pretty text-3xl font-bold tracking-tight max-sm:text-2xl">
+        <h2 class="text-pretty text-4xl font-bold tracking-tight max-sm:text-2xl">
           {section.title}
         </h2>
 
