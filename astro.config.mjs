@@ -67,6 +67,28 @@ export default defineConfig({
         {
           tag: "link",
           attrs: {
+            rel: "preconnect",
+            href: "https://fonts.googleapis.com",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "preconnect",
+            href: "https://fonts.gstatic.com",
+            crossorigin: "",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "stylesheet",
+            href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
             rel: "apple-touch-icon",
             sizes: "180x180",
             href: "/apple-touch-icon.png",
