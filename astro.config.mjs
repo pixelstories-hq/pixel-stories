@@ -20,16 +20,6 @@ export default defineConfig({
     "/features": "/overview",
     "/tour": "/overview",
     "/getting-started": "/overview",
-    "/event-system/event-groups": "/event-system/events",
-    "/event-system/dialogue-event": "/event-system/actions",
-    "/event-system/player-events": "/event-system/actions",
-    "/event-system/npc-events": "/event-system/actions",
-    "/event-system/control-flow-events": "/event-system/actions",
-    "/game-assets": "/overview",
-    "/game-assets/asset-library": "/overview",
-    "/game-assets/npcs": "/overview",
-    "/game-assets/inventory-items": "/overview",
-    "/game-assets/dialogue-ui": "/overview",
   },
 
   integrations: [
@@ -110,84 +100,51 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Getting started",
+          label: "Introduction",
           items: [
             {
-              label: "Overview",
+              label: "Editor Overview",
               link: "/overview",
             },
           ],
         },
         {
-          label: "Map editor",
+          label: "Maps & Tilesets",
           items: [
-            { label: "Overview", link: "/map-editor/overview" },
-            { label: "Tilesets", link: "/map-editor/tilesets" },
-            { label: "Autotile terrains", link: "/map-editor/autotile" },
-            { label: "Map objects", link: "/map-editor/map-objects" },
-            { label: "Collisions", link: "/map-editor/collisions" },
+            { label: "Tilesets & Autotiling", link: "/maps/tilesets" },
+            { label: "Map Objects & Collisions", link: "/maps/map-objects" },
           ],
         },
         {
-          label: "Event system",
+          label: "Events",
           items: [
-            { label: "Actions", link: "/event-system/actions" },
-            {
-              label: "Events",
-              link: "/event-system/events",
-            },
-            {
-              label: "Conditional branches",
-              link: "/event-system/conditionals",
-            },
+            { label: "Event System Overview", link: "/events/" },
+            { label: "Running & Nesting Events", link: "/events/running-events" },
+            { label: "Variables & Conditionals", link: "/events/variables" },
           ],
         },
         {
-          label: "Plugins (beta)",
+          label: "Characters & Dialogue",
           items: [
-            { label: "Plugin API", link: "/plugins/" },
-            { label: "Plugin CLI", link: "/plugins/cli" },
+            { label: "Dialogue Actions", link: "/dialogue/" },
+            { label: "Dialogue UI Configuration", link: "/dialogue/ui-config" },
+            { label: "NPC Animations", link: "/dialogue/npc-animations" },
           ],
         },
-        // {
-        //   label: "Guides",
-        //   autogenerate: { directory: "/guides" },
-        // },
-        /*
-        Build a Door (map transfer + trigger)
-
-        NPC Basics: Spawn, Talk, Despawn
-
-        Choices & Branching Dialogue
-
-        Chase & Patrol (ties together movement + triggers)
-
-        Inventory Pickup & Use
-
-        Switch Maps from a Cutscene
-
-        Customize the Dialogue Box Theme
-
-        Each guide uses the standard page template (What/When/Steps/Tips/Related).
-          */
         {
-          label: "Resources",
+          label: "Plugins",
           items: [
-            {
-              label: "Changelog",
-              link: "/changelog/",
-            },
-            {
-              label: "Video tutorials 🔗",
-              link: "https://www.youtube.com/@PixelStoriesMaker",
-              attrs: { target: "_blank" },
-            },
-            {
-              label: "Official Discord 🔗",
-              link: "https://discord.gg/WTxUC4hEnS",
-              attrs: { target: "_blank" },
-            },
+            { label: "Using Plugins", link: "/plugins/" },
+            { label: "Writing Plugins", link: "/plugins/writing-plugins" },
           ],
+        },
+        {
+          label: "FAQ",
+          link: "/faq/",
+        },
+        {
+          label: "Changelog",
+          link: "/changelog/",
         },
       ],
     }),
