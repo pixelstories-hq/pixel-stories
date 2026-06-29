@@ -1,9 +1,8 @@
 ---
-title: FAQ
+title: Frequently Asked Questions
 description: Short answers to common PS Maker questions.
+draft: true
 ---
 
-## Description
+stub for questions
 
-- These answers are intentionally short and practical.
-- More detailed how-to pages can grow out of this section later.

@@ -16,10 +16,10 @@ export default defineConfig({
   }),
 
   redirects: {
-    "/tutorials/basic": "/overview",
-    "/features": "/overview",
-    "/tour": "/overview",
-    "/getting-started": "/overview",
+    "/tutorials/basic": "/overview/",
+    "/features": "/overview/",
+    "/tour": "/overview/",
+    "/getting-started": "/overview/",
   },
 
   integrations: [
@@ -39,7 +39,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/PixelStoriesOrg/pixel-stories",
+          href: "https://github.com/pixel-stories-hq/pixel-stories",
         },
         {
           icon: "discord",
@@ -55,7 +55,7 @@ export default defineConfig({
         Search: "./src/overrides/Search.astro",
       },
       editLink: {
-        baseUrl: "https://github.com/PixelStoriesOrg/pixel-stories",
+        baseUrl: "https://github.com/pixel-stories-hq/pixel-stories",
       },
       customCss: [
         // Relative path to your custom CSS file
@@ -123,41 +123,60 @@ export default defineConfig({
       sidebar: [
         {
           label: "Introduction",
+          link: "/overview/",
+        },
+        {
+          label: "Editor Overview",
+          link: "/introduction/editor-overview",
+        },
+        {
+          label: "Map editor",
           items: [
+            { label: "Tilesets", link: "/map-editor/tilesets" },
+            { label: "Autotiling", link: "/map-editor/autotiling" },
+            { label: "Objects", link: "/map-editor/objects" },
+            { label: "Collisions", link: "/map-editor/collisions" },
+            { label: "Multiple Maps", link: "/map-editor/multiple-maps" },
+          ],
+        },
+        {
+          label: "Event system",
+          items: [
+            { label: "Events and Actions", link: "/event-system/events-actions" },
+            { label: "Triggering Events", link: "/event-system/event-triggers" },
             {
-              label: "Editor Overview",
-              link: "/overview",
+              label: "Conditional Branching",
+              link: "/event-system/conditional-branching",
             },
+            // { label: "Choices", link: "/event-system/choices" },
+            // { label: "Music and sounds", link: "/event-system/music-and-sounds" },
+            // { label: "NPC chase", link: "/event-system/npc-chase" },
+            // { label: "Cutscenes", link: "/event-system/cutscenes" },
           ],
         },
-        {
-          label: "Maps & Tilesets",
-          items: [
-            { label: "Tilesets & Autotiling", link: "/maps/tilesets" },
-            { label: "Map Objects & Collisions", link: "/maps/map-objects" },
-          ],
-        },
-        {
-          label: "Events",
-          items: [
-            { label: "Event System Overview", link: "/events/" },
-            { label: "Running & Nesting Events", link: "/events/running-events" },
-            { label: "Variables & Conditionals", link: "/events/variables" },
-          ],
-        },
-        {
-          label: "Characters & Dialogue",
-          items: [
-            { label: "Dialogue Actions", link: "/dialogue/" },
-            { label: "Dialogue UI Configuration", link: "/dialogue/ui-config" },
-            { label: "NPC Animations", link: "/dialogue/npc-animations" },
-          ],
-        },
+        // {
+        //   label: "Project assets",
+        //   items: [
+        //     { label: "Animations", link: "/project-assets/animations" },
+        //     { label: "Player and NPCs", link: "/project-assets/player-and-npcs" },
+        //   ],
+        // },
+        // {
+        //   label: "Dialogue system",
+        //   items: [
+        //     { label: "Dialogue editor", link: "/dialogue-system/dialogue-editor" },
+        //     {
+        //       label: "Customize Dialogue Box",
+        //       link: "/dialogue-system/dialogue-ui-configuration",
+        //     },
+        //   ],
+        // },
         {
           label: "Plugins",
           items: [
-            { label: "Using Plugins", link: "/plugins/" },
-            { label: "Writing Plugins", link: "/plugins/writing-plugins" },
+            { label: "Import Plugins", link: "/plugins/import-plugins" },
+            { label: "Creating Plugins", link: "/plugins/creating-plugins" },
+            { label: "Plugins API", link: "/plugins/api" },
           ],
         },
         {
@@ -167,6 +186,10 @@ export default defineConfig({
         {
           label: "Changelog",
           link: "/changelog/",
+        },
+        {
+          label: "Feature Request",
+          link: "/feature-request/",
         },
       ],
     }),
