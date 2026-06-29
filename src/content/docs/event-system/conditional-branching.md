@@ -3,7 +3,6 @@ title: Conditional Branches
 description: Use variables and conditions to create branching paths.
 ---
 
-
 Conditional branches let your actions respond to the player's behaviour. They check variables or inventory and decide what happens next. If the condition is true, one set of actions plays; if false, those actions are skipped.
 
 ## Common Mechanics
@@ -34,6 +33,6 @@ Click **+ Conditional** in the action list. Add your condition, then place actio
 You can check for:
 
 - **Switch variables**: True or false values.
-- **Number variables**: Greater, less, or equal to a number.
+- **Number variables**: Greater than, less than, or equal to a number.
 - **Text variables**: Matches specific text.
 - **Inventory items**: Whether the player has or does not have an item.

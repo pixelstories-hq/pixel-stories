@@ -16,11 +16,11 @@ This article explains what actions and events are, where they run, and how to ad
 
 An action is basically one thing the game can do. You can read actions like a list of steps that the game will perform. At the bottom of this page, you'll find a list of [common actions](#common-actions).
 
-Actions will run one after another in order. This matters because sometimes an action can depend on a previous one to work, such as running `Spawn NPC` before `Move NPC`. 
+Actions will run one after another in order. This matters because sometimes an action can depend on a previous one to work, such as running `Spawn NPC` before `Move NPC`.
 
 ## Events
 
-An event is a sequence of actions. You create an event, add actions into it, and then trigger that event in the map using the `Add event trigger` action. The next article, [Triggering Events](/event-system/event-triggers/), dives into more details for how events can be triggered.
+An event is a sequence of actions. You create an event, add actions to it, and then trigger that event in the map using the `Add Event Trigger` action. The next article, [Triggering Events](/event-system/event-triggers/), dives into more detail about how events can be triggered.
 
 ## Where Actions Run
 
@@ -32,7 +32,7 @@ The actions in the Starting Map Actions list will always run when the map first 
 
 1. Click **+ Actions...** to open the action menu, then choose an action.
 
-2. After adding an action, you can configure any options that's available for it.
+2. After adding an action, you can configure any options that are available for it.
 
 To reorder actions, click to select an action first, then drag it to a new spot. You can also use the three-dot menu.
 
