@@ -1,28 +1,33 @@
 ---
-title: Creating an Event
+title: Triggering Events
 description: Add triggers that run events when the player touches or interacts with them.
 ---
 
-To create an event, go to **Actions > Events** and make a new event. Add the actions you want inside it, then place the event into your map so it can run during gameplay.
+Event triggers are how you add player interaction into your game. They exist in the map and plays an event when triggered. 
 
-## Adding Events to the Map
+## Adding a Trigger
 
-You can add an event to the map by clicking **Add to Map** on the event card. This creates the **Add Event** action automatically.
+To add a trigger into the map, use the `Add Event Trigger` action.
 
-You can also do it manually by adding an **Add Event** action and selecting the event yourself.
+1. Add the `Add Event Trigger` action into the Starting Map Actions. This adds a trigger into the map when the map first loads.
+2. In the trigger action, create a new event or link it to an existing event.
+3. Configure the trigger as **On interact** or **On touch**, then draw the area that activates it in the map.
 
-## Trigger Types
+## Configuring Your Trigger
 
-Each event can be set to trigger in different ways:
+The following options are available to configure the trigger:
 
-- **No trigger**: Runs automatically as soon as the event is added.
-- **On interact**: Runs when the player presses the interact key inside the trigger area.
-- **On touch**: Runs when the player collides with the trigger area.
-
-## Trigger Settings
-
-You can customise how the trigger works:
-
+- **Trigger type**
+  - **On interact**: Runs when the player presses the interact key inside the trigger area.
+  - **On touch**: Runs when the player collides with the trigger area.
+  - **No trigger**: Runs automatically as soon as the event is added.
 - **Trigger size**: Adjust the area in pixels.
 - **Position**: Place it at a static point on the map or attach it to an NPC.
-- **Repeat or disappear**: Choose whether the event can be triggered multiple times or only once.
+- **Remove condition**: Choose whether the event can be triggered multiple times or only once.
+
+## Story Progression
+
+An event can also contain an `Add Event Trigger` action. This means an event, when activated, can add more event triggers into the map. This is how story progression works in PS Maker.
+
+For example, the Starting Map Actions might add a trigger for talking to an NPC. After that NPC event plays, it can add a new trigger for a door, a note, or another character. One trigger can unlock the next trigger, and your story can move forward step by step. 
+

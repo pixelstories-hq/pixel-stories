@@ -43,7 +43,7 @@ Objects can also be animated. Use a sprite strip, which is a series of frames in
 </pixel-art>
 
 
-:::tip
+:::note
 Large projects can include a lot of map objects. To keep everything organised, use descriptive names and assign categories such as `Nature`, `Furniture`, or `Buildings`.
 :::
 

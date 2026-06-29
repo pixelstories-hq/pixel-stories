@@ -54,6 +54,7 @@
 
     --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
     --sl-text-h2: 30px;
+    --sl-text-h3: 24px;
     --ps-color-link: #eb8ec3;
   }
 

@@ -6,7 +6,7 @@ description: Use variables and conditions to create branching paths.
 
 Conditional branches let your actions respond to the player's behaviour. They check variables or inventory and decide what happens next. If the condition is true, one set of actions plays; if false, those actions are skipped.
 
-## Common Uses
+## Common Mechanics
 
 - Checking if the player has a key before opening a door.
 - Changing dialogue if the player has already met an NPC.
@@ -23,7 +23,7 @@ To use conditionals, first create variables in the **Assets** page. Variables ca
 
 Update values with the **Set Variable** action. Clear names like `hasKey` or `metNPC` help keep track as projects grow.
 
-:::tip
+:::note
 Name variables clearly so you can find them later. Conditions run in sequence, so be careful that one branch does not accidentally make another branch below activate.
 :::
 

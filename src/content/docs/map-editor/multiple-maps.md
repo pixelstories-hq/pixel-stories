@@ -17,6 +17,6 @@ For example, a doorway can transfer the player from an outside town map into a h
 
 If the player should be able to return, create another event on the destination map. Add a **Transfer Player** action that points back to the original map, then place its trigger where the exit should be. With one trigger on each map, the player can move back and forth between the two areas. 
 
-:::tip
+:::note
 Use [event triggers](../../event-system/event-triggers/) for doors, stairs, portals, and area exits. **On touch** works well when the player should transfer as soon as they walk into the trigger, while **On interact** works well for doors or objects the player should intentionally use.
 :::
