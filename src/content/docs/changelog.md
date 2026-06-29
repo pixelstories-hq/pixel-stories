@@ -1,6 +1,7 @@
 ---
 title: Pixel Stories Changelog
 description: Find specific releases and changelogs for the game maker.
+tableOfContents: false
 ---
 
 ## 0.27.1

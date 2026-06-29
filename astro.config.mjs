@@ -16,20 +16,10 @@ export default defineConfig({
   }),
 
   redirects: {
-    "/tutorials/basic": "/overview",
-    "/features": "/overview",
-    "/tour": "/overview",
-    "/getting-started": "/overview",
-    "/event-system/event-groups": "/event-system/events",
-    "/event-system/dialogue-event": "/event-system/actions",
-    "/event-system/player-events": "/event-system/actions",
-    "/event-system/npc-events": "/event-system/actions",
-    "/event-system/control-flow-events": "/event-system/actions",
-    "/game-assets": "/overview",
-    "/game-assets/asset-library": "/overview",
-    "/game-assets/npcs": "/overview",
-    "/game-assets/inventory-items": "/overview",
-    "/game-assets/dialogue-ui": "/overview",
+    "/tutorials/basic": "/overview/",
+    "/features": "/overview/",
+    "/tour": "/overview/",
+    "/getting-started": "/overview/",
   },
 
   integrations: [
@@ -49,7 +39,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/PixelStoriesOrg/pixel-stories",
+          href: "https://github.com/pixel-stories-hq/pixel-stories",
         },
         {
           icon: "discord",
@@ -65,7 +55,7 @@ export default defineConfig({
         Search: "./src/overrides/Search.astro",
       },
       editLink: {
-        baseUrl: "https://github.com/PixelStoriesOrg/pixel-stories",
+        baseUrl: "https://github.com/pixel-stories-hq/pixel-stories",
       },
       customCss: [
         // Relative path to your custom CSS file
@@ -74,6 +64,28 @@ export default defineConfig({
       ],
       favicon: "/favicon.ico",
       head: [
+        {
+          tag: "link",
+          attrs: {
+            rel: "preconnect",
+            href: "https://fonts.googleapis.com",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "preconnect",
+            href: "https://fonts.gstatic.com",
+            crossorigin: "",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "stylesheet",
+            href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+          },
+        },
         {
           tag: "link",
           attrs: {
@@ -110,84 +122,74 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Getting started",
-          items: [
-            {
-              label: "Overview",
-              link: "/overview",
-            },
-          ],
+          label: "Introduction",
+          link: "/overview/",
+        },
+        {
+          label: "Editor Overview",
+          link: "/introduction/editor-overview",
         },
         {
           label: "Map editor",
           items: [
-            { label: "Overview", link: "/map-editor/overview" },
             { label: "Tilesets", link: "/map-editor/tilesets" },
-            { label: "Autotile terrains", link: "/map-editor/autotile" },
-            { label: "Map objects", link: "/map-editor/map-objects" },
+            { label: "Autotiling", link: "/map-editor/autotiling" },
+            { label: "Objects", link: "/map-editor/objects" },
             { label: "Collisions", link: "/map-editor/collisions" },
+            { label: "Multiple Maps", link: "/map-editor/multiple-maps" },
           ],
         },
         {
           label: "Event system",
           items: [
-            { label: "Actions", link: "/event-system/actions" },
+            { label: "Events and Actions", link: "/event-system/events-actions" },
+            { label: "Triggering Events", link: "/event-system/event-triggers" },
             {
-              label: "Events",
-              link: "/event-system/events",
+              label: "Conditional Branching",
+              link: "/event-system/conditional-branching",
             },
-            {
-              label: "Conditional branches",
-              link: "/event-system/conditionals",
-            },
-          ],
-        },
-        {
-          label: "Plugins (beta)",
-          items: [
-            { label: "Plugin API", link: "/plugins/" },
-            { label: "Plugin CLI", link: "/plugins/cli" },
+            // { label: "Choices", link: "/event-system/choices" },
+            // { label: "Music and sounds", link: "/event-system/music-and-sounds" },
+            // { label: "NPC chase", link: "/event-system/npc-chase" },
+            // { label: "Cutscenes", link: "/event-system/cutscenes" },
           ],
         },
         // {
-        //   label: "Guides",
-        //   autogenerate: { directory: "/guides" },
+        //   label: "Project assets",
+        //   items: [
+        //     { label: "Animations", link: "/project-assets/animations" },
+        //     { label: "Player and NPCs", link: "/project-assets/player-and-npcs" },
+        //   ],
         // },
-        /*
-        Build a Door (map transfer + trigger)
-
-        NPC Basics: Spawn, Talk, Despawn
-
-        Choices & Branching Dialogue
-
-        Chase & Patrol (ties together movement + triggers)
-
-        Inventory Pickup & Use
-
-        Switch Maps from a Cutscene
-
-        Customize the Dialogue Box Theme
-
-        Each guide uses the standard page template (What/When/Steps/Tips/Related).
-          */
+        // {
+        //   label: "Dialogue system",
+        //   items: [
+        //     { label: "Dialogue editor", link: "/dialogue-system/dialogue-editor" },
+        //     {
+        //       label: "Customize Dialogue Box",
+        //       link: "/dialogue-system/dialogue-ui-configuration",
+        //     },
+        //   ],
+        // },
         {
-          label: "Resources",
+          label: "Plugins",
           items: [
-            {
-              label: "Changelog",
-              link: "/changelog/",
-            },
-            {
-              label: "Video tutorials 🔗",
-              link: "https://www.youtube.com/@PixelStoriesMaker",
-              attrs: { target: "_blank" },
-            },
-            {
-              label: "Official Discord 🔗",
-              link: "https://discord.gg/WTxUC4hEnS",
-              attrs: { target: "_blank" },
-            },
+            { label: "Import Plugins", link: "/plugins/import-plugins" },
+            { label: "Creating Plugins", link: "/plugins/creating-plugins" },
+            { label: "Plugins API", link: "/plugins/api" },
           ],
+        },
+        {
+          label: "FAQ",
+          link: "/faq/",
+        },
+        {
+          label: "Changelog",
+          link: "/changelog/",
+        },
+        {
+          label: "Feature Request",
+          link: "/feature-request/",
         },
       ],
     }),

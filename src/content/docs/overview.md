@@ -1,36 +1,26 @@
 ---
-title: Introduction
-description: Welcome to the PS Maker documentation. Learn how to use the editor and build your own story-driven game.
+title: Welcome to PS Maker
+description: Start here to learn what PS Maker is and where to go first.
 ---
 
-Welcome to the **PS Maker documentation**. These guides are here to help you learn the editor and build your own 2D top-down story-driven games.
+PS Maker is a game engine for creating 2D, top-down, story-focused games. These guides help you find your way around the editor and learn as you build.
 
-Whether you are just getting started or looking up a specific feature, you can use this documentation as a reference whenever you feel stuck.
+Have fun creating with PS Maker!
 
-:::caution[Note]
-Some of these manual articles are outdated and we are continuously updating them to reflect the latest features from PS Maker. If you require any support for using PS Maker, come chat with us in our [Discord community](https://discord.gg/WTxUC4hEnS) or [submit a bug report](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)!
-:::
+## Getting started
 
-## What is PS Maker?
+If you are new, these are the pages worth reading first:
 
-PS Maker is a no-code game maker designed for building 2D top-down story-driven games. If you are new to game development, it gives you approachable tools like the **map editor**, **actions**, and **events** so you can tell immersive stories without needing to code.
+- Start with [Editor Overview](/introduction/editor-overview/) to get familiar with the interface.
+- Then read [Events and Actions](/event-system/events-actions/), which are the heart of how things happen in your game.
+- After that, learn about [Triggering Events](/event-system/event-triggers/) so your world can react to the player.
 
-If you are coming from another engine, you will find that PS Maker focuses specifically on storytelling features, so you can spend less time configuring and more time creating.
+After that, jump around as you go! The help manual is made to be wandered through, not read front to back (otherwise its way too much information).
 
-<iframe width="100%" src="https://www.youtube.com/embed/zu--lDuBswc?si=cAWXpSNbOyiefAnD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+If you're stuck and the manual doesn't help, [join the Discord](https://discord.gg/WTxUC4hEnS) to ask for help. You can ping me, @Truman, and I'll try to respond as soon as I can!
 
-## What You’ll Find Here
+## Resources
 
-- **Map editor references** to build your world with tilesets, autotiles, objects, and collisions
-- **Action and event docs** for gameplay logic, interaction triggers, and branching stories
-- **Guide pages** with walkthroughs for common mechanics
-
-## Tips for Using the Docs
-
-- Start with [Actions](./event-system/actions) and [Events](./event-system/events)
-- Use **search** to quickly find topics or reference pages
-- Join our [Discord community](https://discord.gg/WTxUC4hEnS) if you need help or want to share ideas
-
-## Early Access
-
-PS Maker is currently in late-stage beta. Features are being refined and bugs may appear. If you run into issues, please let us know by submitting a [bug report](https://github.com/pixelstories-hq/ps-maker/issues/new/choose) or [feature request](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)!
+- [Discord community](https://discord.gg/WTxUC4hEnS)
+- [Report a bug](https://github.com/pixelstories-hq/ps-maker/issues/new/choose)
+- [Request a feature](/feature-request/)

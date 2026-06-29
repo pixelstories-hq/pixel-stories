@@ -1,6 +1,6 @@
 # Pixel Stories
 
-This repository contains the website for [Pixel Stories](https://pixelstories.io) and documentation for [PS Maker](https://pixelstories.io/overview).
+This repository contains the website for [Pixel Stories](https://pixelstories.io) and documentation for [PS Maker](https://pixelstories.io/overview/).
 
 ## Contributing
 
