@@ -12,7 +12,7 @@ PS Maker is a game engine for creating 2D top-down story-driven exploration game
 
 If you are new, these are the pages worth reading first:
 
-- Start with [Editor Overview](/introduction/editor-overview/) to get familiar with the interface.
+- Start with [Editor Overview](/introduction/editor-overview/) to get familiar with the interface for map editing.
 - Then read [Events and Actions](/event-system/events-actions/), which are the heart of how things happen in your game.
 - Then learn about [Triggering Events](/event-system/event-triggers/) so your world can react to the player.
 
