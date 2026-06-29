@@ -53,7 +53,8 @@
     );
 
     --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 80%);
-    --sl-text-h2: 30px
+    --sl-text-h2: 30px;
+    --ps-color-link: #eb8ec3;
   }
 
   body {
@@ -76,6 +77,7 @@
     --sl-color-text: var(--color-base-content);
     --sl-color-bg-sidebar: var(--color-base-100);
     --ps-hero-glow: color-mix(in oklab, var(--color-primary), transparent 86%);
+    --ps-color-link: #99336d;
   }
 
   :root[data-theme="light"] .sl-link-button.primary {
@@ -98,6 +100,14 @@
     border-radius: 0.5rem;
     border: 1px var(--color-base-300) solid;
     transition: all 250ms;
+  }
+
+  :where(.sl-markdown-content) a {
+    color: var(--ps-color-link) !important;
+    text-decoration: none;
+  }
+  :where(.sl-markdown-content) a:hover {
+    text-decoration: underline;
   }
 
   :where(.sl-markdown-content) img:not(:where(.not-content *)),
