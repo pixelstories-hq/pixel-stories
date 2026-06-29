@@ -172,7 +172,7 @@ export default defineConfig({
         //   ],
         // },
         {
-          label: "Plugins",
+          label: "Plugins (beta)",
           items: [
             { label: "Import Plugins", link: "/plugins/import-plugins" },
             { label: "Creating Plugins", link: "/plugins/creating-plugins" },
