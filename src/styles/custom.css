@@ -103,7 +103,7 @@
     transition: all 250ms;
   }
 
-  :where(.sl-markdown-content) a {
+  :where(.sl-markdown-content) a:not(:where(.not-content *)) {
     color: var(--ps-color-link) !important;
     text-decoration: none;
   }

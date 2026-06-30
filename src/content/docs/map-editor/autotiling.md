@@ -27,14 +27,10 @@ Avoid using autotiles for the base terrain. If the tile covers most of the map, 
 
 PS Maker supports two autotile formats:
 
-- **Wang format**: `80x48px`
-- **RPG Maker format**: `32x48px`
+- **Wang format**: `80x48px for 16px tiles`
+- **RPG Maker format**: `32x48px for 16px tiles`
 
 Both formats have dark-grey tiles for edges and corners, and light-grey tiles for the centre. You can use those layouts as a reference when creating your own autotiles.
-
-## RPG Maker Format
-
-RPG Maker format autotiles are `32x48px`.
 
 <pixel-art>
 
