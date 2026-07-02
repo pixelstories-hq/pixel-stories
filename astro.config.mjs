@@ -130,7 +130,7 @@ export default defineConfig({
           link: "/introduction/editor-overview",
         },
         {
-          label: "Map editor",
+          label: "Map Editor",
           items: [
             { label: "Tilesets", link: "/map-editor/tilesets" },
             { label: "Autotiling", link: "/map-editor/autotiling" },
@@ -140,7 +140,7 @@ export default defineConfig({
           ],
         },
         {
-          label: "Event system",
+          label: "Event System",
           items: [
             { label: "Events and Actions", link: "/event-system/events-actions" },
             { label: "Triggering Events", link: "/event-system/event-triggers" },
@@ -178,6 +178,10 @@ export default defineConfig({
             { label: "Creating Plugins", link: "/plugins/creating-plugins" },
             // { label: "Plugins API", link: "/plugins/api" },
           ],
+        },
+        {
+          label: "Exporting Your Game",
+          link: "/exporting-your-game/",
         },
         {
           label: "FAQ",
