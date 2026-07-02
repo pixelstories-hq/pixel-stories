@@ -161,16 +161,16 @@ export default defineConfig({
         //     { label: "Player and NPCs", link: "/project-assets/player-and-npcs" },
         //   ],
         // },
-        // {
-        //   label: "Dialogue system",
-        //   items: [
-        //     { label: "Dialogue editor", link: "/dialogue-system/dialogue-editor" },
-        //     {
-        //       label: "Customize Dialogue Box",
-        //       link: "/dialogue-system/dialogue-ui-configuration",
-        //     },
-        //   ],
-        // },
+        {
+          label: "Dialogue system",
+          items: [
+            { label: "Dialogue editor", link: "/dialogue-system/dialogue-editor" },
+            // {
+            //   label: "Customize Dialogue Box",
+            //   link: "/dialogue-system/dialogue-ui-configuration",
+            // },
+          ],
+        },
         {
           label: "Plugins (beta)",
           items: [
