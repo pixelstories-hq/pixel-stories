@@ -4,6 +4,158 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.29.2
+
+**July 2, 2026**
+
+- Added interact event trigger labels and UI customization.
+- Added dialogue preview modal for dialogue actions to preview what rendered dialogue looks like.
+- Changed dialogue newline behavior so one newline creates a line break, while two or more newlines paginate.
+- Improved the variable picker dropdown with create-variable support and UI style fixes.
+- Added Change Variable action support for set, toggle, and math operations.
+- Fixed animated map object collision boxes.
+- Fixed animated map object list previews and centered map object placement on the cursor.
+- Added new camera actions for move, zoom, and reset move/zoom.
+
+## 0.29.1
+
+**June 30, 2026**
+
+- Signed the Steam executables.
+
+## 0.29.0
+
+**June 29, 2026**
+
+- Added user preferences and UI scaling.
+- Fixed desktop title bar colors.
+- Fixed undo/redo command commits when exiting game mode.
+- Improved map grid performance.
+- Fixed layout and zoom behavior at 175% scaling.
+- Updated trigger type copy.
+- Improved max height for asset picker and story event picker.
+- Added Q shortcut to select the hovered tile or map object.
+- Fixed autotile item previews.
+- Added autotile drawing previews.
+
+## 0.28.8
+
+**June 26, 2026**
+
+- Fixed Mac Steam deployment.
+
+## 0.28.7
+
+**June 26, 2026**
+
+- Updated theme and dark mode colors.
+- Changed the accent color to pink and fixed radio control positioning.
+- Added refresh button for the projects list.
+- Improved the player fallback runtime collision box.
+- Added debug mode checkbox in playtest.
+- Updated the interactive tutorial.
+
+## 0.28.6
+
+**June 22, 2026**
+
+- Improved colors and small UI adjustments.
+
+## 0.28.5
+
+**June 22, 2026**
+
+- Added beta and docs buttons for plugin api section.
+
+## 0.28.4
+
+**June 21, 2026**
+
+- Updated grid line styles.
+- Matched the Windows title bar background and removed the Windows application menu.
+- Added better default UI config and a custom default font.
+- Added dialogue layout command support.
+- Backed up `story.json` before dialogue source migrations.
+- Prevented dialogue key renames that are not unique or fail migration.
+- Added a custom title bar for Windows.
+- Always show starter assets modal on new project creation.
+- Changed delete behavior to move projects to the recycling bin.
+- Updated the interactive tutorial.
+
+## 0.28.3
+
+**June 15, 2026**
+
+- Fixed delete map crashing app.
+
+## 0.28.2
+
+**June 15, 2026**
+
+- Fixed loading icon.
+- Improved map selection dropdown UI.
+- Added map editing, map deletion, and starting map configuration.
+
+## 0.28.1
+
+**June 15, 2026**
+
+- Updated the web platform no-project-folder state to guide users to choose a project folder first.
+- Fixed the demo incorrectly gating project root setup.
+- Fixed static 404s on `/editor`.
+- Added published game links for sharing.
+- Switched ID generation to nanoid for future proofness.
+- Fixed choosing a project folder on the demo.
+- Fixed published games including the game container unnecessarily.
+
+## 0.28.0
+
+**June 12, 2026**
+
+- Persisted terrain layer selection when switching pages.
+- Removed undo/redo keyboard shortcuts for event system actions, first time didn't remove all the code.
+- Added Set Variable to Value action preview.
+- Added ELSE branches for conditionals.
+- Fixed dialogue renderer double line breaks for `@linebreak`.
+- Fixed default choices text color.
+- Bundled the interactive tutorial with PS Maker.
+- Added example project onboarding modal.
+- Hid the starter assets modal for example projects.
+- Added handling for interactive tutorial updates.
+
+## 0.27.5
+
+**June 11, 2026**
+
+- Added better positioning and sizing configuration for dialogue box portrait UIs.
+- Reorganized event trigger actions in the add event modal.
+
+## 0.27.4
+
+**June 10, 2026**
+
+- Fixed action config not persisting.
+
+## 0.27.3
+
+**June 10, 2026**
+
+- Fixed example project seeder preventing the project list from loading.
+
+## 0.27.2
+
+**June 10, 2026**
+
+- Fixed Mac auto updater.
+- Removed undo/redo keyboard shortcuts for event system actions due to bugginess.
+- Removed the Dead Friend Horror example project.
+- Fixed filesystem image flickering when object URLs changed.
+- Prevented dialogue portraits from refetching through the overlay renderer.
+- Improved side panel styles and scrolling.
+- Updated the app icon.
+- Turned the default name box off.
+- Fixed name box styles not applying.
+
 ## 0.27.1
 
 **June 9, 2026**
