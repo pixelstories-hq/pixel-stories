@@ -72,7 +72,7 @@ export async function handlePsMakerUpdaterRequest(
       return proxyGitHubMetadata(asset, release, context.request, method);
     }
 
-    return proxyGitHubAsset(asset, context.request, method);
+    return redirectToGitHubAsset(asset, context.request);
   } catch {
     return plain("Failed to fetch updater asset", 502);
   }
@@ -192,30 +192,43 @@ function comparePublishedDesc(a: GitHubRelease, b: GitHubRelease): number {
   return bTime - aTime;
 }
 
-async function proxyGitHubAsset(
+async function redirectToGitHubAsset(
   asset: GitHubAsset,
   request: Request,
-  method: UpdaterRequestMethod,
 ): Promise<Response> {
-  const upstreamMethod =
-    method === "HEAD" && request.headers.has("Range") ? "GET" : method;
-
   const upstream = await fetch(asset.url, {
-    method: upstreamMethod,
+    method: "GET",
+    redirect: "manual",
     headers: githubAssetHeaders(request),
   });
 
-  if (!upstream.ok && upstream.status !== 304) {
+  if (upstream.status >= 300 && upstream.status < 400) {
+    const location = upstream.headers.get("Location");
+    if (location) {
+      return new Response(null, {
+        status: 307,
+        headers: noStoreHeaders({
+          Location: location,
+        }),
+      });
+    }
+  }
+
+  if (!upstream.ok) {
     if (upstream.status === 404) return plain("Not found", 404);
     return plain("Failed to fetch upstream asset", 502);
   }
 
-  const headers = proxiedHeaders(upstream.headers, asset.name, asset.size);
-  return new Response(method === "HEAD" ? null : upstream.body, {
-    status: upstream.status,
-    statusText: upstream.statusText,
-    headers,
-  });
+  if (asset.browser_download_url) {
+    return new Response(null, {
+      status: 307,
+      headers: noStoreHeaders({
+        Location: asset.browser_download_url,
+      }),
+    });
+  }
+
+  return plain("Failed to resolve upstream asset URL", 502);
 }
 
 async function proxyGitHubMetadata(
@@ -351,11 +364,8 @@ function proxiedHeaders(
   assetName: string,
   assetSize?: number,
 ): Headers {
-  const headers = new Headers({
+  const headers = noStoreHeaders({
     "Content-Type": contentTypeFor(assetName),
-    "Cache-Control": "private, no-store",
-    "CDN-Cache-Control": "no-store",
-    "Vary": "X-PS-Update-Token",
   });
 
   for (const name of [
@@ -374,6 +384,14 @@ function proxiedHeaders(
     headers.set("Content-Length", String(assetSize));
   }
 
+  return headers;
+}
+
+function noStoreHeaders(init?: HeadersInit): Headers {
+  const headers = new Headers(init);
+  headers.set("Cache-Control", "private, no-store");
+  headers.set("CDN-Cache-Control", "no-store");
+  headers.set("Vary", "X-PS-Update-Token");
   return headers;
 }
 
