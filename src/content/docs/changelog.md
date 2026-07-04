@@ -4,7 +4,11 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.29.5
 
+**July 4, 2026**
+
+- Fixed updater to use incremental updates and not show set up wizard.
 
 ## 0.29.4
 

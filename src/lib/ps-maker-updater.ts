@@ -4,6 +4,15 @@ import { getCached, setCached } from "./github-cache";
 const REPO = "pixelstories-hq/ps-maker-app";
 const RELEASES_CACHE_KEY = "ps-maker-updater:releases";
 const RELEASES_TTL = 5 * 60 * 1000;
+const DEFAULT_METADATA_FILE = "latest.yml";
+const BLOCKMAP_EXTENSION = ".blockmap";
+const ALLOWED_ARTIFACT_EXTENSIONS = [
+  ".exe",
+  ".dmg",
+  ".zip",
+  ".AppImage",
+  ".deb",
+];
 
 const FULL_METADATA_FILES = new Set([
   "latest.yml",
@@ -44,7 +53,10 @@ export async function handlePsMakerUpdaterRequest(
   const authResponse = validateUpdateToken(context.request);
   if (authResponse) return authResponse;
 
-  const assetName = normalizeAssetName(assetPath);
+  const assetName =
+    assetPath === undefined
+      ? DEFAULT_METADATA_FILE
+      : normalizeAssetName(assetPath);
   if (!assetName) return plain("Not found", 404);
   if (!isAllowedAssetName(assetName)) return plain("Not found", 404);
 
@@ -56,6 +68,10 @@ export async function handlePsMakerUpdaterRequest(
     if (!asset) return plain("Not found", 404);
 
     const method = context.request.method === "HEAD" ? "HEAD" : "GET";
+    if (isMetadataFileName(assetName)) {
+      return proxyGitHubMetadata(asset, release, context.request, method);
+    }
+
     return proxyGitHubAsset(asset, context.request, method);
   } catch {
     return plain("Failed to fetch updater asset", 502);
@@ -64,7 +80,10 @@ export async function handlePsMakerUpdaterRequest(
 
 function validateUpdateToken(request: Request): Response | undefined {
   const expectedToken = import.meta.env.PS_UPDATE_TOKEN;
-  if (!expectedToken) return undefined;
+  if (!expectedToken) {
+    if (import.meta.env.PUBLIC_UPDATER === "true") return undefined;
+    return plain("Update token is not configured", 500);
+  }
 
   const updateToken = request.headers.get("X-PS-Update-Token");
   if (!updateToken) return plain("Missing update token", 401);
@@ -83,15 +102,20 @@ function normalizeAssetName(assetPath?: string): string | undefined {
     return undefined;
   }
 
+  if (decoded.includes("\\") || decoded.startsWith("/")) {
+    return undefined;
+  }
+
+  const segments = decoded.split("/");
   if (
-    decoded.includes("/") ||
-    decoded.includes("\\") ||
-    decoded.includes("..")
+    segments.some(
+      (segment) => !segment || segment === "." || segment === "..",
+    )
   ) {
     return undefined;
   }
 
-  return decoded;
+  return segments.at(-1);
 }
 
 async function getLatestDirectReleaseWithAsset(
@@ -110,13 +134,15 @@ async function getPublishedReleases(): Promise<GitHubRelease[]> {
   if (cachedReleases) return cachedReleases;
 
   const res = await fetch(
-    `https://api.github.com/repos/${REPO}/releases?per_page=30`,
+    `https://api.github.com/repos/${REPO}/releases?per_page=100`,
     {
       headers: githubHeaders("application/vnd.github+json"),
     },
   );
 
-  if (!res.ok) return [];
+  if (!res.ok) {
+    throw new Error(`GitHub releases request failed with status ${res.status}`);
+  }
 
   const releases = (await res.json()) as GitHubRelease[];
   setCached(RELEASES_CACHE_KEY, releases, RELEASES_TTL);
@@ -128,10 +154,24 @@ function isAllowedAssetName(name: string): boolean {
 }
 
 function isAllowedArtifactName(name: string): boolean {
-  if (!/^PS\.Maker(?:\.Demo)?_/.test(name)) return false;
   if (isSteamName(name)) return false;
 
-  return /\.(exe|dmg|zip|blockmap|AppImage|deb)$/i.test(name);
+  const artifactName = name.toLowerCase().endsWith(BLOCKMAP_EXTENSION)
+    ? name.slice(0, -BLOCKMAP_EXTENSION.length)
+    : name;
+
+  if (!isPsMakerArtifactName(artifactName)) return false;
+  return hasAllowedArtifactExtension(artifactName);
+}
+
+function isPsMakerArtifactName(name: string): boolean {
+  return /^PS[ ._-]?Maker(?:[ ._-]?Demo)?[ ._-]/i.test(name);
+}
+
+function hasAllowedArtifactExtension(name: string): boolean {
+  return ALLOWED_ARTIFACT_EXTENSIONS.some((extension) =>
+    name.toLowerCase().endsWith(extension.toLowerCase()),
+  );
 }
 
 function isMetadataFileName(name: string): boolean {
@@ -178,13 +218,116 @@ async function proxyGitHubAsset(
   });
 }
 
-function githubAssetHeaders(request: Request): Headers {
+async function proxyGitHubMetadata(
+  asset: GitHubAsset,
+  release: GitHubRelease,
+  request: Request,
+  method: UpdaterRequestMethod,
+): Promise<Response> {
+  const upstreamMethod = method === "HEAD" ? "GET" : method;
+  const upstream = await fetch(asset.url, {
+    method: upstreamMethod,
+    headers: githubAssetHeaders(request, { includeRange: false }),
+  });
+
+  if (!upstream.ok && upstream.status !== 304) {
+    if (upstream.status === 404) return plain("Not found", 404);
+    return plain("Failed to fetch upstream asset", 502);
+  }
+
+  const headers = proxiedHeaders(upstream.headers, asset.name, asset.size);
+  if (upstream.status === 304) {
+    return new Response(null, {
+      status: upstream.status,
+      statusText: upstream.statusText,
+      headers,
+    });
+  }
+
+  const metadata = await upstream.text();
+  const rewrittenMetadata = rewriteMetadataAssetUrls(
+    metadata,
+    release,
+    request,
+  );
+  headers.set(
+    "Content-Length",
+    String(new TextEncoder().encode(rewrittenMetadata).length),
+  );
+
+  return new Response(method === "HEAD" ? null : rewrittenMetadata, {
+    status: upstream.status,
+    statusText: upstream.statusText,
+    headers,
+  });
+}
+
+function rewriteMetadataAssetUrls(
+  metadata: string,
+  release: GitHubRelease,
+  request: Request,
+): string {
+  const replacements = new Map<string, string>();
+  for (const asset of release.assets) {
+    if (!isAllowedArtifactName(asset.name)) continue;
+
+    const updaterUrl = new URL(request.url);
+    updaterUrl.pathname = `/api/ps-maker/updater/${asset.name
+      .split("/")
+      .map(encodeURIComponent)
+      .join("/")}`;
+    updaterUrl.search = "";
+
+    for (const value of metadataAssetUrlVariants(asset)) {
+      replacements.set(value, updaterUrl.toString());
+    }
+  }
+
+  return metadata.replace(
+    /^(\s*(?:path|url):\s*)(?:"([^"]+)"|'([^']+)'|([^\r\n#]+?))(\s*(?:#.*)?)$/gm,
+    (line, prefix, doubleQuoted, singleQuoted, plainValue, suffix) => {
+      const value = (doubleQuoted ?? singleQuoted ?? plainValue).trim();
+      const replacement = replacements.get(value);
+      if (!replacement) return line;
+
+      if (doubleQuoted !== undefined) {
+        return `${prefix}"${replacement}"${suffix}`;
+      }
+      if (singleQuoted !== undefined) {
+        return `${prefix}'${replacement}'${suffix}`;
+      }
+      return `${prefix}${replacement}${suffix}`;
+    },
+  );
+}
+
+function metadataAssetUrlVariants(asset: GitHubAsset): string[] {
+  const encodedName = asset.name
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/");
+  const values = new Set([
+    asset.name,
+    encodedName,
+    `./${asset.name}`,
+    `./${encodedName}`,
+  ]);
+
+  if (asset.browser_download_url) values.add(asset.browser_download_url);
+
+  return [...values];
+}
+
+function githubAssetHeaders(
+  request: Request,
+  { includeRange = true }: { includeRange?: boolean } = {},
+): Headers {
   const headers = githubHeaders("application/octet-stream");
   const range = request.headers.get("Range");
   const ifNoneMatch = request.headers.get("If-None-Match");
   const ifModifiedSince = request.headers.get("If-Modified-Since");
 
-  if (range) headers.set("Range", range);
+  if (includeRange && range) headers.set("Range", range);
   if (ifNoneMatch) headers.set("If-None-Match", ifNoneMatch);
   if (ifModifiedSince) headers.set("If-Modified-Since", ifModifiedSince);
 
@@ -210,10 +353,9 @@ function proxiedHeaders(
 ): Headers {
   const headers = new Headers({
     "Content-Type": contentTypeFor(assetName),
-    "Cache-Control": isMetadataFileName(assetName)
-      ? "no-cache"
-      : "public, max-age=300",
-    "CDN-Cache-Control": "public, max-age=300",
+    "Cache-Control": "private, no-store",
+    "CDN-Cache-Control": "no-store",
+    "Vary": "X-PS-Update-Token",
   });
 
   for (const name of [
