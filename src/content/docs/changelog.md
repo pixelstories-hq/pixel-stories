@@ -4,6 +4,15 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.29.6
+
+**July 4, 2026**
+
+- Fixed dense resolution rendering in the game editor causing crashes.
+- Optimized tile map rebuilds when drawing tiles or autotiles.
+- Improved tile map drawing performance by batching saves when many edits happen in succession.
+- Improved map performance by fixing collision box scene listeners broadcasting frame and pointer move events to all collision boxes.
+
 ## 0.29.5
 
 **July 4, 2026**
@@ -26,7 +35,7 @@ tableOfContents: false
 - Added volume configuration for audio assets and audio-related actions.
 - Added fade-in and fade-out durations for Change Map actions.
 - Improved animation previews with row-major frame building and better handling for images with missing metadata.
-- Improved editor camera zoom to zoom toward the mouse and fixed pixelated maps when zoomed out. 
+- Improved editor camera zoom to zoom toward the mouse and fixed pixelated maps when zoomed out.
 - Improved map object placement and selection highlighting to use visible pixels as the bound instead of sprite size.
 - Kept the selected tile shape when erasing tiles with right click.
 - Updated modal box styling and fixed tooltip clipping.
@@ -204,6 +213,7 @@ tableOfContents: false
 **June 3, 2026**
 
 Asset system
+
 - Added project asset pack export and removed the standalone Asset Pack Maker.
 - Improved asset pack metadata editing and export workflow.
 - Simplified map object creation into a single-step workflow.
@@ -217,12 +227,13 @@ Asset system
 - Fixed player and NPC animation state fallback behavior.
 
 Editor
+
 - Simplified UI copy and removed unnecessary descriptions throughout the editor.
 - Added tileset search and improved tileset panel layout.
 - Improved drawing workflow when switching between tiles and autotiles.
 - Added resizable map editor and event panels.
 - Added layer inspection by dimming non-hovered layers.
-- Improved multi-tile stamp tool placement behavior. 
+- Improved multi-tile stamp tool placement behavior.
 - Improved loading performance for projects with large tilesets.
 - Fixed map object placement undo not persisting correctly.
 - Fixed map object depth sorting after moving objects.
@@ -230,6 +241,7 @@ Editor
 - Fixed tooltip overflow, dropdown styling, panel sizing, labels, and other editor UI issues.
 
 Event system
+
 - Added configurable default movement speeds for players and NPCs.
 - Added crossfade support when changing movement animations.
 - Added enhanced previews for Spawn NPC and Move NPC/Player actions.
@@ -252,13 +264,15 @@ Event system
 **May 12, 2026**
 
 Dialogue feature
+
 - Added dialogue sounds:
-  - Dialogue sound profiles can be added within NPCs or in Dialogue Layouts. 
+  - Dialogue sound profiles can be added within NPCs or in Dialogue Layouts.
   - The active dialogue sound can be set to play in the dialogue action editor via `@dialogue_sound...`.
 - Improved the default dialogue and choices layout config so that text size is reasonable.
 - Fixed inconsistent dialogue box on small screens due to hard coded pixel value padding.
 
 Event system feature
+
 - Changed how the map editor preview to show the current map state up to and including the current action you're on, instead of excluding it.
 - Improved the action list drag to select and drag to re-order UX.
 - Fixed not being able to deselect actions.
@@ -275,7 +289,6 @@ Event system feature
 - Added fallback idle animation for player animations
 - Fixed undo/redo for tile tools not accounting for the tile layer at time of execution, leading to undo/redo acting on wrong layer
 - Fixed UI for project list page styles and starter assets modal on small screen
-
 
 ## 0.24.1
 
