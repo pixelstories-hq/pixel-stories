@@ -4,6 +4,23 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.29.3
+
+**July 3, 2026**
+
+- Added Map Enter and Map Leave lifecycle events.
+- Added bulk upload support for project assets and map objects.
+- Added volume configuration for audio assets and audio-related actions.
+- Added fade-in and fade-out durations for Change Map actions.
+- Improved animation previews with row-major frame building and better handling for images with missing metadata.
+- Improved editor camera zoom to zoom toward the mouse and fixed pixelated maps when zoomed out. 
+- Improved map object placement and selection highlighting to use visible pixels as the bound instead of sprite size.
+- Kept the selected tile shape when erasing tiles with right click.
+- Updated modal box styling and fixed tooltip clipping.
+- Fixed false update available errors and enabled auto updates for demo builds.
+- Fixed repeated interact-triggered events after actions that wait for the interact button.
+- Fixed events from inactive maps being triggerable.
+
 ## 0.29.2
 
 **July 2, 2026**
