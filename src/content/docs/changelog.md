@@ -4,6 +4,15 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+
+
+## 0.29.4
+
+**July 4, 2026**
+
+- Fixed full version updater pointing to demo version files, causing error.
+- Fixed mac updater not having a zip, only dmg.
+
 ## 0.29.3
 
 **July 3, 2026**

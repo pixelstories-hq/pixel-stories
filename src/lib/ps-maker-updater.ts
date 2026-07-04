@@ -3,14 +3,17 @@ import { getCached, setCached } from "./github-cache";
 
 const REPO = "pixelstories-hq/ps-maker-app";
 const RELEASES_CACHE_KEY = "ps-maker-updater:releases";
-const RELEASE_CACHE_KEY = "ps-maker-updater:latest-direct-release";
 const RELEASES_TTL = 5 * 60 * 1000;
-const RELEASE_TTL = 2 * 60 * 1000;
 
-const METADATA_FILES = new Set([
+const FULL_METADATA_FILES = new Set([
   "latest.yml",
   "latest-mac.yml",
   "latest-linux.yml",
+]);
+const DEMO_METADATA_FILES = new Set([
+  "latest-demo.yml",
+  "latest-demo-mac.yml",
+  "latest-demo-linux.yml",
 ]);
 
 interface GitHubAsset {
@@ -43,12 +46,13 @@ export async function handlePsMakerUpdaterRequest(
 
   const assetName = normalizeAssetName(assetPath);
   if (!assetName) return plain("Not found", 404);
+  if (!isAllowedAssetName(assetName)) return plain("Not found", 404);
 
   try {
-    const release = await getLatestDirectRelease();
-    if (!release) return plain("No published full direct release found", 404);
+    const release = await getLatestDirectReleaseWithAsset(assetName);
+    if (!release) return plain("No published direct release found", 404);
 
-    const asset = findAllowedAsset(release, assetName);
+    const asset = release.assets.find((asset) => asset.name === assetName);
     if (!asset) return plain("Not found", 404);
 
     const method = context.request.method === "HEAD" ? "HEAD" : "GET";
@@ -90,19 +94,15 @@ function normalizeAssetName(assetPath?: string): string | undefined {
   return decoded;
 }
 
-async function getLatestDirectRelease(): Promise<GitHubRelease | undefined> {
-  const cachedRelease = getCached<GitHubRelease>(RELEASE_CACHE_KEY);
-  if (cachedRelease) return cachedRelease;
-
+async function getLatestDirectReleaseWithAsset(
+  assetName: string,
+): Promise<GitHubRelease | undefined> {
   const releases = await getPublishedReleases();
-  const release = releases
+  return releases
     .filter((r) => !r.draft && !r.prerelease)
-    .filter((r) => !isDemoOrSteamName(r.name) && !isDemoOrSteamName(r.tag_name))
-    .filter(isFullDirectRelease)
+    .filter((r) => !isSteamName(r.name) && !isSteamName(r.tag_name))
+    .filter((r) => r.assets.some((asset) => asset.name === assetName))
     .sort(comparePublishedDesc)[0];
-
-  if (release) setCached(RELEASE_CACHE_KEY, release, RELEASE_TTL);
-  return release;
 }
 
 async function getPublishedReleases(): Promise<GitHubRelease[]> {
@@ -123,41 +123,27 @@ async function getPublishedReleases(): Promise<GitHubRelease[]> {
   return releases;
 }
 
-function isFullDirectRelease(release: GitHubRelease): boolean {
-  const hasMetadata = release.assets.some((asset) =>
-    METADATA_FILES.has(asset.name),
-  );
-  const hasDirectArtifact = release.assets.some((asset) =>
-    isAllowedArtifactName(asset.name),
-  );
-
-  return hasMetadata && hasDirectArtifact;
-}
-
-function findAllowedAsset(
-  release: GitHubRelease,
-  assetName: string,
-): GitHubAsset | undefined {
-  if (METADATA_FILES.has(assetName)) {
-    return release.assets.find((asset) => asset.name === assetName);
-  }
-
-  if (!isAllowedArtifactName(assetName)) return undefined;
-
-  return release.assets.find((asset) => asset.name === assetName);
+function isAllowedAssetName(name: string): boolean {
+  return isMetadataFileName(name) || isAllowedArtifactName(name);
 }
 
 function isAllowedArtifactName(name: string): boolean {
-  if (!name.startsWith("PS.Maker_")) return false;
-  if (isDemoOrSteamName(name)) return false;
+  if (!/^PS\.Maker(?:\.Demo)?_/.test(name)) return false;
+  if (isSteamName(name)) return false;
 
-  return /\.(exe|dmg|zip|blockmap|AppImage)$/i.test(name);
+  return /\.(exe|dmg|zip|blockmap|AppImage|deb)$/i.test(name);
 }
 
-function isDemoOrSteamName(name?: string | null): boolean {
-  return Boolean(
-    name && /(^|[^a-z0-9])(demo|steam)([^a-z0-9]|$)/i.test(name),
-  );
+function isMetadataFileName(name: string): boolean {
+  return FULL_METADATA_FILES.has(name) || isDemoMetadataFileName(name);
+}
+
+function isDemoMetadataFileName(name: string): boolean {
+  return DEMO_METADATA_FILES.has(name);
+}
+
+function isSteamName(name?: string | null): boolean {
+  return Boolean(name && /(^|[^a-z0-9])steam([^a-z0-9]|$)/i.test(name));
 }
 
 function comparePublishedDesc(a: GitHubRelease, b: GitHubRelease): number {
@@ -224,7 +210,7 @@ function proxiedHeaders(
 ): Headers {
   const headers = new Headers({
     "Content-Type": contentTypeFor(assetName),
-    "Cache-Control": METADATA_FILES.has(assetName)
+    "Cache-Control": isMetadataFileName(assetName)
       ? "no-cache"
       : "public, max-age=300",
     "CDN-Cache-Control": "public, max-age=300",
