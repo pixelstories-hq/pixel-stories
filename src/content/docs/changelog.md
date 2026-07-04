@@ -8,6 +8,12 @@ tableOfContents: false
 
 **July 4, 2026**
 
+- Fixed assets data updates not persisting to project data.
+
+## 0.29.6
+
+**July 4, 2026**
+
 - Fixed dense resolution rendering in the game editor causing crashes.
 - Optimized tile map rebuilds when drawing tiles or autotiles.
 - Improved tile map drawing performance by batching saves when many edits happen in succession.
