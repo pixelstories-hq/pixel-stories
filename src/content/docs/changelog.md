@@ -8,7 +8,13 @@ tableOfContents: false
 
 **July 6, 2026**
 
+- Implemented a better get map and position input for the change map action.
 - Fixed crashes from memory leak caused by webGL canvas deferred clean up, i.e. the "Framebuffer unsupported" bug (secretly is Framebuffer out of memory)
+- Fixed map enter fade in action not working after change map with skip fade in
+- Fixed clicking in breadcrumb Map enter or Map leave going to Map start instead.
+- Fixed trigger previews areas stacking up when switching maps.
+- Fixed action list previews not showing when switching maps.
+- Updated change active map to with option to skip fade in
 
 ## 0.30.1
 
