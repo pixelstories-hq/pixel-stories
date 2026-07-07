@@ -4,11 +4,17 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.2
+
+**July 6, 2026**
+
+- Fixed crashes from memory leak caused by webGL canvas deferred clean up, i.e. the "Framebuffer unsupported" bug (secretly is Framebuffer out of memory)
+
 ## 0.30.1
 
 **July 6, 2026**
 
-- Attempt to fix crashing caused by "Framebuffer unsupported"
+- Attempted to fix crashing caused by "Framebuffer unsupported"
 
 ## 0.30.0
 
