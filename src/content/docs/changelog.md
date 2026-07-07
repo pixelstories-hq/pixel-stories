@@ -4,6 +4,20 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.0
+
+**July 6, 2026**
+
+- Added global, map-scoped, and trigger-scoped events, including event ownership boundries.
+- Added event ownership and deep copy/paste support so copied actions duplicate their owned events.
+- Updated map/global events and variables UI for global and map scopes, with scope-specific creation.
+- Added editor event trigger area previews when in the events tab.
+- Added map setup tools in the map tab for spawning NPCs and moving NPCs/player.
+- Improved action drag and drop with smoother group dragging, dropping back into the original spot, and moving actions in and out of conditional branches.
+- Fixed move camera action positioning camera incorrectly due to map zoom.
+- Fixed crashes from actor animation actions or animation creation with invalid frames.
+- Improved editor resolution handling to reduce unsupported framebuffer issues.
+
 ## 0.29.6
 
 **July 4, 2026**
