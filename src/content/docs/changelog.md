@@ -4,6 +4,16 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.3
+
+**July 9, 2026**
+
+- Implemented a redesigned workflow for creating and editing NPCs, including:
+  - Auto generate animations from spritesheet based on frame width, height, and horizontal/vertical frame format.
+  - Combined NPC preview and movement animation selection.
+  - Bulk spritesheets import to create multiple NPCs and bulk animation strip import for one NPC.
+  - Better UI to show animation strip vs spritesheet animations in a list
+
 ## 0.30.2
 
 **July 6, 2026**
