@@ -4,6 +4,15 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.5
+
+**July 9, 2026**
+
+- Added a Run Event action.
+- Fixed asset fetch failures in the html zip export and game links.
+- Fixed overlapping event triggers areas getting stuck in a "playing" state which blocked further triggers.
+- Fixed pressing Enter in game after clicking "Restart game" triggering another restart.
+
 ## 0.30.4
 
 **July 9, 2026**
