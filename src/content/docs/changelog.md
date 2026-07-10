@@ -4,6 +4,19 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.4
+
+**July 9, 2026**
+
+- Added tile size configuration when creating a new project.
+- Added option to set the player's direction in the Change Map action.
+- Added "Save asset" option next to replace asset where applicable.
+- Made dark theme the default.
+- Set the Add Event Trigger remove condition to default to not remove.
+- Changed clicking the event tab while editing an action to return home.
+- Fixed the interactive tutorial project not getting migrations applied.
+- Fixed crash modal colors.
+
 ## 0.30.3
 
 **July 9, 2026**
