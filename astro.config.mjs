@@ -20,6 +20,7 @@ export default defineConfig({
     "/features": "/overview/",
     "/tour": "/overview/",
     "/getting-started": "/overview/",
+    "/map-editor/autotile": "/map-editor/autotiling/",
   },
 
   integrations: [
@@ -142,8 +143,14 @@ export default defineConfig({
         {
           label: "Event System",
           items: [
-            { label: "Events and Actions", link: "/event-system/events-actions" },
-            { label: "Triggering Events", link: "/event-system/event-triggers" },
+            {
+              label: "Events and Actions",
+              link: "/event-system/events-actions",
+            },
+            {
+              label: "Triggering Events",
+              link: "/event-system/event-triggers",
+            },
             {
               label: "Conditional Branching",
               link: "/event-system/conditional-branching",
@@ -164,7 +171,10 @@ export default defineConfig({
         {
           label: "Dialogue system",
           items: [
-            { label: "Dialogue editor", link: "/dialogue-system/dialogue-editor" },
+            {
+              label: "Dialogue editor",
+              link: "/dialogue-system/dialogue-editor",
+            },
             // {
             //   label: "Customize Dialogue Box",
             //   link: "/dialogue-system/dialogue-ui-configuration",
@@ -183,10 +193,10 @@ export default defineConfig({
           label: "Exporting Your Game",
           link: "/exporting-your-game/",
         },
-        {
-          label: "FAQ",
-          link: "/faq/",
-        },
+        // {
+        //   label: "FAQ",
+        //   link: "/faq/",
+        // },
         {
           label: "Changelog",
           link: "/changelog/",

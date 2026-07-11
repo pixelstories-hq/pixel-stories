@@ -7,9 +7,9 @@ To show dialogue in PS Maker, use the **Dialogue** action.
 
 When you add this action, you will see a large text box. This is where you write the dialogue that appears in the in-game dialogue box.
 
-## Dialogue Pages
+## Page breaks
 
-The dialogue box paginates when there are empty lines between blocks of text. Each block appears as a separate dialogue page. 
+The dialogue box paginates when there are empty lines between blocks of text. Each block appears as a separate dialogue page.
 
 For example:
 
@@ -37,7 +37,7 @@ Any commands will negate this and the text will render as if it were the same li
 ```txt
 These two lines are the same. One just waits 1 second.
 
-These two lines are the same. 
+These two lines are the same.
 @wait 1000
 One just waits 1 second.
 ```
@@ -50,7 +50,6 @@ Hello, this is the first dialogue line.
 @line_break
 This line will render right below, on the same page.
 ```
-
 
 ## Commands
 

@@ -52,4 +52,4 @@ The context object passed to action handlers. It gives your action access to the
 
 ## Plugin CLI Tool
 
-Use the [Plugin CLI](./cli) to scaffold a plugin project and build it into a bundle Pixel Stories Maker can load.
+Use the [Plugin CLI](https://github.com/pixelstories-hq/ps-maker-plugin-cli) to scaffold a plugin project and build it into a bundle Pixel Stories Maker can load.
