@@ -4,6 +4,12 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.6
+
+**July 11, 2026**
+
+- Fixed releaseStoryTrigger is undefined causing game to be unplayable after when trying to release a touch trigger.
+
 ## 0.30.5
 
 **July 9, 2026**
