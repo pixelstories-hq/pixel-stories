@@ -4,6 +4,12 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.30.7
+
+**July 10, 2026**
+
+- Fixed an issue app dependency installation issue which blocked updates.
+
 ## 0.30.6
 
 **July 11, 2026**
