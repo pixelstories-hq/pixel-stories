@@ -30,7 +30,7 @@ Event system tools
 
 ## 0.30.7
 
-**July 10, 2026**
+**July 12, 2026**
 
 - Fixed an issue app dependency installation issue which blocked updates.
 
