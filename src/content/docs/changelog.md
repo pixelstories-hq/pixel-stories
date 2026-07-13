@@ -4,6 +4,30 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.31.0
+
+**July 13, 2026**
+
+Map tools
+
+- Added a tile selection tool with drag to move and copy/paste support.
+- Added a selection tool for map objects, NPCs, and collisions with copy/paste and multi-select to move.
+- Added a delete tool and reorganized the toolbar, including new toolbar shortcuts.
+- Added context menus to the map editor.
+- Fixed autotile corners not being cleared before applying corner quadrants.
+- Fixed map zoom component styles and zoom being able to go negative.
+
+Event system tools
+
+- Added a draw event trigger tool and an event toolbar with a dedicated select event tool.
+- Made event trigger previews persistent, selectable map overlay areas with move, resize, and double click to open the action config.
+- Added clicking an event trigger area to select it, which also selects its action row.
+- Added select, move, and delete for multiple event triggers at once.
+- Added an undo shortcut in the toast when deleting an action.
+- Added a ghost of the previous position when a Move Player/NPC action is selected.
+- Changed the event editor preview to show the map state up to the selected action, instead of automatically previewing the full action list in an action config.
+- Fixed NPC previews from different maps showing incorrectly.
+
 ## 0.30.7
 
 **July 10, 2026**
