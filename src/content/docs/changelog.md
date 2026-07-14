@@ -8,6 +8,12 @@ tableOfContents: false
 
 **July 13, 2026**
 
+- Fixed left click for setting position in map being blocked by map editor tool
+
+## 0.31.0
+
+**July 13, 2026**
+
 Map tools
 
 - Added a tile selection tool with drag to move and copy/paste support.
