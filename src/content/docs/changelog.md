@@ -4,6 +4,29 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.31.2
+
+**July 13, 2026**
+
+- Added NPC "avoid collisions" option with pathfinding for move NPC, move player, and NPC chase.
+- Added follow distance and follow tolerance options for NPC follow action.
+- Renamed "Set NPC chase player" action to "Set NPC follow player".
+- Added a way to set player speed during testing.
+- Added a better flow for setting NPC and map object collisions and player sorting point.
+- Added player sorting point and collisions to NPCs.
+- Added Spawn/despawn NPC fade in/out.
+- Added always scrolling to reveal action when paste action.
+- Fixed couldn't drag from action name.
+- Fixed layers list mount/unmount is not showing proper visibility.
+- Fixed map objects/NPCs/player on a collision cannot be selected in map editor.
+- Fixed object hover border being left in place when moving object.
+- Fixed paste above/below not available for actions.
+- Fixed cursor always going to pan cursor when re-entering canvas.
+- Fixed pspack export not exporting spritesheet properly.
+- Fixed animation preview to crop to visible pixels.
+- Fixed autotile preview getting cropped and squished in project assets.
+- Fixed some weirdness with how autotiles were generated. Do not clear tiles in generated autotile unless it has the source tiles to replace it.
+
 ## 0.31.1
 
 **July 13, 2026**
