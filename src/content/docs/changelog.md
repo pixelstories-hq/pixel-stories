@@ -6,7 +6,7 @@ tableOfContents: false
 
 ## 0.31.2
 
-**July 13, 2026**
+**July 16, 2026**
 
 - Added NPC "avoid collisions" option with pathfinding for move NPC, move player, and NPC chase.
 - Added follow distance and follow tolerance options for NPC follow action.
