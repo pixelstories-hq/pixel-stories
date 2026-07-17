@@ -4,6 +4,18 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.31.3
+
+**July 16, 2026**
+
+- Added an event looping option for "Run event" and "Add event trigger" actions, and actively running event actions no longer stop when changing maps.
+- Added a back button when placing down an NPC in map editor.
+- Added drag and drop from animation list to movement animation cards to set animation.
+- Fixed pasting actions not pasting at the visible action list.
+- Fixed an indefinitely running event preventing triggers from being activated.
+- Fixed OOM bug from big map and running camera action.
+- Fixed hide collision being blocked in the select tool and not hiding NPC collisions.
+
 ## 0.31.2
 
 **July 16, 2026**
