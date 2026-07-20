@@ -4,6 +4,21 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.32.0
+
+**July 19, 2026**
+
+- Added tiles n such starter asset pack!
+- Added explicit game link generation and updating.
+- Added click to set player sort position and drag to draw a collision box.
+- Added next/prev buttons to view a lot of assets.
+- Improved performance with asset resolver cache for filesystem images and animation previews.
+- Changed collisions and player sort point to always show for editing.
+- Changed the boolean input in conditionals to a dropdown.
+- Persisted map editor panel scroll.
+- Kept scroll position in project assets content.
+- Fixed player config not opening when no animations are set for it.
+
 ## 0.31.3
 
 **July 16, 2026**
