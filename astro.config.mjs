@@ -22,6 +22,7 @@ export default defineConfig({
     "/getting-started": "/overview/",
     "/map-editor/autotile": "/map-editor/autotiling/",
     "/docs/plugins": "/plugins/import-plugins/",
+    "/plugins": "/plugins/import-plugins/",
   },
 
   integrations: [

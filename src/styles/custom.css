@@ -83,7 +83,7 @@
 
   :root[data-theme="light"] .sl-link-button.primary {
     background: var(--color-primary-content);
-    color: var(--color-primary-content);
+    color: var(--color-primary);
     font-weight: 500;
   }
 
@@ -182,7 +182,7 @@
       background-color 150ms ease,
       color 150ms ease;
     font-weight: 400;
-    font-size: 16px
+    font-size: 16px;
   }
 
   .sidebar-content summary:hover,
