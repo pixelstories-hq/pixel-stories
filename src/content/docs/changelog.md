@@ -4,6 +4,48 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.33.0
+
+**July 28, 2026**
+
+Dialogue editor
+
+- Rebuilt the dialogue editor for a smoother, more reliable writing experience.
+- Added inline commands for running actions, displaying variables, controlling dialogue speed, and automatic pagination.
+- Added Markdown-style comments, bold text, and italics.
+- Added improved command autocomplete, reference tokens, tooltips, and automatic brace handling.
+- Improved dialogue portraits, action badges, previews, and selection behavior.
+
+Images and video
+
+- Added video assets with actions to play videos, change their properties, and remove them.
+- Added image rotation, improved resizing and positioning, and an aspect-ratio overlay.
+- Added fade transitions for showing and removing images, including an option to wait for the transition to finish.
+- Improved image and video configuration previews.
+
+Events and game objects
+
+- Added `else if` branches to conditional actions.
+- Added scaling for NPCs and map objects.
+- Fixed player collision setup when converting an NPC into the player.
+
+Action editing
+
+- Redesigned the action picker and improved action search, menus, tooltips.
+- Added stronger safeguards against actions being lost during editing operations.
+- Improved action configuration defaults and number input validation.
+- Fixed add action above/below behavior.
+
+Other improvements
+
+- Improved starter asset instructions and spritesheet animation setup.
+- Fixed dialogue layering, preview overflow, caret behavior, scale jitter, and several menu interaction issues.
+- Updated dialogue references to use stable asset IDs while retaining compatibility with older projects.
+
+## 0.32.1
+
+- Fixed how importing a player character from starter assets used the same IDs of the NPC instead of duplicating.
+
 ## 0.32.0
 
 **July 19, 2026**
