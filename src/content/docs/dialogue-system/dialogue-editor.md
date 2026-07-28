@@ -68,7 +68,11 @@ Some commands you can use:
 - `@no_page_break`
 - `@wait`
 
-example here please, add one where it uses wait, and no_page_break, and line_break
+## Running Actions Within Dialogue
+
+It’s possible to control the world behind a dialogue box by running actions using the @run_action command. This is useful for things like a cutscene where the player and NPC move while dialogue is playing. Another example adjusting the camera position to show something relevant to dialogue. 
+
+Running actions within dialogue works similarly to other commands. Type @ to select the run action command, then select the action to run, and finally configure what the action does.  
 
 ## Showing a Name Box
 
