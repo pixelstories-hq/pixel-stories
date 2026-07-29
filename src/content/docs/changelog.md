@@ -4,6 +4,13 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.33.1
+
+**July 29, 2026**
+
+- Fixed how non-16x16 maps tileset and autotile did not have missing asset fallback and would crash the project.
+- Fixed orphaned assets not appearing in project assets list.
+
 ## 0.33.0
 
 **July 28, 2026**
