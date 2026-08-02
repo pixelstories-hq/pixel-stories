@@ -62,7 +62,7 @@ Other improvements
 
 ## 0.32.1
 
-**July 28, 2026**
+**July 19, 2026**
 
 - Fixed how importing a player character from starter assets used the same IDs of the NPC instead of duplicating.
 
