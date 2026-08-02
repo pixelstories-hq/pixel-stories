@@ -4,6 +4,17 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.33.2
+
+**August 2, 2026**
+
+- Added Random Branch action.
+- Added grid line width and color settings.
+- Added persisted scroll positions for tileset and action menus.
+- Added persisted the input caret position for dialogue actions.
+- Added persisted per project map editor grid settings and persisted per project and map editor camera position and zoom.
+- Fixed dialogue portraits not animating during dialogue playback or when hovering over the preview.
+
 ## 0.33.1
 
 **July 29, 2026**
