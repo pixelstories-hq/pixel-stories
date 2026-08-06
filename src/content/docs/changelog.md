@@ -4,6 +4,12 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 0.33.3
+
+**August 5, 2026**
+
+- Fixed generating project game link.
+
 ## 0.33.2
 
 **August 2, 2026**
