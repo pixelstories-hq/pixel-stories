@@ -8,7 +8,8 @@ import homepageDemo3 from "../assets/images/home-page/homepage-demo-3.mp4";
 
 const WEB_DEMO_URL = "https://app.pixelstories.io/";
 const PLAY_DEMO_URL = "https://pixelstories.io/play/mkldwaOPCK";
-const STEAM_WIDGET_URL = "https://store.steampowered.com/widget/4823590/";
+const STEAM_WIDGET_URL =
+  "https://store.steampowered.com/widget/4823590/?utm_source=websitewidget";
 const STEAM_STORE_URL = "https://store.steampowered.com/app/4823590/PS_Maker/";
 
 const featureSections = [
@@ -131,7 +132,7 @@ const featureSections = [
       you can focus on the narrative, characters, music and world building!
     </p>
 
-    <a href={STEAM_STORE_URL} class="daisy-btn"> Wishlist on Steam </a>
+    <a href={STEAM_STORE_URL} class="daisy-btn"> Buy now on Steam </a>
   </section>
 
   {
@@ -167,12 +168,13 @@ const featureSections = [
     <h2
       class="text-center text-pretty text-3xl font-bold tracking-tight sm:text-4xl"
     >
-      Wishlist Now on Steam!
+      Buy now on Steam!
     </h2>
 
     <iframe
       src={STEAM_WIDGET_URL}
       title="Buy PS Maker on Steam"
+      style="border: 0; color-scheme: normal"
       width="100%"
       height="190"
     >
