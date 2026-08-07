@@ -1,5 +1,5 @@
 ---
-title: PS Maker 1.0 Update!!! UI, Title Screen, Battle System, Many Fixes!
+title: PS MAKER 1.0 RELEASE!!! UI, Title Screen, Battle System, Many Fixes!
 date: 2026-08-7
 excerpt: ""
 author: Truman
