@@ -19,6 +19,8 @@ There are new actions for adding UI components, for text, rectangles, images, an
 
 Now with UI, we unlocked the ability to add title screens and add battle systems! To show the features, theres a new example that sets up a title screen and a simple battle system. The system is really flexible now so theres many ways to do your battles. If you need help with anything, just ping me on the Discord server!
 
+Thank you everyone who gave feedback on the demo and for being with me on this journey in developing PS Maker. This doesn't mean update will stop tho! There will be 1.1, 1.2 etc, and I will keep on adding features/improving the engine :)
+
 The full changelog is below!
 
 ## 1.0.0
