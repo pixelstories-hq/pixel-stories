@@ -1,5 +1,5 @@
 ---
-import { AUTHORS, type StarlightBlogAuthor } from "../../blogSchema";
+import { AUTHORS } from "../../blogSchema";
 import { Image } from "astro:assets";
 
 interface Props {
@@ -17,13 +17,25 @@ const dateString = new Date(date || "");
 ---
 
 <div class="not-content flex gap-3 items-center">
-  <Image
-    class="not-content rounded-full object-cover w-[40px] h-[40px]"
-    src={author.picture}
-    alt={author.title || "The author of this post"}
-    width={40}
-    height={40}
-  />
+  {
+    typeof author.picture === "string" ? (
+      <Image
+        class="not-content rounded-full object-cover w-[40px] h-[40px]"
+        src={author.picture}
+        alt={author.title || "The author of this post"}
+        width={40}
+        height={40}
+      />
+    ) : (
+      <Image
+        class="not-content rounded-full object-cover w-[40px] h-[40px]"
+        src={author.picture}
+        alt={author.title || "The author of this post"}
+        width={40}
+        height={40}
+      />
+    )
+  }
 
   <div class="flex flex-col">
     <p class="font-medium text-sm">By {author.name}</p>

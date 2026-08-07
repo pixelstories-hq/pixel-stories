@@ -1,4 +1,5 @@
 import { AstroError } from "astro/errors";
+import type { ImageMetadata } from "astro";
 import {
   z,
   type ZodLiteral,
@@ -8,6 +9,7 @@ import {
   type ZodUnion,
 } from "astro/zod";
 import type { SchemaContext } from "astro:content";
+import pfp from "./assets/images/pfp.webp";
 
 export const blogAuthorSchema = z.object({
   /**
@@ -21,7 +23,7 @@ export const blogAuthorSchema = z.object({
   /**
    * The URL or path to the author's picture.
    */
-  picture: z.string(),
+  picture: z.union([z.string(), z.custom<ImageMetadata>()]),
 });
 
 export const blogEntrySchema = ({ image }: SchemaContext) =>
@@ -77,7 +79,7 @@ export function blogSchema(context: SchemaContext) {
 
 \`docs: defineCollection({ schema: docsSchema({ extend: (context) => blogSchema(context) }) })\`
 
-If you believe this is a bug, please file an issue at https://github.com/HiDeoo/starlight-blog/issues/new/choose`
+If you believe this is a bug, please file an issue at https://github.com/HiDeoo/starlight-blog/issues/new/choose`,
     );
   }
 
@@ -104,7 +106,7 @@ export type ImageFunction = () => ZodObject<{
       ZodLiteral<"webp">,
       ZodLiteral<"gif">,
       ZodLiteral<"svg">,
-      ZodLiteral<"avif">
+      ZodLiteral<"avif">,
     ]
   >;
 }>;
@@ -115,7 +117,7 @@ export const AUTHORS: Record<string, StarlightBlogAuthor> = {
     picture: "https://avatars.githubusercontent.com/u/175058849?s=200&v=4",
   },
   Truman: {
-    name: "Truman Gao",
-    picture: "https://avatars.githubusercontent.com/u/106889354?v=4",
+    name: "Truman",
+    picture: pfp,
   },
 };
