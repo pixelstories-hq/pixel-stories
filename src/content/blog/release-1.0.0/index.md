@@ -1,7 +1,7 @@
 ---
 title: PS MAKER 1.0 RELEASE!!! UI, Title Screen, Battle System, Many Fixes!
-date: 2026-08-7
-excerpt: ""
+date: 2026-08-07
+excerpt: "The official 1.0 release, PS Maker goes on Steam!"
 author: Truman
 tags:
   - PS Maker Update
