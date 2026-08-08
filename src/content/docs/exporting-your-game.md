@@ -12,7 +12,11 @@ PS Maker gives you two ways to share your game:
 
 This is the easiest way to instantly share your game. Go to the **Export** tab in your project, copy the link to your game, and share it. Anyone with the link can play your game in the browser.
 
-You can also use this link to embed the game in an iframe on your website! 
+You can also use this link to embed the game in an iframe on your website!
+
+## Windows Executable
+
+You can export your game to a `.exe` by choosing the Windows export. This will create a zip that contains your game's resources as well as executable to run the game!
 
 ## Static HTML Zip
 
