@@ -4,6 +4,15 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 1.0.1
+
+**August 7, 2026**
+
+- Added fade in option for Add UI components.
+- Fixed copy/paste image action cleared image properties.
+- Fixed toast with undo action still allowed to undo when toast is dismissed.
+- Fixed map editor camera position persistance being set in playtest page instead of only in editor
+
 ## 1.0.0
 
 **August 7, 2026**
