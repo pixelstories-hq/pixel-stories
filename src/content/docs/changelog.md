@@ -12,6 +12,7 @@ tableOfContents: false
 - Fixed copy/paste image action cleared image properties.
 - Fixed toast with undo action still allowed to undo when toast is dismissed.
 - Fixed map editor camera position persistance being set in playtest page instead of only in editor
+- Fixed when using a map tool and dragging out of canvas, editor crashes.
 
 ## 1.0.0
 
