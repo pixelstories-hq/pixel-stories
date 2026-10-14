@@ -4,6 +4,41 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 1.2.0
+
+**October 13, 2026**
+
+- Added asset folders with drag and drop organization, custom sorting, and batch moving/reordering. Folders remember their open and closed state.
+- Added folders to the map dropdown, and persist the scrolling amount.
+- Added a new PS Maker icon.
+- Fixed Discord Rich Presence.
+
+Events and actions
+
+- Added a Start Sound action to restart sounds which have fully stopped.
+- Fixed changing a stopped sound's audio not starting playback.
+- Fixed error where project cannot be published.
+- Improved event hover previews in Add Event Trigger and Run Event.
+- Renamed NPC to Spawned NPC where appropriate.
+- Fixed player speed changes not applying on previously active maps.
+- Fixed text outlines being clipped in dialogue and choices text boxes.
+
+Project files and exports
+
+- Deleted project asset files are now moved to the `/deleted-assets` folder.
+- Added an option to exclude unused assets from exports.
+
+Playtesting and debugging
+
+- Added the ability to change variable values during playtests for debugging.
+- Changed the playtest starting map selector to immediately restart the game when a different map is selected.
+
+Editor improvements
+
+- Added a search bar to the projects page when there are more than 6 projects.
+- Improved performance when dragging NPCs or the player by reducing unnecessary preview arrow redraws.
+- Fixed pressing Q on a tile not revealing the selected tile.
+
 ## 1.1.3
 
 **October 5, 2026**
