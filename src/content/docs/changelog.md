@@ -4,6 +4,13 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 1.2.1
+
+**October 15, 2026**
+
+- Added game control keybind and action for toggling game fullscreen.
+- Reduced open external link spam prevention cooldown from 10 seconds to 2 seconds.
+
 ## 1.2.0
 
 **October 13, 2026**
