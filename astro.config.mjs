@@ -196,6 +196,10 @@ export default defineConfig({
           ],
         },
         {
+          label: "Localization",
+          link: "/localization/",
+        },
+        {
           label: "Exporting Your Game",
           link: "/exporting-your-game/",
         },

@@ -4,6 +4,43 @@ description: Find specific releases and changelogs for the game maker.
 tableOfContents: false
 ---
 
+## 1.3.0
+
+**November 8, 2026**
+
+Localization
+
+- Added project localization with a translation table, search and filters, and CSV import and export.
+- Added language selection in playtests and games, with language changes applying immediately.
+- Added complete customizable text for built-in game menus.
+
+Controls and game UI
+
+- Added controller support for games, including movement, interaction, and menu navigation.
+- Added separate keyboard and controller event trigger labels that switch based on the last input device used.
+- Added inline input icons for event trigger label.
+- Added configurable game UI hover and selection effects, and options menu colors and labels.
+- Added a Set UI Focus action, which changes input device to target between UI and game.
+
+Audio, events, and actions
+
+- Added player footstep sounds.
+- Added configurable audio loop restarts at time.
+- Added transitions for changing music and sound volume.
+- Added a Restart Game action.
+- Added player touch triggers for entering or leaving an area.
+- Surfaced action IDs and added button to copy the action ID.
+- Improved audio asset with better playback controls
+
+Editor improvements
+
+- Added project import and export.
+- Added folders to map picker dropdowns.
+- Added persistence for the selected Project page tab when navigating away and back.
+- Fixed clipped scrolling in the project list and project settings pages.
+- Fixed asset picker and tileset selector dropdowns overflowing outside the window.
+- Fixed adding multiple files to a spritesheet animation freezing the editor.
+
 ## 1.2.1
 
 **October 15, 2026**
